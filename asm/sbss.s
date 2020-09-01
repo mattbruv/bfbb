@@ -1488,8 +1488,8 @@ lbl_sEmitTremble:
 .global lbl_sEmitBreakaway
 lbl_sEmitBreakaway:
 	.skip 0x4
-.global lbl_sRS
-lbl_sRS:
+.global sRS
+sRS:
 	.skip 0x8
 .global lbl_saveSuccess
 lbl_saveSuccess:
