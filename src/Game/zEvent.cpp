@@ -1,7 +1,7 @@
 #include "zEvent.h"
 
-extern int* lbl_sEventTable[];
+extern char* sEventTable[];
 
-int* zEventName(unsigned int index) {
-    return lbl_sEventTable[index];
+char* zEventName(unsigned int eventEnum) {
+    return sEventTable[eventEnum];
 }

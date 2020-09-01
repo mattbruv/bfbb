@@ -314,8 +314,8 @@ lbl_sTrackHash:
 .global lbl__9200
 lbl__9200:
 	.incbin "baserom.dol", 0x28B538, 0xC8
-.global lbl_sEventTable
-lbl_sEventTable:
+.global sEventTable
+sEventTable:
 	.incbin "baserom.dol", 0x28B600, 0x878
 .global lbl_zFMVFileTable
 lbl_zFMVFileTable:
