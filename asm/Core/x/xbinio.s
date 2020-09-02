@@ -1,5 +1,21 @@
 .include "macros.inc"
 
+.section .sdata
+.global lbl_g_loadlock
+lbl_g_loadlock:
+	.incbin "baserom.dol", 0x2B59C0, 0x8
+
+.section .data
+.global lbl_g_loadinst
+lbl_g_loadinst:
+	.incbin "baserom.dol", 0x2775A0, 0x340
+.global lbl_g_xfload
+lbl_g_xfload:
+	.incbin "baserom.dol", 0x2778E0, 0x8A0
+.global lbl_g_xtraload
+lbl_g_xtraload:
+	.incbin "baserom.dol", 0x278180, 0x1E0
+
 .section .text  # 0x80009564 - 0x8000A528
 
 .global xBinioLoadCreate__FPCc

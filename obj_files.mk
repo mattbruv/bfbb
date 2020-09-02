@@ -244,7 +244,8 @@ RODATA_O_FILES :=                                   \
     $(OBJ_DIR)/asm/rodata.o
 
 DATA_O_FILES :=                                     \
-    $(OBJ_DIR)/asm/data.o
+    $(OBJ_DIR)/asm/data.o                           \
+    $(OBJ_DIR)/asm/Core/x/xbinio.o                  
 
 BSS_O_FILES :=                                      \
     $(OBJ_DIR)/asm/bss.o

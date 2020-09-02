@@ -1,13 +1,4 @@
 .section .data  # 0x8027A5C0 - 0x802B89E0
-.global lbl_g_loadinst
-lbl_g_loadinst:
-	.incbin "baserom.dol", 0x2775A0, 0x340
-.global lbl_g_xfload
-lbl_g_xfload:
-	.incbin "baserom.dol", 0x2778E0, 0x8A0
-.global lbl_g_xtraload
-lbl_g_xtraload:
-	.incbin "baserom.dol", 0x278180, 0x1E0
 .global lbl__700
 lbl__700:
 	.incbin "baserom.dol", 0x278360, 0x70

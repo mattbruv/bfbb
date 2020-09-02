@@ -117,3 +117,4 @@ $(OBJ_DIR)/%.o: %.c
 $(OBJ_DIR)/%.o: %.cpp
 	$(CC) $(PREPROCESS) -o $*.cp $<
 	$(CC) $(CFLAGS) -c -o $@ $*.cp
+	$(CC) -S -o $*.asm $@

@@ -1,7 +1,4 @@
 .section .sdata  # 0x803CA900 - 0x803CB160
-.global lbl_g_loadlock
-lbl_g_loadlock:
-	.incbin "baserom.dol", 0x2B59C0, 0x8
 .global lbl_xcam_do_collis
 lbl_xcam_do_collis:
 	.incbin "baserom.dol", 0x2B59C8, 0x4
