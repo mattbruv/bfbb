@@ -14,3 +14,4 @@ tools/mwcc_compiler/*.*
 *.o
 *.cp
 .vscode
+*.asm
