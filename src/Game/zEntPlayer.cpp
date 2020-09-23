@@ -79,6 +79,7 @@ void zEntPlayer_GiveSpatula(int quantity) {
 
 #endif
 
+/*
 void zEntPlayer_GiveShinyObject(int quantity) {
 
     if (quantity < 0 && -quantity > (int) lbl_globals.player.Inv_Shiny) {
@@ -92,3 +93,4 @@ void zEntPlayer_GiveShinyObject(int quantity) {
         lbl_globals.player.Inv_Shiny = 99999;
     }
 }
+*/

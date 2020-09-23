@@ -94,7 +94,7 @@ DUMMY != mkdir -p $(ALL_DIRS)
 	
 $(DOL): $(ELF) | tools
 	$(ELF2DOL) $< $@ $(SDATA_PDHR) $(SBSS_PDHR) $(TARGET_COL)
-	$(SHA1SUM) -c bfbb.sha1 || $(ASMDIFF)
+	#$(SHA1SUM) -c bfbb.sha1 || $(ASMDIFF)
 
 clean:
 	rm -f $(DOL) $(ELF) $(O_FILES) $(MAP)

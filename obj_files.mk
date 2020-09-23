@@ -234,7 +234,8 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/CodeWarrior/MSL_C.o              \
     $(OBJ_DIR)/asm/CodeWarrior/Runtime.o            \
     $(OBJ_DIR)/asm/ODEGdev/OdemuExi2.o              \
-    $(OBJ_DIR)/asm/rwsdk/rwsdk.o
+    $(OBJ_DIR)/asm/rwsdk/rwsdk.o                    \
+    $(OBJ_DIR)/src/Game/matt.o
 
 CTORS_O_FILES :=                                    \
     $(OBJ_DIR)/asm/ctors.o

@@ -2,6 +2,33 @@
 
 .section .text
 
+
+.global zEntPlayer_GiveShinyObject__Fi
+zEntPlayer_GiveShinyObject__Fi:
+/* 80076A84 00073884  2C 03 00 00 */   stwu r1, -0x10(r1)
+/* 80076A88 00073888  40 80 00 28 */   mflr r0 
+/* 80076A8C 0007388C  3C 80 80 3C */   stw r0, 0x14(r1) 
+/* 80076A90 00073890  7C A3 00 D0 */   bl mattFunc__Fi
+/* 80076A94 00073894  38 84 05 58 */   lwz r0, 0x14(r1)  
+/* 80076A98 00073898  80 04 1B 00 */   mtlr r0
+/* 80076A9C 0007389C  7C 05 00 00 */   addi r1, r1, 0x10  
+/* 80076AA0 000738A0  40 81 00 10 */   blr 
+/* 80076AA4 000738A4  38 00 00 00 */    li r0, 0
+/* 80076AA8 000738A8  90 04 1B 00 */    stw r0, 0x1b00(r4)
+/* 80076AAC 000738AC  4E 80 00 20 */    blr 
+lbl_80076AB0:
+/* 80076AB0 000738B0  3C A0 80 3C */    lis r5, lbl_globals@ha
+/* 80076AB4 000738B4  3C 80 00 02 */    lis r4, 0x0001869F@ha
+/* 80076AB8 000738B8  38 C5 05 58 */    addi r6, r5, lbl_globals@l
+/* 80076ABC 000738BC  80 A6 1B 00 */    lwz r5, 0x1b00(r6)
+/* 80076AC0 000738C0  38 04 86 9F */    addi r0, r4, 0x0001869F@l
+/* 80076AC4 000738C4  7C 65 1A 14 */    add r3, r5, r3
+/* 80076AC8 000738C8  7C 03 00 40 */    cmplw r3, r0
+/* 80076ACC 000738CC  90 66 1B 00 */    stw r3, 0x1b00(r6)
+/* 80076AD0 000738D0  4C 81 00 20 */    blelr 
+/* 80076AD4 000738D4  90 06 1B 00 */    stw r0, 0x1b00(r6)
+/* 80076AD8 000738D8  4E 80 00 20 */    blr 
+
 .global zEntPlayer_GivePatsSocksCurrentLevel__Fi
 zEntPlayer_GivePatsSocksCurrentLevel__Fi:
 /* 80076ADC 000738DC  94 21 FF F0 */	stwu r1, -0x10(r1)

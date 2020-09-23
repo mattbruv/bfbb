@@ -1,5 +1,5 @@
 MEMORY {
-text : origin = 0x80003100
+text : origin =  0x80003100
 }
 SECTIONS {
 GROUP:{
@@ -18,6 +18,9 @@ extabindex_ ALIGN(0x20):{}
 .sdata2 ALIGN(0x20):{}
 .sbss2 ALIGN(0x20):{}
 .stack ALIGN(0x100):{}
+.foo ALIGN(0x10000): {
+    *(.romsymbols)
+}
 } > text
 _stack_addr = (_f_sbss2 + SIZEOF(.sbss2) + 32768 + 0x7) & ~0x7;
 _stack_end = _f_sbss2 + SIZEOF(.sbss2);
