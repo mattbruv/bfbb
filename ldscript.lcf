@@ -22,8 +22,8 @@ extabindex_ ALIGN(0x20):{}
     *(.romsymbols)
 }
 } > text
-_stack_addr = (_f_sbss2 + SIZEOF(.sbss2) + 32768 + 0x7) & ~0x7;
-_stack_end = _f_sbss2 + SIZEOF(.sbss2);
+_stack_addr = (_f_foo + SIZEOF(.foo) + 32768 + 0x7) & ~0x7;
+_stack_end = _f_foo + SIZEOF(.foo);
 _db_stack_addr = (_stack_addr + 0x1000);
 _db_stack_end = _stack_addr;
 __ArenaLo = (_db_stack_addr + 0x1f) & ~0x1f;
