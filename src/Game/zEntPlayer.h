@@ -5,7 +5,9 @@ struct zPlayerGlobals {
     // int unk0[0x6c0];
     char unk00[5806];
     unsigned int Health;
-    char unk0[90];
+	int Speed;
+	float SpeedMult;
+    char unk0[90 - 8];
     float ControlOffTimer; // AutoMoveDist?
     // 40 bytes from here = max health
     char unk01[34];
