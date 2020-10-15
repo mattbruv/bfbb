@@ -174,10 +174,13 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/iCamera.o                 \
     $(OBJ_DIR)/src/Core/x/iCamera.o                 \
     $(OBJ_DIR)/asm/Core/p2/iCollide.o               \
+    $(OBJ_DIR)/src/Core/p2/iCollide.o               \
     $(OBJ_DIR)/src/Core/p2/iCollideFast.o           \
     $(OBJ_DIR)/src/Core/p2/iDraw.o                  \
     $(OBJ_DIR)/asm/Core/p2/iEnv.o                   \
+    $(OBJ_DIR)/src/Core/p2/iEnv.o                   \
     $(OBJ_DIR)/asm/Core/p2/iFile.o                  \
+    $(OBJ_DIR)/src/Core/p2/iFile.o                  \
     $(OBJ_DIR)/asm/Core/p2/iFMV.o                   \
     $(OBJ_DIR)/asm/Core/p2/iFX.o                    \
     $(OBJ_DIR)/asm/Core/p2/iLight.o                 \
