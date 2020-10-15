@@ -184,6 +184,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/p2/iFMV.o                   \
     $(OBJ_DIR)/src/Core/p2/iFMV.o                   \
     $(OBJ_DIR)/asm/Core/p2/iFX.o                    \
+    $(OBJ_DIR)/src/Core/p2/iFX.o                    \
     $(OBJ_DIR)/asm/Core/p2/iLight.o                 \
     $(OBJ_DIR)/src/Core/p2/iLight.o                 \
     $(OBJ_DIR)/src/Core/p2/iMath.o                  \
@@ -193,6 +194,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/src/Core/p2/iMemMgr.o                \
     $(OBJ_DIR)/asm/Core/p2/iMix.o                   \
     $(OBJ_DIR)/asm/Core/p2/iModel.o                 \
+    $(OBJ_DIR)/src/Core/p2/iModel.o                 \
     $(OBJ_DIR)/asm/Core/p2/iMorph.o                 \
     $(OBJ_DIR)/src/Core/p2/iMorph.o                 \
     $(OBJ_DIR)/asm/Core/p2/iPad.o                   \
