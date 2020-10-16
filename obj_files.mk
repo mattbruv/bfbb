@@ -263,6 +263,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xBehaveGoalSimple.o       \
     $(OBJ_DIR)/src/Core/x/xBehaveGoalSimple.o       \
     $(OBJ_DIR)/asm/Core/x/xSkyDome.o                \
+    $(OBJ_DIR)/src/Core/x/xSkyDome.o                \
     $(OBJ_DIR)/asm/Core/x/xRMemData.o               \
     $(OBJ_DIR)/src/Core/x/xRMemData.o               \
     $(OBJ_DIR)/asm/Core/x/xFactory.o                \
