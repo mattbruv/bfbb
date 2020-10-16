@@ -203,6 +203,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zRumble.o                   \
     $(OBJ_DIR)/src/Game/zRumble.o                   \
     $(OBJ_DIR)/asm/Game/zSaveLoad.o                 \
+    $(OBJ_DIR)/src/Game/zSaveLoad.o                 \
     $(OBJ_DIR)/asm/Game/zScene.o                    \
     $(OBJ_DIR)/asm/Game/zScript.o                   \
     $(OBJ_DIR)/src/Game/zScript.o                   \
