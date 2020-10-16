@@ -355,6 +355,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zTalkBox.o                  \
     $(OBJ_DIR)/asm/Game/zTextBox.o                  \
     $(OBJ_DIR)/asm/Game/zTaskBox.o                  \
+    $(OBJ_DIR)/src/Game/zTaskBox.o                  \
     $(OBJ_DIR)/asm/Core/p2/iCutscene.o              \
     $(OBJ_DIR)/src/Core/p2/iCutscene.o              \
     $(OBJ_DIR)/asm/Game/zNPCTypeTest.o              \
