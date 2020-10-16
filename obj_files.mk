@@ -390,6 +390,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zNPCGlyph.o                 \
     $(OBJ_DIR)/src/Game/zNPCGlyph.o                 \
     $(OBJ_DIR)/asm/Game/zNPCHazard.o                \
+    $(OBJ_DIR)/src/Game/zNPCHazard.o                \
     $(OBJ_DIR)/asm/Game/zNPCGoalAmbient.o           \
     $(OBJ_DIR)/src/Game/zNPCGoalAmbient.o           \
     $(OBJ_DIR)/asm/Game/zNPCFXCinematic.o           \
