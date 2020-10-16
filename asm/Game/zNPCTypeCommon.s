@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.if 0
+
 .section .text  # 0x800EEE4C - 0x800F4A6C
 
 .global ZNPC_Create_Common__FiP10RyzMemGrowPv
@@ -6760,6 +6762,9 @@ Insert__21xListItem_esc__0_9NPCConfig_esc__1_FP9NPCConfig:
 lbl_800F4A64:
 /* 800F4A64 000F1864  90 64 00 04 */	stw r3, 4(r4)
 /* 800F4A68 000F1868  4E 80 00 20 */	blr 
+
+.endif
+
 .section .rodata
 lbl_80268C28:
 	.incbin "baserom.dol", 0x265C08, 0x30
