@@ -321,6 +321,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zNPCSpawner.o               \
     $(OBJ_DIR)/src/Game/zNPCSpawner.o               \
     $(OBJ_DIR)/asm/Game/zEntTeleportBox.o           \
+    $(OBJ_DIR)/src/Game/zEntTeleportBox.o           \
     $(OBJ_DIR)/asm/Game/zBusStop.o                  \
     $(OBJ_DIR)/src/Game/zBusStop.o                  \
     $(OBJ_DIR)/asm/Game/zNPCSupport.o               \
