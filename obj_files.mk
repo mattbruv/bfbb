@@ -330,6 +330,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/src/Game/zNPCSndTable.o              \
     $(OBJ_DIR)/asm/Game/zNPCSndLists.o              \
     $(OBJ_DIR)/asm/Game/zNPCTypeDuplotron.o         \
+    $(OBJ_DIR)/src/Game/zNPCTypeDuplotron.o         \
     $(OBJ_DIR)/asm/Core/x/xModelBucket.o            \
     $(OBJ_DIR)/src/Core/x/xModelBucket.o            \
     $(OBJ_DIR)/asm/Game/zShrapnel.o                 \
