@@ -85,6 +85,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xPartition.o              \
     $(OBJ_DIR)/src/Core/x/xPartition.o              \
     $(OBJ_DIR)/asm/Core/x/xpkrsvc.o                 \
+    $(OBJ_DIR)/src/Core/x/xpkrsvc.o                 \
     $(OBJ_DIR)/asm/Core/x/xQuickCull.o              \
     $(OBJ_DIR)/src/Core/x/xQuickCull.o              \
     $(OBJ_DIR)/asm/Core/x/xsavegame.o               \
