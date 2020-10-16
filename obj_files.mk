@@ -49,6 +49,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xHud.o                    \
     $(OBJ_DIR)/src/Core/x/xHud.o                    \
     $(OBJ_DIR)/asm/Core/x/xHudFontMeter.o           \
+    $(OBJ_DIR)/src/Core/x/xHudFontMeter.o           \
     $(OBJ_DIR)/asm/Core/x/xHudMeter.o               \
     $(OBJ_DIR)/asm/Core/x/xHudModel.o               \
     $(OBJ_DIR)/src/Core/x/xHudModel.o               \
