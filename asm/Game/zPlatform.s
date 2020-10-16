@@ -1,8 +1,10 @@
 .include "macros.inc"
 
+.if 0
+
 .section .text  # 0x800A8EC8 - 0x800AC8A0
 
-lbl_800A8EC8:
+func_800A8EC8:
 /* 800A8EC8 000A5CC8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800A8ECC 000A5CCC  7C 08 02 A6 */	mflr r0
 /* 800A8ED0 000A5CD0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -65,11 +67,11 @@ lbl_800A8F88:
 /* 800A8F98 000A5D98  90 1E 00 34 */	stw r0, 0x34(r30)
 /* 800A8F9C 000A5D9C  38 03 B7 60 */	addi r0, r3, lbl_800AB760@l
 /* 800A8FA0 000A5DA0  3C 80 80 0B */	lis r4, lbl_800ABAF4@ha
-/* 800A8FA4 000A5DA4  3C 60 80 0B */	lis r3, lbl_800A8EC8@ha
+/* 800A8FA4 000A5DA4  3C 60 80 0B */	lis r3, func_800A8EC8@ha
 /* 800A8FA8 000A5DA8  90 1E 00 40 */	stw r0, 0x40(r30)
 /* 800A8FAC 000A5DAC  38 05 BC 04 */	addi r0, r5, lbl_800ABC04@l
 /* 800A8FB0 000A5DB0  38 84 BA F4 */	addi r4, r4, lbl_800ABAF4@l
-/* 800A8FB4 000A5DB4  38 63 8E C8 */	addi r3, r3, lbl_800A8EC8@l
+/* 800A8FB4 000A5DB4  38 63 8E C8 */	addi r3, r3, func_800A8EC8@l
 /* 800A8FB8 000A5DB8  90 1E 00 0C */	stw r0, 0xc(r30)
 /* 800A8FBC 000A5DBC  38 00 00 00 */	li r0, 0
 /* 800A8FC0 000A5DC0  90 9E 00 B0 */	stw r4, 0xb0(r30)
@@ -4039,6 +4041,9 @@ lbl_800AC894:
 lbl_800AC898:
 /* 800AC898 000A9698  D0 43 00 18 */	stfs f2, 0x18(r3)
 /* 800AC89C 000A969C  4E 80 00 20 */	blr 
+
+.endif
+
 .section .rodata
 lbl_8025E7F0:
 	.incbin "baserom.dol", 0x25B7D0, 0x90

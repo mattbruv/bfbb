@@ -196,6 +196,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zPickupTable.o              \
     $(OBJ_DIR)/src/Game/zPickupTable.o              \
     $(OBJ_DIR)/asm/Game/zPlatform.o                 \
+    $(OBJ_DIR)/src/Game/zPlatform.o                 \
     $(OBJ_DIR)/src/Game/zPortal.o                   \
     $(OBJ_DIR)/asm/Game/zRenderState.o              \
     $(OBJ_DIR)/src/Game/zRenderState.o              \
