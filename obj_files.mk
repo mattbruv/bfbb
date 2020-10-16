@@ -37,6 +37,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/src/Core/x/xEnv.o                    \
     $(OBJ_DIR)/src/Core/x/xEvent.o                  \
     $(OBJ_DIR)/asm/Core/x/xFFX.o                    \
+    $(OBJ_DIR)/src/Core/x/xFFX.o                    \
     $(OBJ_DIR)/asm/Core/x/xFog.o                    \
     $(OBJ_DIR)/src/Core/x/xFog.o                    \
     $(OBJ_DIR)/asm/Core/x/xFont.o                   \
