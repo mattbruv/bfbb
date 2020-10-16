@@ -216,6 +216,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zUIFont.o                   \
     $(OBJ_DIR)/src/Game/zUIFont.o                   \
     $(OBJ_DIR)/asm/Game/zVar.o                      \
+    $(OBJ_DIR)/src/Game/zVar.o                      \
     $(OBJ_DIR)/asm/Game/zVolume.o                   \
     $(OBJ_DIR)/asm/Core/p2/iAnim.o                  \
     $(OBJ_DIR)/src/Core/p2/iAnim.o                  \
