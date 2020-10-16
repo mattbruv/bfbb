@@ -135,6 +135,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zEGenerator.o               \
     $(OBJ_DIR)/src/Game/zEGenerator.o               \
     $(OBJ_DIR)/asm/Game/zEnt.o                      \
+    $(OBJ_DIR)/src/Game/zEnt.o                      \
     $(OBJ_DIR)/asm/Game/zEntButton.o                \
     $(OBJ_DIR)/src/Game/zEntButton.o                \
     $(OBJ_DIR)/asm/Game/zEntCruiseBubble.o          \
