@@ -1262,13 +1262,13 @@ lbl_800B1BF8:
 /* 800B1C48 000AEA48  4B FF F9 1D */	bl PipeForAllSceneModels__FPFP8RpAtomicUiUi_v
 lbl_800B1C4C:
 /* 800B1C4C 000AEA4C  48 07 47 C5 */	bl xModelBucket_PreCountReset__Fv
-/* 800B1C50 000AEA50  3C 60 80 12 */	lis r3, lbl_8012643C@ha
-/* 800B1C54 000AEA54  38 63 64 3C */	addi r3, r3, lbl_8012643C@l
+/* 800B1C50 000AEA50  3C 60 80 12 */	lis r3, xModelBucket_PreCountBucket__FP8RpAtomicUiUi@ha
+/* 800B1C54 000AEA54  38 63 64 3C */	addi r3, r3, xModelBucket_PreCountBucket__FP8RpAtomicUiUi@l
 /* 800B1C58 000AEA58  4B FF F9 0D */	bl PipeForAllSceneModels__FPFP8RpAtomicUiUi_v
 /* 800B1C5C 000AEA5C  38 60 01 00 */	li r3, 0x100
 /* 800B1C60 000AEA60  48 07 48 CD */	bl xModelBucket_PreCountAlloc__Fi
-/* 800B1C64 000AEA64  3C 60 80 12 */	lis r3, lbl_801267B8@ha
-/* 800B1C68 000AEA68  38 63 67 B8 */	addi r3, r3, lbl_801267B8@l
+/* 800B1C64 000AEA64  3C 60 80 12 */	lis r3, xModelBucket_InsertBucket__FP8RpAtomicUiUi@ha
+/* 800B1C68 000AEA68  38 63 67 B8 */	addi r3, r3, xModelBucket_InsertBucket__FP8RpAtomicUiUi@l
 /* 800B1C6C 000AEA6C  4B FF F8 F9 */	bl PipeForAllSceneModels__FPFP8RpAtomicUiUi_v
 /* 800B1C70 000AEA70  48 07 4D 89 */	bl xModelBucket_Init__Fv
 /* 800B1C74 000AEA74  48 00 03 F1 */	bl add_scene_tweaks__Fv
