@@ -117,6 +117,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xutil.o                   \
     $(OBJ_DIR)/src/Core/x/xutil.o                   \
     $(OBJ_DIR)/asm/Core/x/xVec3.o                   \
+    $(OBJ_DIR)/src/Core/x/xVec3.o                   \
     $(OBJ_DIR)/asm/Game/zActionLine.o               \
     $(OBJ_DIR)/src/Game/zActionLine.o               \
     $(OBJ_DIR)/asm/Game/zAnimList.o                 \
