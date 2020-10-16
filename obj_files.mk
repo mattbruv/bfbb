@@ -264,6 +264,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xClumpColl.o              \
     $(OBJ_DIR)/src/Core/x/xClumpColl.o              \
     $(OBJ_DIR)/asm/Core/x/xEntBoulder.o             \
+    $(OBJ_DIR)/src/Core/x/xEntBoulder.o             \
     $(OBJ_DIR)/asm/Core/x/xGrid.o                   \
     $(OBJ_DIR)/src/Core/x/xGrid.o                   \
     $(OBJ_DIR)/asm/Core/x/xJSP.o                    \

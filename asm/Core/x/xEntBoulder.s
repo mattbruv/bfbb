@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.if 0
+
 .section .text  # 0x8011F0B8 - 0x80121E0C
 
 .global xEntBoulder_FitToModel__FP11xEntBoulder
@@ -3153,6 +3155,9 @@ xMat3x3RMulVec__FP5xVec3PC7xMat3x3PC5xVec3:
 /* 80121E00 0011EC00  D0 63 00 04 */	stfs f3, 4(r3)
 /* 80121E04 0011EC04  D0 03 00 08 */	stfs f0, 8(r3)
 /* 80121E08 0011EC08  4E 80 00 20 */	blr 
+
+.endif
+
 .section .rodata
 lbl_8026B948:
 	.incbin "baserom.dol", 0x268928, 0x50
