@@ -321,6 +321,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xCurveAsset.o             \
     $(OBJ_DIR)/src/Core/x/xCurveAsset.o             \
     $(OBJ_DIR)/asm/Core/x/xDecal.o                  \
+    $(OBJ_DIR)/src/Core/x/xDecal.o                  \
     $(OBJ_DIR)/asm/Core/x/xLaserBolt.o              \
     $(OBJ_DIR)/asm/Game/zCameraTweak.o              \
     $(OBJ_DIR)/src/Game/zCameraTweak.o              \
