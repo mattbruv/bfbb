@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.if 0
+
 .section .text  # 0x80168A94 - 0x8017047C
 
 /* get_player_loc__34@unnamed@zNPCTypeBossPlankton_cpp@Fv */
@@ -8432,6 +8434,8 @@ lbl_80170444:
 /* 80170470 0016D270  7C 08 03 A6 */	mtlr r0
 /* 80170474 0016D274  38 21 00 40 */	addi r1, r1, 0x40
 /* 80170478 0016D278  4E 80 00 20 */	blr 
+
+.endif
 
 .section .rodata
 lbl_80270FA8:

@@ -374,6 +374,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zNPCTypeBossPatrick.o       \
     $(OBJ_DIR)/src/Game/zNPCTypeBossPatrick.o       \
     $(OBJ_DIR)/asm/Game/zNPCTypeBossPlankton.o      \
+    $(OBJ_DIR)/src/Game/zNPCTypeBossPlankton.o      \
     $(OBJ_DIR)/asm/Game/zParPTank.o                 \
     $(OBJ_DIR)/src/Game/zParPTank.o                 \
     $(OBJ_DIR)/asm/Game/zTaxi.o                     \
