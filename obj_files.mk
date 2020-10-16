@@ -14,6 +14,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xbinio.o                  \
     $(OBJ_DIR)/src/Core/x/xbinio.o                  \
     $(OBJ_DIR)/asm/Core/x/xBound.o                  \
+    $(OBJ_DIR)/src/Core/x/xBound.o                  \
     $(OBJ_DIR)/asm/Core/x/xCamera.o                 \
     $(OBJ_DIR)/asm/Core/x/xClimate.o                \
     $(OBJ_DIR)/src/Core/x/xClimate.o                \
