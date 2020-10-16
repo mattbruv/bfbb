@@ -19,6 +19,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xClimate.o                \
     $(OBJ_DIR)/src/Core/x/xClimate.o                \
     $(OBJ_DIR)/asm/Core/x/xCollide.o                \
+    $(OBJ_DIR)/src/Core/x/xCollide.o                \
     $(OBJ_DIR)/asm/Core/x/xCollideFast.o            \
     $(OBJ_DIR)/asm/Core/x/xColor.o                  \
     $(OBJ_DIR)/src/Core/x/xCounter.o                \
