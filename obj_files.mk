@@ -363,6 +363,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/src/Core/x/xUpdateCull.o             \
     $(OBJ_DIR)/asm/Game/zDiscoFloor.o               \
     $(OBJ_DIR)/asm/Game/zNPCTypeBossSandy.o         \
+    $(OBJ_DIR)/src/Game/zNPCTypeBossSandy.o         \
     $(OBJ_DIR)/asm/Game/zNPCTypeKingJelly.o         \
     $(OBJ_DIR)/asm/Game/zNPCGoalBoss.o              \
     $(OBJ_DIR)/src/Game/zNPCGoalBoss.o              \
