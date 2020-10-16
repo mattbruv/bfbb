@@ -345,6 +345,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zCameraTweak.o              \
     $(OBJ_DIR)/src/Game/zCameraTweak.o              \
     $(OBJ_DIR)/asm/Core/x/xPtankPool.o              \
+    $(OBJ_DIR)/src/Core/x/xPtankPool.o              \
     $(OBJ_DIR)/asm/Core/p2/iTRC.o                   \
     $(OBJ_DIR)/src/Core/p2/iTRC.o                   \
     $(OBJ_DIR)/asm/Game/zNPCSupplement.o            \
