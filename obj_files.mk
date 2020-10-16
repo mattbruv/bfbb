@@ -47,6 +47,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xhipio.o                  \
     $(OBJ_DIR)/src/Core/x/xhipio.o                  \
     $(OBJ_DIR)/asm/Core/x/xHud.o                    \
+    $(OBJ_DIR)/src/Core/x/xHud.o                    \
     $(OBJ_DIR)/asm/Core/x/xHudFontMeter.o           \
     $(OBJ_DIR)/asm/Core/x/xHudMeter.o               \
     $(OBJ_DIR)/asm/Core/x/xHudModel.o               \
