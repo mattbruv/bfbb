@@ -279,6 +279,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zNPCTypeRobot.o             \
     $(OBJ_DIR)/src/Game/zNPCTypeRobot.o             \
     $(OBJ_DIR)/asm/Game/zNPCTypeVillager.o          \
+    $(OBJ_DIR)/src/Game/zNPCTypeVillager.o          \
     $(OBJ_DIR)/asm/Game/zNPCTypeAmbient.o           \
     $(OBJ_DIR)/src/Game/zNPCTypeAmbient.o           \
     $(OBJ_DIR)/asm/Game/zNPCTypeTiki.o              \

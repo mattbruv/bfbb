@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.if 0
+
 .section .text  # 0x80102C2C - 0x801077A0
 
 .global ZNPC_Villager_Startup__Fv
@@ -5309,6 +5311,9 @@ xMat3x3RMulVec__FP5xVec3PC7xMat3x3PC5xVec3:
 /* 80107794 00104594  D0 63 00 04 */	stfs f3, 4(r3)
 /* 80107798 00104598  D0 03 00 08 */	stfs f0, 8(r3)
 /* 8010779C 0010459C  4E 80 00 20 */	blr 
+
+.endif
+
 .section .rodata
 lbl_80269AC8:
 	.incbin "baserom.dol", 0x266AA8, 0x158
