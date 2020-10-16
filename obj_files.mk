@@ -27,6 +27,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xCutscene.o               \
     $(OBJ_DIR)/src/Core/x/xCutscene.o               \
     $(OBJ_DIR)/asm/Core/x/xDebug.o                  \
+    $(OBJ_DIR)/src/Core/x/xDebug.o                  \
     $(OBJ_DIR)/asm/Core/x/xEnt.o                    \
     $(OBJ_DIR)/asm/Core/x/xEntDrive.o               \
     $(OBJ_DIR)/src/Core/x/xEntDrive.o               \
