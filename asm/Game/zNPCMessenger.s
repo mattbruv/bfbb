@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.if 0
+
 .section .text  # 0x800ED1E0 - 0x800EE2CC
 
 .global zNPCMsg_Startup__Fv
@@ -1221,6 +1223,8 @@ lbl_800EE290:
 /* 800EE2C0 000EB0C0  38 60 00 01 */	li r3, 1
 /* 800EE2C4 000EB0C4  4E 80 00 20 */	blr 
 /* 800EE2C8 000EB0C8  4E 80 00 20 */	blr 
+
+.endif
 
 .section .data
 lbl_80294050:

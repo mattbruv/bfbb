@@ -269,6 +269,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zNPCGoalTiki.o              \
     $(OBJ_DIR)/src/Game/zNPCGoalTiki.o              \
     $(OBJ_DIR)/asm/Game/zNPCMessenger.o             \
+    $(OBJ_DIR)/src/Game/zNPCMessenger.o             \
     $(OBJ_DIR)/asm/Game/zNPCMgr.o                   \
     $(OBJ_DIR)/asm/Game/zNPCTypes.o                 \
     $(OBJ_DIR)/src/Game/zNPCTypes.o                 \
