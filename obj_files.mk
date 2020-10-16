@@ -95,6 +95,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xScrFx.o                  \
     $(OBJ_DIR)/src/Core/x/xScrFx.o                  \
     $(OBJ_DIR)/asm/Core/x/xserializer.o             \
+    $(OBJ_DIR)/src/Core/x/xserializer.o             \
     $(OBJ_DIR)/asm/Core/x/xSFX.o                    \
     $(OBJ_DIR)/asm/Core/x/xShadow.o                 \
     $(OBJ_DIR)/asm/Core/x/xSnd.o                    \
