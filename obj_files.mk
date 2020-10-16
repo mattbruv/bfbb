@@ -325,6 +325,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zNPCGoalVillager.o          \
     $(OBJ_DIR)/asm/Game/zNPCGoalSubBoss.o           \
     $(OBJ_DIR)/asm/Core/x/xShadowSimple.o           \
+    $(OBJ_DIR)/src/Core/x/xShadowSimple.o           \
     $(OBJ_DIR)/asm/Core/x/xUpdateCull.o             \
     $(OBJ_DIR)/asm/Game/zDiscoFloor.o               \
     $(OBJ_DIR)/asm/Game/zNPCTypeBossSandy.o         \
