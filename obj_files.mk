@@ -387,6 +387,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zNPCHazard.o                \
     $(OBJ_DIR)/asm/Game/zNPCGoalAmbient.o           \
     $(OBJ_DIR)/asm/Game/zNPCFXCinematic.o           \
+    $(OBJ_DIR)/src/Game/zNPCFXCinematic.o           \
     $(OBJ_DIR)/asm/Core/x/xHudText.o                \
     $(OBJ_DIR)/src/Core/x/xHudText.o                \
     $(OBJ_DIR)/asm/Game/zCombo.o                    \
