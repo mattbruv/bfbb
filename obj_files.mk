@@ -121,6 +121,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zActionLine.o               \
     $(OBJ_DIR)/src/Game/zActionLine.o               \
     $(OBJ_DIR)/asm/Game/zAnimList.o                 \
+    $(OBJ_DIR)/src/Game/zAnimList.o                 \
     $(OBJ_DIR)/asm/Game/zAssetTypes.o               \
     $(OBJ_DIR)/asm/Game/zCamera.o                   \
     $(OBJ_DIR)/src/Game/zCamera.o                   \
