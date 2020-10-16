@@ -43,6 +43,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xFont.o                   \
     $(OBJ_DIR)/asm/Core/x/xFX.o                     \
     $(OBJ_DIR)/asm/Core/x/xGroup.o                  \
+    $(OBJ_DIR)/src/Core/x/xGroup.o                  \
     $(OBJ_DIR)/asm/Core/x/xhipio.o                  \
     $(OBJ_DIR)/asm/Core/x/xHud.o                    \
     $(OBJ_DIR)/asm/Core/x/xHudFontMeter.o           \
