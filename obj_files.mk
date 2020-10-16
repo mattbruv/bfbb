@@ -161,6 +161,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zFX.o                       \
     $(OBJ_DIR)/src/Game/zFX.o                       \
     $(OBJ_DIR)/asm/Game/zGame.o                     \
+    $(OBJ_DIR)/src/Game/zGame.o                     \
     $(OBJ_DIR)/asm/Game/zGameExtras.o               \
     $(OBJ_DIR)/asm/Game/zGameState.o                \
     $(OBJ_DIR)/src/Game/zGameState.o                \
