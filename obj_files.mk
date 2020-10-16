@@ -78,6 +78,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xPar.o                    \
     $(OBJ_DIR)/src/Core/x/xPar.o                    \
     $(OBJ_DIR)/asm/Core/x/xParCmd.o                 \
+    $(OBJ_DIR)/src/Core/x/xParCmd.o                 \
     $(OBJ_DIR)/asm/Core/x/xParGroup.o               \
     $(OBJ_DIR)/src/Core/x/xParGroup.o               \
     $(OBJ_DIR)/src/Core/x/xParMgr.o                 \
