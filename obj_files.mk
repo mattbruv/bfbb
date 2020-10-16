@@ -169,6 +169,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zGust.o                     \
     $(OBJ_DIR)/src/Game/zGust.o                     \
     $(OBJ_DIR)/asm/Game/zHud.o                      \
+    $(OBJ_DIR)/src/Game/zHud.o                      \
     $(OBJ_DIR)/asm/Game/zLasso.o                    \
     $(OBJ_DIR)/src/Game/zLasso.o                    \
     $(OBJ_DIR)/asm/Game/zLight.o                    \
