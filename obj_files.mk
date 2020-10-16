@@ -341,6 +341,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xModelBucket.o            \
     $(OBJ_DIR)/src/Core/x/xModelBucket.o            \
     $(OBJ_DIR)/asm/Game/zShrapnel.o                 \
+    $(OBJ_DIR)/src/Game/zShrapnel.o                 \
     $(OBJ_DIR)/asm/Game/zNPCGoalDuplotron.o         \
     $(OBJ_DIR)/src/Game/zNPCGoalDuplotron.o         \
     $(OBJ_DIR)/asm/Game/zNPCSpawner.o               \
