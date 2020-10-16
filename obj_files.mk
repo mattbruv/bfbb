@@ -66,6 +66,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xMemMgr.o                 \
     $(OBJ_DIR)/src/Core/x/xMemMgr.o                 \
     $(OBJ_DIR)/asm/Core/x/xModel.o                  \
+    $(OBJ_DIR)/src/Core/x/xModel.o                  \
     $(OBJ_DIR)/asm/Core/x/xMorph.o                  \
     $(OBJ_DIR)/src/Core/x/xMorph.o                  \
     $(OBJ_DIR)/asm/Core/x/xMovePoint.o              \
