@@ -6,6 +6,8 @@
 lbl_80253EA0:
 	.incbin "baserom.dol", 0x250E80, 0x18
 
+.if 0
+
 .section .text  # 0x80044778 - 0x800480B0
 
 .global xShadowInit__Fv
@@ -3991,6 +3993,8 @@ xDrawSetColor__FUcUcUcUc:
 SQ__Ff:
 /* 800480A8 00044EA8  EC 21 00 72 */	fmuls f1, f1, f1
 /* 800480AC 00044EAC  4E 80 00 20 */	blr 
+
+.endif
 
 .section .bss
 lbl_802C8B00:

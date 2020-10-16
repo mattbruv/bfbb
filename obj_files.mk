@@ -99,6 +99,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xSFX.o                    \
     $(OBJ_DIR)/src/Core/x/xSFX.o                    \
     $(OBJ_DIR)/asm/Core/x/xShadow.o                 \
+    $(OBJ_DIR)/src/Core/x/xShadow.o                 \
     $(OBJ_DIR)/asm/Core/x/xSnd.o                    \
     $(OBJ_DIR)/asm/Core/x/xSpline.o                 \
     $(OBJ_DIR)/src/Core/x/xSpline.o                 \
