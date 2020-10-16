@@ -265,6 +265,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Game/zNPCGoalStd.o               \
     $(OBJ_DIR)/src/Game/zNPCGoalStd.o               \
     $(OBJ_DIR)/asm/Game/zNPCGoalRobo.o              \
+    $(OBJ_DIR)/src/Game/zNPCGoalRobo.o              \
     $(OBJ_DIR)/asm/Game/zNPCGoalTiki.o              \
     $(OBJ_DIR)/src/Game/zNPCGoalTiki.o              \
     $(OBJ_DIR)/asm/Game/zNPCMessenger.o             \
