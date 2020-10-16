@@ -109,6 +109,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xString.o                 \
     $(OBJ_DIR)/src/Core/x/xString.o                 \
     $(OBJ_DIR)/asm/Core/x/xSurface.o                \
+    $(OBJ_DIR)/src/Core/x/xSurface.o                \
     $(OBJ_DIR)/asm/Core/x/xTimer.o                  \
     $(OBJ_DIR)/src/Core/x/xTimer.o                  \
     $(OBJ_DIR)/asm/Core/x/xTRC.o                    \
