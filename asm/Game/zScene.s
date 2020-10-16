@@ -1,5 +1,7 @@
 .include "macros.inc"
 
+.if 0
+
 .section .text  # 0x800B0A28 - 0x800B5228
 
 /* count_dynamic_types__20@unnamed@zScene_cpp@FPCc */
@@ -5068,6 +5070,9 @@ xQuickCullInit__FPC4xBox:
 /* 800B521C 000B201C  7C 08 03 A6 */	mtlr r0
 /* 800B5220 000B2020  38 21 00 10 */	addi r1, r1, 0x10
 /* 800B5224 000B2024  4E 80 00 20 */	blr 
+
+.endif
+
 .section .rodata
 lbl_8025EF60:
 	.incbin "baserom.dol", 0x25BF40, 0x118
