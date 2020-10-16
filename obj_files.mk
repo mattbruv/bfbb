@@ -293,6 +293,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/src/Core/x/xParEmitterType.o         \
     $(OBJ_DIR)/src/Core/x/xRenderState.o            \
     $(OBJ_DIR)/asm/Game/zEntPlayerOOBState.o        \
+    $(OBJ_DIR)/src/Game/zEntPlayerOOBState.o        \
     $(OBJ_DIR)/asm/Core/x/xClumpColl.o              \
     $(OBJ_DIR)/src/Core/x/xClumpColl.o              \
     $(OBJ_DIR)/asm/Core/x/xEntBoulder.o             \
