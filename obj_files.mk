@@ -206,7 +206,9 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/p2/iScrFX.o                 \
     $(OBJ_DIR)/src/Core/p2/iScrFX.o                 \
     $(OBJ_DIR)/asm/Core/p2/iSnd.o                   \
+    $(OBJ_DIR)/src/Core/p2/iSnd.o                   \
     $(OBJ_DIR)/asm/Core/p2/iSystem.o                \
+    $(OBJ_DIR)/src/Core/p2/iSystem.o                \
     $(OBJ_DIR)/asm/Core/p2/iTime.o                  \
     $(OBJ_DIR)/src/Core/p2/iTime.o                  \
     $(OBJ_DIR)/asm/Core/p2/ngcrad3d.o               \
