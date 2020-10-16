@@ -21,9 +21,11 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xCollide.o                \
     $(OBJ_DIR)/src/Core/x/xCollide.o                \
     $(OBJ_DIR)/asm/Core/x/xCollideFast.o            \
+    $(OBJ_DIR)/src/Core/x/xCollideFast.o            \
     $(OBJ_DIR)/asm/Core/x/xColor.o                  \
     $(OBJ_DIR)/src/Core/x/xCounter.o                \
     $(OBJ_DIR)/asm/Core/x/xCutscene.o               \
+    $(OBJ_DIR)/src/Core/x/xCutscene.o               \
     $(OBJ_DIR)/asm/Core/x/xDebug.o                  \
     $(OBJ_DIR)/asm/Core/x/xEnt.o                    \
     $(OBJ_DIR)/asm/Core/x/xEntDrive.o               \
