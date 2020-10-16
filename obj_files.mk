@@ -91,6 +91,7 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/asm/Core/x/xsavegame.o               \
     $(OBJ_DIR)/src/Core/x/xsavegame.o               \
     $(OBJ_DIR)/asm/Core/x/xScene.o                  \
+    $(OBJ_DIR)/src/Core/x/xScene.o                  \
     $(OBJ_DIR)/asm/Core/x/xScrFx.o                  \
     $(OBJ_DIR)/asm/Core/x/xserializer.o             \
     $(OBJ_DIR)/asm/Core/x/xSFX.o                    \
