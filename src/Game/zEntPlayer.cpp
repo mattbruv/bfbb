@@ -73,6 +73,35 @@ void HealthReset()
 
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "IdleSlipCheck__FP15xAnimTransitionP11xAnimSinglePv")
 
+// A bunch of unlabeled functions go here...
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "BbowlCheck__FP15xAnimTransitionP11xAnimSinglePv")
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "BbowlCB__FP15xAnimTransitionP11xAnimSinglePv")
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
+                   "BbowlWindupEndCheck__FP15xAnimTransitionP11xAnimSinglePv")
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "BbowlTossEndCB__FP15xAnimTransitionP11xAnimSinglePv")
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
+                   "BbowlRecoverWalkCheck__FP15xAnimTransitionP11xAnimSinglePv")
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
+                   "BbowlRecoverRunCheck__FP15xAnimTransitionP11xAnimSinglePv")
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
+                   "BbowlRecoverRunScaredCheck__FP15xAnimTransitionP11xAnimSinglePv")
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
+                   "BbowlRecoverRunVictoryCheck__FP15xAnimTransitionP11xAnimSinglePv")
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
+                   "BbowlRecoverRunOutOfWorldCheck__FP15xAnimTransitionP11xAnimSinglePv")
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
+                   "BbowlRecoverRunSlipCheck__FP15xAnimTransitionP11xAnimSinglePv")
+
 // int zEntPlayer_InBossBattle()
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayer_InBossBattle__Fv")
 
