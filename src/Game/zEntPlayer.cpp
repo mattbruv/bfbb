@@ -15,6 +15,11 @@ extern zGlobals globals;
 extern int32 gCurrentPlayer;
 extern uint32 sCurrentStreamSndID;
 
+extern uint32 sShouldBubbleBowl;
+extern float32 sBubbleBowlTimer;
+extern float32 sBubbleBowlLastWindupTime;
+extern float32 sBubbleBowlMultiplier;
+
 // Multidimensional sound arrays for each player type
 extern uint32 sPlayerSnd[ePlayer_MAXTYPES][ePlayerSnd_Total];
 extern uint32 sPlayerSndID[ePlayer_MAXTYPES][ePlayerSnd_Total];
@@ -79,8 +84,15 @@ void HealthReset()
 
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "BbowlCB__FP15xAnimTransitionP11xAnimSinglePv")
 
-#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
-                   "BbowlWindupEndCheck__FP15xAnimTransitionP11xAnimSinglePv")
+uint32 BbowlWindupEndCheck(xAnimTransition* tranny, xAnimSingle* anim, void* par_3)
+{
+    if (anim->Time < sBubbleBowlLastWindupTime && sShouldBubbleBowl != false)
+    {
+        return true;
+    }
+    sBubbleBowlLastWindupTime = anim->Time;
+    return false;
+}
 
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "BbowlTossEndCB__FP15xAnimTransitionP11xAnimSinglePv")
 
