@@ -81,6 +81,7 @@ void HealthReset()
 
 // A bunch of unlabeled functions go here...
 
+/*
 uint32 BbowlCheck(xAnimTransition* tranny, xAnimSingle* anim, void* param_3)
 {
     if (globals.player.cheat_mode)
@@ -95,14 +96,17 @@ uint32 BbowlCheck(xAnimTransition* tranny, xAnimSingle* anim, void* param_3)
 
     bool canBowl = false;
 
-    if (!globals.player.ControlOff && ((globals.pad0->pressed & 0x20000) != 0) &&
-        globals.player.g.PowerUp[0] != 0)
+    if (!globals.player.ControlOff && (globals.pad0->pressed & 0x20000) &&
+        globals.player.g.PowerUp[0])
     {
         canBowl = true;
     }
 
     return canBowl;
 }
+*/
+
+#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "BbowlCheck__FP15xAnimTransitionP11xAnimSinglePv")
 
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "BbowlCB__FP15xAnimTransitionP11xAnimSinglePv")
 
