@@ -113,6 +113,9 @@ struct RwCamera
 };
 
 extern "C" {
+void RwEngineStop();
+void RwEngineClose();
+void RwEngineTerm();
 extern RwBool RwRenderStateSet(RwRenderState state, void* value);
 }
 

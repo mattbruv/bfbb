@@ -5,4 +5,6 @@ struct _tagxPad
 {
 };
 
+void xPadKill();
+
 #endif

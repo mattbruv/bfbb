@@ -5,4 +5,6 @@
 
 typedef uint64 iTime;
 
+void iTimeExit();
+
 #endif

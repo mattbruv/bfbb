@@ -388,8 +388,8 @@ lbl_800D35C8:
 /* 800D35F0 000D03F0  38 60 00 01 */	li r3, 1
 /* 800D35F4 000D03F4  48 00 00 38 */	b lbl_800D362C
 lbl_800D35F8:
-/* 800D35F8 000D03F8  3C 60 80 0D */	lis r3, lbl_800D3664@ha
-/* 800D35FC 000D03FC  38 63 36 64 */	addi r3, r3, lbl_800D3664@l
+/* 800D35F8 000D03F8  3C 60 80 0D */	lis r3, TextureRead__FPCcPCc@ha
+/* 800D35FC 000D03FC  38 63 36 64 */	addi r3, r3, TextureRead__FPCcPCc@l
 /* 800D3600 000D0400  48 16 AE 51 */	bl RwTextureSetReadCallBack
 /* 800D3604 000D0404  38 60 00 14 */	li r3, 0x14
 /* 800D3608 000D0408  38 80 00 02 */	li r4, 2
@@ -418,7 +418,8 @@ RenderWareExit__Fv:
 /* 800D3658 000D0458  7C 08 03 A6 */	mtlr r0
 /* 800D365C 000D045C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800D3660 000D0460  4E 80 00 20 */	blr 
-lbl_800D3664:
+
+TextureRead__FPCcPCc:
 /* 800D3664 000D0464  94 21 FE E0 */	stwu r1, -0x120(r1)
 /* 800D3668 000D0468  7C 08 02 A6 */	mflr r0
 /* 800D366C 000D046C  3C A0 80 26 */	lis r5, lbl_80266610@ha
@@ -473,18 +474,6 @@ lbl_800D370C:
 /* 800D3724 000D0524  38 21 01 20 */	addi r1, r1, 0x120
 /* 800D3728 000D0528  4E 80 00 20 */	blr 
 
-.global null_func__Fv
-null_func__Fv:
-/* 800D372C 000D052C  80 6D 92 14 */	lwz r3, mem_base_alloc-_SDA_BASE_(r13)
-/* 800D3730 000D0530  38 03 00 04 */	addi r0, r3, 4
-/* 800D3734 000D0534  90 0D 92 14 */	stw r0, mem_base_alloc-_SDA_BASE_(r13)
-/* 800D3738 000D0538  4E 80 00 20 */	blr 
-
-mem_null:
-/* 800D373C 000D053C  90 6D 93 1C */	stw r3, add-_SDA_BASE_(r13)
-/* 800D3740 000D0540  90 8D 93 20 */	stw r4, size-_SDA_BASE_(r13)
-/* 800D3744 000D0544  4E 80 00 20 */	blr 
-
 .global malloc
 malloc:
 /* 800D3748 000D0548  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -497,7 +486,7 @@ malloc:
 /* 800D3764 000D0564  48 00 00 1C */	b lbl_800D3780
 lbl_800D3768:
 /* 800D3768 000D0568  80 6D 92 18 */	lwz r3, the_heap-_SDA_BASE_(r13)
-/* 800D376C 000D056C  48 0F E6 95 */	bl func_801D1E00
+/* 800D376C 000D056C  48 0F E6 95 */	bl OSAllocFromHeap
 /* 800D3770 000D0570  7C 7F 1B 79 */	or. r31, r3, r3
 /* 800D3774 000D0574  40 82 00 08 */	bne lbl_800D377C
 /* 800D3778 000D0578  4B FF FF B5 */	bl null_func__Fv
@@ -510,15 +499,15 @@ lbl_800D3780:
 /* 800D378C 000D058C  38 21 00 10 */	addi r1, r1, 0x10
 /* 800D3790 000D0590  4E 80 00 20 */	blr 
 
-.global func_800D3794
-func_800D3794:
+.global free
+free:
 /* 800D3794 000D0594  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800D3798 000D0598  7C 08 02 A6 */	mflr r0
 /* 800D379C 000D059C  7C 64 1B 79 */	or. r4, r3, r3
 /* 800D37A0 000D05A0  90 01 00 14 */	stw r0, 0x14(r1)
 /* 800D37A4 000D05A4  41 82 00 0C */	beq lbl_800D37B0
 /* 800D37A8 000D05A8  80 6D 92 18 */	lwz r3, the_heap-_SDA_BASE_(r13)
-/* 800D37AC 000D05AC  48 0F E7 51 */	bl func_801D1EFC
+/* 800D37AC 000D05AC  48 0F E7 51 */	bl OSFreeToHeap
 lbl_800D37B0:
 /* 800D37B0 000D05B0  80 01 00 14 */	lwz r0, 0x14(r1)
 /* 800D37B4 000D05B4  7C 08 03 A6 */	mtlr r0
@@ -545,7 +534,7 @@ lbl_800D37EC:
 /* 800D37FC 000D05FC  28 00 BE EF */	cmplwi r0, 0xbeef
 /* 800D3800 000D0600  40 82 00 10 */	bne lbl_800D3810
 /* 800D3804 000D0604  38 7F FF E0 */	addi r3, r31, -32
-/* 800D3808 000D0608  4B FF FF 8D */	bl func_800D3794
+/* 800D3808 000D0608  4B FF FF 8D */	bl free
 /* 800D380C 000D060C  48 00 00 20 */	b lbl_800D382C
 lbl_800D3810:
 /* 800D3810 000D0610  4B FF FF 1D */	bl null_func__Fv

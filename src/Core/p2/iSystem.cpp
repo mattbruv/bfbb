@@ -1,6 +1,24 @@
-#include "iSystem.h"
-
 #include <types.h>
+
+#include <dolphin.h>
+#include <rwcore.h>
+
+#include "../x/xDebug.h"
+#include "../x/xMath.h"
+#include "../x/xSnd.h"
+#include "../x/xPad.h"
+#include "../x/xMemMgr.h"
+
+#include "iSystem.h"
+#include "iFile.h"
+#include "iTime.h"
+
+extern uint32 mem_base_alloc;
+extern uint32 add;
+extern uint32 size;
+extern int32 gEmergencyMemLevel;
+extern void* the_heap;
+extern void* bad_val;
 
 // psGetMemoryFunctions()
 #pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "psGetMemoryFunctions__Fv")
@@ -14,7 +32,19 @@
 // iSystemInit(unsigned int)
 #pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "iSystemInit__FUi")
 
-// iSystemExit()
+/*
+void iSystemExit()
+{
+    xDebugExit();
+    xMathExit();
+    RenderWareExit();
+    xSndExit();
+    xPadKill();
+    iFileExit();
+    iTimeExit();
+    xMemExit();
+}
+*/
 #pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "iSystemExit__Fv")
 
 // RWAttachPlugins()
@@ -23,20 +53,80 @@
 // RenderWareInit()
 #pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "RenderWareInit__Fv")
 
-// RenderWareExit()
-#pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "RenderWareExit__Fv")
+int32 RenderWareExit()
+{
+    RwEngineStop();
+    RwEngineClose();
+    RwEngineTerm();
+}
 
-// null_func()
-#pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "null_func__Fv")
+#pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "TextureRead__FPCcPCc")
 
-#pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "mem_null")
+void null_func()
+{
+    mem_base_alloc += 4;
+}
 
-#pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "malloc")
+extern "C" {
+void mem_null(uint32 param_1, uint32 param_2)
+{
+    add = param_1;
+    size = param_2;
+}
 
-#pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "func_800D3794")
+void* malloc(uint32 __size)
+{
+    if ((int)__size <= 0)
+    {
+        return NULL;
+    }
 
-// _rwDolphinHeapFree(void*)
-#pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "_rwDolphinHeapFree__FPv")
+    void* result = OSAllocFromHeap(the_heap, __size);
+
+    if (result == NULL)
+    {
+        null_func();
+    }
+
+    return result;
+}
+
+void free(void* __ptr)
+{
+    if (__ptr != NULL)
+    {
+        OSFreeToHeap(the_heap, __ptr);
+    }
+}
+}
+
+void _rwDolphinHeapFree(void* __ptr)
+{
+    if (__ptr == bad_val)
+    {
+        mem_null(0, 0);
+    }
+    if (__ptr != NULL)
+    {
+        // TODO: clear this up
+        // some number is compared against 0xbeef in the assembly.
+        // 0xbeef was probably a hardcoded constant Heavy iron used.
+        // if (*(uint32*)((int32)__ptr + -4) + 0x2153 == 0xbeef)
+        if (*(int32*)((int32)__ptr + -4) == -0x21524111)
+        {
+            free((void*)((int32)__ptr - 32));
+        }
+        else
+        {
+            null_func();
+            if (gEmergencyMemLevel != 0)
+            {
+                xMemPopBase(gEmergencyMemLevel);
+                gEmergencyMemLevel = 0;
+            }
+        }
+    }
+}
 
 // _rwDolphinHeapAlloc(unsigned long)
 #pragma GLOBAL_ASM("asm/Core/p2/iSystem.s", "_rwDolphinHeapAlloc__FUl")
