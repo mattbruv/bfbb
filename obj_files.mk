@@ -145,8 +145,9 @@ TEXT_O_FILES :=                                     \
     $(OBJ_DIR)/src/Game/zEntHangable.o              \
     $(OBJ_DIR)/asm/Game/zEntPickup.o                \
     $(OBJ_DIR)/src/Game/zEntPickup.o                \
-    $(OBJ_DIR)/asm/Game/zEntPlayer.o                \
     $(OBJ_DIR)/src/Game/zEntPlayer.o                \
+    $(OBJ_DIR)/asm/Game/zEntPlayerBowl.o                \
+    $(OBJ_DIR)/src/Game/zEntPlayer2.o                \
     $(OBJ_DIR)/asm/Game/zEntSimpleObj.o             \
     $(OBJ_DIR)/src/Game/zEntSimpleObj.o             \
     $(OBJ_DIR)/asm/Game/zEntTrigger.o               \
