@@ -18,7 +18,7 @@ extabindex_ ALIGN(0x20):{}
 .sdata2 ALIGN(0x20):{}
 .sbss2 ALIGN(0x20):{}
 .stack ALIGN(0x100):{}
-.foo ALIGN(0x10000): {
+.foo ALIGN(0x100): {
     *(.romsymbols)
 }
 } > text
