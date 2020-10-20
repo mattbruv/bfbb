@@ -18,7 +18,8 @@
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeAmbient.s", "Process__11zNPCAmbientFP6xScenef")
 
 // zNPCAmbient::AnimPick(int,en_NPC_GOAL_SPOT,xGoal*)
-#pragma GLOBAL_ASM("asm/Game/zNPCTypeAmbient.s", "AnimPick__11zNPCAmbientFi16en_NPC_GOAL_SPOTP5xGoal")
+#pragma GLOBAL_ASM("asm/Game/zNPCTypeAmbient.s",                                                   \
+                   "AnimPick__11zNPCAmbientFi16en_NPC_GOAL_SPOTP5xGoal")
 
 // zNPCJelly::JellySpawn(const xVec3*,float)
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeAmbient.s", "JellySpawn__9zNPCJellyFPC5xVec3f")
@@ -59,9 +60,17 @@
 // zNPCAmbient::zNPCAmbient(int)
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeAmbient.s", "__ct__11zNPCAmbientFi")
 
+void zNPCMimeFish::SelfSetup()
+{
+    return;
+}
+
+#pragma GLOBAL_ASM("asm/Game/zNPCTypeAmbient.s", "ColChkFlags__11zNPCAmbientCFv")
+
 // xMat3x3RMulVec(xVec3*,const xMat3x3*,const xVec3*)
-namespace {
+namespace
+{
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeAmbient.s", "xMat3x3RMulVec__FP5xVec3PC7xMat3x3PC5xVec3")
 
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeAmbient.s", "xUtil_choose_esc__0_i_esc__1___FPCiiPCf")
-}
+} // namespace

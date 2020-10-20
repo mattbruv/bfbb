@@ -1969,7 +1969,11 @@ __ct__11zNPCAmbientFi:
 /* 801093B4 001061B4  7C 00 18 78 */	andc r0, r0, r3
 /* 801093B8 001061B8  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 801093BC 001061BC  4E 80 00 20 */	blr 
+
+SelfSetup__12zNPCMimeFishFv:
 /* 801093C0 001061C0  4E 80 00 20 */	blr 
+
+ColChkFlags__11zNPCAmbientCFv:
 /* 801093C4 001061C4  38 60 00 00 */	li r3, 0
 /* 801093C8 001061C8  4E 80 00 20 */	blr 
 /* 801093CC 001061CC  38 60 00 00 */	li r3, 0
