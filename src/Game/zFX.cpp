@@ -44,6 +44,7 @@ void zFXPatrickStun(xVec3* pos)
 void zFXHammer(xVec3* pos)
 {
     xFXRingCreate(pos, &sHammerRing[0]);
+    // weird xrand arithmetic might have something to do with signed integers
     zFX_SpawnBubbleSlam(pos, (xrand() & 0x1f) + 0x20, lbl_803CD968, lbl_803CD96C, lbl_803CD970);
 }
 
