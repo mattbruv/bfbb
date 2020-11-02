@@ -2,8 +2,19 @@
 
 #include <types.h>
 
+extern zFMVFile zFMVFileTable[9];
+
 // func_80092BEC
 #pragma GLOBAL_ASM("asm/Game/zFMV.s", "zFMVPlay__FPcUifbb")
 
-// func_80092CD0
-#pragma GLOBAL_ASM("asm/Game/zFMV.s", "zFMVFileGetName__F8eFMVFile")
+int8* zFMVFileGetName(eFMVFile fileEnum)
+{
+    for (int32 i = 0; i < 9; i++)
+    {
+        if (fileEnum == zFMVFileTable[i].type)
+        {
+            return zFMVFileTable[i].fileName;
+        }
+    }
+    return NULL;
+}
