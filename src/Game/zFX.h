@@ -97,5 +97,6 @@ void zFX_SpawnBubbleWall();
 void zFX_SceneReset();
 void zFXGoo_SceneExit();
 void zFXGoo_SceneReset();
+void zFX_SpawnBubbleSlam(xVec3 const* pos, uint32 num, float32 rang, float32 bvel, float32 rvel);
 
 #endif

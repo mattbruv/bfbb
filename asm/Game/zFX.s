@@ -67,30 +67,6 @@ lbl_80092DF4:
 /* 80092E20 0008FC20  38 21 00 40 */	addi r1, r1, 0x40
 /* 80092E24 0008FC24  4E 80 00 20 */	blr 
 
-.global zFXHammer__FPC5xVec3
-zFXHammer__FPC5xVec3:
-/* 80092ED0 0008FCD0  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 80092ED4 0008FCD4  7C 08 02 A6 */	mflr r0
-/* 80092ED8 0008FCD8  3C 80 80 26 */	lis r4, lbl_8025BC88@ha
-/* 80092EDC 0008FCDC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80092EE0 0008FCE0  38 84 BC 88 */	addi r4, r4, lbl_8025BC88@l
-/* 80092EE4 0008FCE4  93 E1 00 0C */	stw r31, 0xc(r1)
-/* 80092EE8 0008FCE8  7C 7F 1B 78 */	mr r31, r3
-/* 80092EEC 0008FCEC  4B F9 3E 61 */	bl xFXRingCreate__FPC5xVec3PC7xFXRing
-/* 80092EF0 0008FCF0  4B F9 DD 79 */	bl xrand__Fv
-/* 80092EF4 0008FCF4  54 64 06 FE */	clrlwi r4, r3, 0x1b
-/* 80092EF8 0008FCF8  C0 22 8F E8 */	lfs f1, lbl_803CD968-_SDA2_BASE_(r2)
-/* 80092EFC 0008FCFC  C0 42 8F EC */	lfs f2, lbl_803CD96C-_SDA2_BASE_(r2)
-/* 80092F00 0008FD00  7F E3 FB 78 */	mr r3, r31
-/* 80092F04 0008FD04  C0 62 8F F0 */	lfs f3, lbl_803CD970-_SDA2_BASE_(r2)
-/* 80092F08 0008FD08  38 84 00 20 */	addi r4, r4, 0x20
-/* 80092F0C 0008FD0C  48 00 27 3D */	bl zFX_SpawnBubbleSlam__FPC5xVec3Uifff
-/* 80092F10 0008FD10  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 80092F14 0008FD14  83 E1 00 0C */	lwz r31, 0xc(r1)
-/* 80092F18 0008FD18  7C 08 03 A6 */	mtlr r0
-/* 80092F1C 0008FD1C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80092F20 0008FD20  4E 80 00 20 */	blr 
-
 .global zFXMuscleArmWave__FPC5xVec3
 zFXMuscleArmWave__FPC5xVec3:
 /* 80092F6C 0008FD6C  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -5016,7 +4992,8 @@ lbl_8025BB28:
 sPatrickStunRing:
 	.incbin "baserom.dol", 0x258B78, 0xF0
 
-lbl_8025BC88:
+.global sHammerRing
+sHammerRing:
 	.incbin "baserom.dol", 0x258C68, 0x3C
 
 .global sPorterRing
@@ -5141,12 +5118,19 @@ soaktime:
 	.incbin "baserom.dol", 0x2B5BDC, 0x4
 
 .section .sdata2
+
+.global lbl_803CD968
 lbl_803CD968:
 	.incbin "baserom.dol", 0x2B7208, 0x4
+
+.global lbl_803CD96C
 lbl_803CD96C:
 	.incbin "baserom.dol", 0x2B720C, 0x4
+
+.global lbl_803CD970
 lbl_803CD970:
 	.incbin "baserom.dol", 0x2B7210, 0x4
+
 lbl_803CD974:
 	.incbin "baserom.dol", 0x2B7214, 0x4
 lbl_803CD978:

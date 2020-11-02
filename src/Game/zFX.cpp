@@ -1,11 +1,17 @@
 #include <types.h>
 #include <rpworld.h>
 #include "../Core/x/xFX.h"
+#include "../Core/x/xMath.h"
 #include "../Core/x/xVec3.h"
 #include "zFX.h"
 
-extern xFXRing sPatrickStunRing[3];
+extern xFXRing sHammerRing[1];
 extern xFXRing sPorterRing[2];
+extern xFXRing sPatrickStunRing[3];
+
+extern float32 lbl_803CD968; // 0.15000000596
+extern float32 lbl_803CD96C; // 12.0
+extern float32 lbl_803CD970; // 2.0
 
 void on_spawn_bubble_wall(tweak_info const& tweak)
 {
@@ -35,8 +41,11 @@ void zFXPatrickStun(xVec3* pos)
     xFXRingCreate(pos, &sPatrickStunRing[2]);
 }
 
-// func_80092ED0
-#pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXHammer__FPC5xVec3")
+void zFXHammer(xVec3* pos)
+{
+    xFXRingCreate(pos, &sHammerRing[0]);
+    zFX_SpawnBubbleSlam(pos, (xrand() & 0x1f) + 0x20, lbl_803CD968, lbl_803CD96C, lbl_803CD970);
+}
 
 void zFXPorterWave(xVec3* pos)
 {
