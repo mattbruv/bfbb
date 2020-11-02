@@ -1,11 +1,14 @@
 #include <types.h>
 #include <rpworld.h>
 #include "../Core/x/xFX.h"
+#include "../Core/x/xVec3.h"
 #include "zFX.h"
+
+extern xFXRing sPatrickStunRing[3];
 
 void on_spawn_bubble_wall(tweak_info const& tweak)
 {
-    zFX_SpawnBubbleWall();
+    zFX_SpawnBubbleWall(); //
 }
 
 // func_80092D3C
@@ -24,8 +27,12 @@ void zFX_SceneReset()
     reset_entrails();
 }
 
-// func_80092E74
-#pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXPatrickStun__FPC5xVec3")
+void zFXPatrickStun(xVec3* pos)
+{
+    xFXRingCreate(pos, &sPatrickStunRing[0]);
+    xFXRingCreate(pos, &sPatrickStunRing[1]);
+    xFXRingCreate(pos, &sPatrickStunRing[2]);
+}
 
 // func_80092ED0
 #pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXHammer__FPC5xVec3")
