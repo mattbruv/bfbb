@@ -5,18 +5,16 @@
 #include "zFMV.h"
 #include "zGameState.h"
 
-// extern int8 zFMVStrings[0x10];
-
 zFMVFile zFMVFileTable[] = {
-    { eFMVFile_PromoFOP, "FMV\\FOP" }, // asdlkjfa;sldkjfas;lkdfjas;l
-    { eFMVFile_PromoTak, "FMV\\Tak" }, // asdlkjfa;sldkjfas;lkdfjas;l
-    { eFMVFile_PromoJN, "FMV\\JN" }, // asdlkjfa;sldkjfas;lkdfjas;l
-    { eFMVFile_PromoSB, "FMV\\SB" }, // asdlkjfa;sldkjfas;lkdfjas;l
-    { eFMVFile_LogoHeavyIron, "FMV\\HILogo" }, // asdlkjfa;sldkjfas;lkdfjas;l
-    { eFMVFile_LogoTHQ, "FMV\\THQLogo" }, // asdlkjfa;sldkjfas;lkdfjas;l
-    { eFMVFile_LogoNick, "FMV\\NickLogo" }, // asdlkjfa;sldkjfas;lkdfjas;l
-    { eFMVFile_LogoRW, "FMV\\RWLogo" }, // asdlkjfa;sldkjfas;lkdfjas;l
-    { eFMVFile_Demo1, "FMV\\demo1" }, // asdlkjfa;sldkjfas;lkdfjas;l
+    { eFMVFile_PromoFOP, "FMV\\FOP" }, // Fairly Odd Parents
+    { eFMVFile_PromoTak, "FMV\\Tak" }, // Tak and the Power of Juju
+    { eFMVFile_PromoJN, "FMV\\JN" }, // Jimmy Neutron
+    { eFMVFile_PromoSB, "FMV\\SB" }, // SpongeBob DVD set
+    { eFMVFile_LogoHeavyIron, "FMV\\HILogo" }, // Heavy Iron Logo
+    { eFMVFile_LogoTHQ, "FMV\\THQLogo" }, // THQ Logo
+    { eFMVFile_LogoNick, "FMV\\NickLogo" }, // Nickelodeon Logo
+    { eFMVFile_LogoRW, "FMV\\RWLogo" }, // RenderWare Logo
+    { eFMVFile_Demo1, "FMV\\demo1" }, // Gameplay Demo (Idle)
 };
 
 uint32 zFMVPlay(int8* filename, uint32 buttons, float32 time, bool skippable, bool lockController)
@@ -54,5 +52,6 @@ int8* zFMVFileGetName(eFMVFile fileEnum)
             return zFMVFileTable[i].fileName;
         }
     }
+
     return NULL;
 }
