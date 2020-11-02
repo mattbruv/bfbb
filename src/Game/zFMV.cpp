@@ -10,7 +10,6 @@ extern int8 zFMVStrings[0x10];
 extern zFMVFile zFMVFileTable[9];
 // align to 8 if problems
 
-#if 1
 uint32 zFMVPlay(int8* filename, uint32 buttons, float32 time, bool skippable, bool lockController)
 {
     int8 fullname[64];
@@ -39,10 +38,6 @@ uint32 zFMVPlay(int8* filename, uint32 buttons, float32 time, bool skippable, bo
 
     return ret;
 }
-#else
-// func_80092BEC
-#pragma GLOBAL_ASM("asm/Game/zFMV.s", "zFMVPlay__FPcUifbb")
-#endif
 
 int8* zFMVFileGetName(eFMVFile fileEnum)
 {
