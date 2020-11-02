@@ -1,11 +1,48 @@
 #include "zFMV.h"
 
 #include <types.h>
+#include <CodeWarrior/stdio.h>
+#include "../Core/p2/iFMV.h"
+#include "../Core/x/xSnd.h"
+#include "zGameState.h"
 
+extern int8* zFMVStrings;
 extern zFMVFile zFMVFileTable[9];
+// align to 8 if problems
 
+#if 0
+uint32 zFMVPlay(int8* filename, uint32 buttons, float32 time, bool skippable, bool lockController)
+{
+    int8 fullname[64];
+    _GameOstrich old;
+    uint32 ret = 0;
+
+    if (filename == NULL)
+    {
+        return 1;
+    }
+    else
+    {
+        while (*filename == '/' || *filename == '\\')
+        {
+            filename++;
+        }
+
+        sprintf(fullname, zFMVStrings); //, filename, zFMVStrings + 5);
+        xSndSuspend();
+        old = zGameGetOstrich();
+        zGameSetOstrich(eGameOstrich_PlayingMovie);
+        ret = iFMVPlay(fullname, buttons, time, skippable, lockController);
+        zGameSetOstrich(old);
+        xSndResume();
+    }
+
+    return ret;
+}
+#else
 // func_80092BEC
 #pragma GLOBAL_ASM("asm/Game/zFMV.s", "zFMVPlay__FPcUifbb")
+#endif
 
 int8* zFMVFileGetName(eFMVFile fileEnum)
 {
