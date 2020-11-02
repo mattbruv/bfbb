@@ -6,10 +6,11 @@
 #include "zFX.h"
 
 extern xFXRing sHammerRing[1];
+extern xFXRing sMuscleArmRing[1];
 extern xFXRing sPorterRing[2];
 extern xFXRing sPatrickStunRing[3];
 
-extern float32 lbl_803CD968; // 0.15000000596
+extern float32 lbl_803CD968; // 0.15
 extern float32 lbl_803CD96C; // 12.0
 extern float32 lbl_803CD970; // 2.0
 
@@ -54,8 +55,10 @@ void zFXPorterWave(xVec3* pos)
     xFXRingCreate(pos, &sPorterRing[1]);
 }
 
-// func_80092F6C
-#pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXMuscleArmWave__FPC5xVec3")
+xFXRing* zFXMuscleArmWave(xVec3* pos)
+{
+    xFXRingCreate(pos, &sMuscleArmRing[0]);
+}
 
 // func_80092F94
 #pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXGooEnable__FP8RpAtomici")

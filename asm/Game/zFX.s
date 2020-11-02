@@ -67,19 +67,6 @@ lbl_80092DF4:
 /* 80092E20 0008FC20  38 21 00 40 */	addi r1, r1, 0x40
 /* 80092E24 0008FC24  4E 80 00 20 */	blr 
 
-.global zFXMuscleArmWave__FPC5xVec3
-zFXMuscleArmWave__FPC5xVec3:
-/* 80092F6C 0008FD6C  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 80092F70 0008FD70  7C 08 02 A6 */	mflr r0
-/* 80092F74 0008FD74  3C 80 80 26 */	lis r4, lbl_8025BD3C@ha
-/* 80092F78 0008FD78  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80092F7C 0008FD7C  38 84 BD 3C */	addi r4, r4, lbl_8025BD3C@l
-/* 80092F80 0008FD80  4B F9 3D CD */	bl xFXRingCreate__FPC5xVec3PC7xFXRing
-/* 80092F84 0008FD84  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 80092F88 0008FD88  7C 08 03 A6 */	mtlr r0
-/* 80092F8C 0008FD8C  38 21 00 10 */	addi r1, r1, 0x10
-/* 80092F90 0008FD90  4E 80 00 20 */	blr 
-
 .global zFXGooEnable__FP8RpAtomici
 zFXGooEnable__FP8RpAtomici:
 /* 80092F94 0008FD94  94 21 FF A0 */	stwu r1, -0x60(r1)
@@ -5000,8 +4987,10 @@ sHammerRing:
 sPorterRing:
 	.incbin "baserom.dol", 0x258CA4, 0x78
 
-lbl_8025BD3C:
+.global sMuscleArmRing
+sMuscleArmRing:
 	.incbin "baserom.dol", 0x258D1C, 0x3C
+
 lbl_8025BD78:
 	.incbin "baserom.dol", 0x258D58, 0x10
 lbl_8025BD88:
