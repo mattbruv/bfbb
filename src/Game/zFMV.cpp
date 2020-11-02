@@ -6,7 +6,7 @@
 #include "../Core/x/xSnd.h"
 #include "zGameState.h"
 
-extern int8* zFMVStrings;
+extern int8* zFMVStrings[0x10];
 extern zFMVFile zFMVFileTable[9];
 // align to 8 if problems
 
@@ -28,7 +28,7 @@ uint32 zFMVPlay(int8* filename, uint32 buttons, float32 time, bool skippable, bo
             filename++;
         }
 
-        sprintf(fullname, zFMVStrings); //, filename, zFMVStrings + 5);
+        sprintf(fullname, zFMVStrings[0], filename, zFMVStrings[5]);
         xSndSuspend();
         old = zGameGetOstrich();
         zGameSetOstrich(eGameOstrich_PlayingMovie);
