@@ -5,6 +5,7 @@
 #include "zFX.h"
 
 extern xFXRing sPatrickStunRing[3];
+extern xFXRing sPorterRing[2];
 
 void on_spawn_bubble_wall(tweak_info const& tweak)
 {
@@ -37,8 +38,11 @@ void zFXPatrickStun(xVec3* pos)
 // func_80092ED0
 #pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXHammer__FPC5xVec3")
 
-// func_80092F24
-#pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXPorterWave__FPC5xVec3")
+void zFXPorterWave(xVec3* pos)
+{
+    xFXRingCreate(pos, &sPorterRing[0]);
+    xFXRingCreate(pos, &sPorterRing[1]);
+}
 
 // func_80092F6C
 #pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXMuscleArmWave__FPC5xVec3")

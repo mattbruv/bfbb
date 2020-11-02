@@ -91,27 +91,6 @@ zFXHammer__FPC5xVec3:
 /* 80092F1C 0008FD1C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80092F20 0008FD20  4E 80 00 20 */	blr 
 
-.global zFXPorterWave__FPC5xVec3
-zFXPorterWave__FPC5xVec3:
-/* 80092F24 0008FD24  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 80092F28 0008FD28  7C 08 02 A6 */	mflr r0
-/* 80092F2C 0008FD2C  3C 80 80 26 */	lis r4, lbl_8025BCC4@ha
-/* 80092F30 0008FD30  90 01 00 14 */	stw r0, 0x14(r1)
-/* 80092F34 0008FD34  38 84 BC C4 */	addi r4, r4, lbl_8025BCC4@l
-/* 80092F38 0008FD38  93 E1 00 0C */	stw r31, 0xc(r1)
-/* 80092F3C 0008FD3C  7C 7F 1B 78 */	mr r31, r3
-/* 80092F40 0008FD40  4B F9 3E 0D */	bl xFXRingCreate__FPC5xVec3PC7xFXRing
-/* 80092F44 0008FD44  3C 80 80 26 */	lis r4, lbl_8025BCC4@ha
-/* 80092F48 0008FD48  7F E3 FB 78 */	mr r3, r31
-/* 80092F4C 0008FD4C  38 84 BC C4 */	addi r4, r4, lbl_8025BCC4@l
-/* 80092F50 0008FD50  38 84 00 3C */	addi r4, r4, 0x3c
-/* 80092F54 0008FD54  4B F9 3D F9 */	bl xFXRingCreate__FPC5xVec3PC7xFXRing
-/* 80092F58 0008FD58  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 80092F5C 0008FD5C  83 E1 00 0C */	lwz r31, 0xc(r1)
-/* 80092F60 0008FD60  7C 08 03 A6 */	mtlr r0
-/* 80092F64 0008FD64  38 21 00 10 */	addi r1, r1, 0x10
-/* 80092F68 0008FD68  4E 80 00 20 */	blr 
-
 .global zFXMuscleArmWave__FPC5xVec3
 zFXMuscleArmWave__FPC5xVec3:
 /* 80092F6C 0008FD6C  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -5032,13 +5011,18 @@ lbl_8025BA30:
 	.incbin "baserom.dol", 0x258A10, 0xF8
 lbl_8025BB28:
 	.incbin "baserom.dol", 0x258B08, 0x70
+
 .global sPatrickStunRing
 sPatrickStunRing:
 	.incbin "baserom.dol", 0x258B78, 0xF0
+
 lbl_8025BC88:
 	.incbin "baserom.dol", 0x258C68, 0x3C
-lbl_8025BCC4:
+
+.global sPorterRing
+sPorterRing:
 	.incbin "baserom.dol", 0x258CA4, 0x78
+
 lbl_8025BD3C:
 	.incbin "baserom.dol", 0x258D1C, 0x3C
 lbl_8025BD78:
