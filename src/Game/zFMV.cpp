@@ -46,7 +46,7 @@ uint32 zFMVPlay(int8* filename, uint32 buttons, float32 time, bool skippable, bo
 
 int8* zFMVFileGetName(eFMVFile fileEnum)
 {
-    for (int32 i = 0; i < 9; i++)
+    for (int32 i = 0; i < eFMVFileCount; i++)
     {
         if (fileEnum == zFMVFileTable[i].type)
         {
