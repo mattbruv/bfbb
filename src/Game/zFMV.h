@@ -26,4 +26,7 @@ struct zFMVFile
     int8 fileName[32];
 };
 
+uint32 zFMVPlay(int8* filename, uint32 buttons, float32 time, bool skippable, bool lockController);
+int8* zFMVFileGetName(eFMVFile fileEnum);
+
 #endif
