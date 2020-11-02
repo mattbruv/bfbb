@@ -1,4 +1,6 @@
 #include <types.h>
+#include <rpworld.h>
+#include "../Core/x/xFX.h"
 #include "zFX.h"
 
 void on_spawn_bubble_wall(tweak_info const& tweak)
@@ -9,8 +11,11 @@ void on_spawn_bubble_wall(tweak_info const& tweak)
 // func_80092D3C
 #pragma GLOBAL_ASM("asm/Game/zFX.s", "zFX_SceneEnter__FP7RpWorld")
 
-// func_80092E28
-#pragma GLOBAL_ASM("asm/Game/zFX.s", "zFX_SceneExit__FP7RpWorld")
+void zFX_SceneExit(RpWorld* world)
+{
+    xFX_SceneExit(world);
+    zFXGoo_SceneExit();
+}
 
 // func_80092E4C
 #pragma GLOBAL_ASM("asm/Game/zFX.s", "zFX_SceneReset__Fv")

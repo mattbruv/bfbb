@@ -92,5 +92,6 @@ struct tweak_info
 };
 
 void zFX_SpawnBubbleWall();
+void zFXGoo_SceneExit();
 
 #endif
