@@ -91,7 +91,11 @@ struct tweak_info
     };
 };
 
+void reset_poppers();
+void reset_entrails();
 void zFX_SpawnBubbleWall();
+void zFX_SceneReset();
 void zFXGoo_SceneExit();
+void zFXGoo_SceneReset();
 
 #endif

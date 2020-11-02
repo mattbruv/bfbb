@@ -17,8 +17,12 @@ void zFX_SceneExit(RpWorld* world)
     zFXGoo_SceneExit();
 }
 
-// func_80092E4C
-#pragma GLOBAL_ASM("asm/Game/zFX.s", "zFX_SceneReset__Fv")
+void zFX_SceneReset()
+{
+    zFXGoo_SceneReset();
+    reset_poppers();
+    reset_entrails();
+}
 
 // func_80092E74
 #pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXPatrickStun__FPC5xVec3")
