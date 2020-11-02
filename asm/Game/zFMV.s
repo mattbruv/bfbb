@@ -10,6 +10,8 @@ zFMVStrings:
 
 .section .data
 
+/*
 .global zFMVFileTable
 zFMVFileTable:
 	.incbin "baserom.dol", 0x28BE78, 0x148
+*/

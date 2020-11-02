@@ -3,6 +3,8 @@
 
 #include <types.h>
 
+// this enum on Gamecube doesn't match the PS2.
+// Apparently the PS2 has more videos.
 enum eFMVFile
 {
     eFMVFile_PromoFOP,
@@ -14,9 +16,6 @@ enum eFMVFile
     eFMVFile_LogoRW,
     eFMVFile_LogoTHQ,
     eFMVFile_Demo1,
-    eFMVFile_Demo2,
-    eFMVFile_Demo3,
-    eFMVFile_LogoPixar,
     eFMVFileCount
 };
 
