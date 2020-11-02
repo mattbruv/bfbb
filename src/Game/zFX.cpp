@@ -8,7 +8,7 @@ extern xFXRing sPatrickStunRing[3];
 
 void on_spawn_bubble_wall(tweak_info const& tweak)
 {
-    zFX_SpawnBubbleWall(); //
+    zFX_SpawnBubbleWall();
 }
 
 // func_80092D3C
