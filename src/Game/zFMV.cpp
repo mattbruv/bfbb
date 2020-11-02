@@ -5,7 +5,7 @@
 #include "zFMV.h"
 #include "zGameState.h"
 
-extern int8 zFMVStrings[0x10];
+// extern int8 zFMVStrings[0x10];
 
 zFMVFile zFMVFileTable[] = {
     { eFMVFile_PromoFOP, "FMV\\FOP" }, // asdlkjfa;sldkjfas;lkdfjas;l
@@ -23,6 +23,7 @@ uint32 zFMVPlay(int8* filename, uint32 buttons, float32 time, bool skippable, bo
 {
     int8 fullname[64];
     uint32 ret;
+
     if (filename == NULL)
     {
         return 1;
@@ -33,7 +34,7 @@ uint32 zFMVPlay(int8* filename, uint32 buttons, float32 time, bool skippable, bo
         filename++;
     }
 
-    sprintf(fullname, zFMVStrings, filename, (zFMVStrings + 5));
+    sprintf(fullname, "%s%s", filename, ".bik");
     xSndSuspend();
     _GameOstrich old = zGameGetOstrich();
     zGameSetOstrich(eGameOstrich_PlayingMovie);
