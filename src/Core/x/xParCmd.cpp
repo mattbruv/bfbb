@@ -1,6 +1,8 @@
-#include "xParCmd.h"
-
 #include <types.h>
+
+#include "xMath3.h"
+#include "xVec3.h"
+#include "xParCmd.h"
 
 // func_80036B8C
 #pragma GLOBAL_ASM("asm/Core/x/xParCmd.s", "xParCmdInit__Fv")
@@ -54,7 +56,8 @@
 #pragma GLOBAL_ASM("asm/Core/x/xParCmd.s", "xParCmdAlpha3rdPolyReg_Update__FP7xParCmdP9xParGroupf")
 
 // func_800374C8
-#pragma GLOBAL_ASM("asm/Core/x/xParCmd.s", "xParCmdRandomVelocityPar_Update__FP7xParCmdP9xParGroupf")
+#pragma GLOBAL_ASM("asm/Core/x/xParCmd.s",                                                         \
+                   "xParCmdRandomVelocityPar_Update__FP7xParCmdP9xParGroupf")
 
 // func_800375BC
 #pragma GLOBAL_ASM("asm/Core/x/xParCmd.s", "xParCmdApplyWind_Update__FP7xParCmdP9xParGroupf")
@@ -78,7 +81,8 @@
 #pragma GLOBAL_ASM("asm/Core/x/xParCmd.s", "xParCmdCollideFall_Update__FP7xParCmdP9xParGroupf")
 
 // func_80037CF8
-#pragma GLOBAL_ASM("asm/Core/x/xParCmd.s", "xParCmdCollideFallSticky_Update__FP7xParCmdP9xParGroupf")
+#pragma GLOBAL_ASM("asm/Core/x/xParCmd.s",                                                         \
+                   "xParCmdCollideFallSticky_Update__FP7xParCmdP9xParGroupf")
 
 // func_80037D7C
 #pragma GLOBAL_ASM("asm/Core/x/xParCmd.s", "xParCmd_DampenSpeed_Update__FP7xParCmdP9xParGroupf")
@@ -96,4 +100,59 @@
 #pragma GLOBAL_ASM("asm/Core/x/xParCmd.s", "xVec3LengthFast__Ffff")
 
 // func_800383C4
+#if 0
+void xMat3x3RMulVec(xVec3* o, xMat3x3* m, xVec3* v)
+{
+    /*
+    float32 f3 = v->y;
+    float32 f0 = m->up.x;
+    float32 f2 = m->up.y;
+    f0 = f0 * f3;
+
+    float32 f6 = v->x;
+    float32 f1 = m->right.x;
+    float32 f4 = f2 * f3;
+
+    f2 = m->up.z;
+    float32 f5 = m->right.y;
+    // 1 = 2 * 3 + 4
+    f0 = (f1 * f6) + f0;
+
+    float32 f7 = v->z;
+    f1 = m->at.x;
+    f2 = f2 * f3;
+
+    f3 = m->right.z;
+    f4 = (f5 * f6) + f4;
+    f0 = (f1 * f7) + f0;
+
+    f5 = m->at.y;
+    f1 = (f3 * f6) + f2;
+    f2 = m->at.z;
+    f3 = (f5 * f7) + f4;
+
+    o->x = f0;
+    f0 = (f2 * f7) + f1;
+    o->y = f3;
+    o->z = f0;
+    return;
+    */
+
+    /*
+    float32 fVar1 = v->y;
+    float32 fVar2 = m->up.y;
+    float32 fVar3 = v->x;
+    float32 fVar4 = m->up.z;
+    float32 fVar5 = m->right.y;
+    float32 fVar6 = v->z;
+    float32 fVar7 = m->right.z;
+    float32 fVar8 = m->at.y;
+    float32 fVar9 = m->at.z;
+
+    o->x = m->at.x * fVar6 + m->right.x * fVar3 + m->up.x * fVar1;
+    o->y = fVar8 * fVar6 + fVar5 * fVar3 + fVar2 * fVar1;
+    o->z = fVar9 * fVar6 + fVar7 * fVar3 + fVar4 * fVar1;*/
+}
+#else
 #pragma GLOBAL_ASM("asm/Core/x/xParCmd.s", "xMat3x3RMulVec__FP5xVec3PC7xMat3x3PC5xVec3")
+#endif
