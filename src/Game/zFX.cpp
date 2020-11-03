@@ -57,7 +57,8 @@ void zFXPorterWave(xVec3* pos)
     xFXRingCreate(pos, &sPorterRing[1]);
 }
 
-xFXRing* zFXMuscleArmWave(xVec3* pos)
+// Dwarf data says this returns an xFXRing*, but symbols say it's void
+void zFXMuscleArmWave(xVec3* pos)
 {
     xFXRingCreate(pos, &sMuscleArmRing[0]);
 }
@@ -65,15 +66,8 @@ xFXRing* zFXMuscleArmWave(xVec3* pos)
 // func_80092F94
 #pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXGooEnable__FP8RpAtomici")
 
-#if 0
-void zFXGoo_SceneEnter()
-{
-
-}
-#else
 // func_8009337C
 #pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXGoo_SceneEnter__Fv")
-#endif
 
 // func_80093404
 #pragma GLOBAL_ASM("asm/Game/zFX.s", "zFXGoo_SceneReset__Fv")
