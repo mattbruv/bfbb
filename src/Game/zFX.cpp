@@ -48,7 +48,7 @@ void zFXHammer(xVec3* pos)
 {
     xFXRingCreate(pos, &sHammerRing[0]);
     // weird xrand arithmetic might have something to do with signed integers
-    zFX_SpawnBubbleSlam(pos, (xrand() & 0x1f) + 0x20, lbl_803CD968, lbl_803CD96C, lbl_803CD970);
+    zFX_SpawnBubbleSlam(pos, (xrand() & 31) + 32, lbl_803CD968, lbl_803CD96C, lbl_803CD970);
 }
 
 void zFXPorterWave(xVec3* pos)
@@ -57,7 +57,7 @@ void zFXPorterWave(xVec3* pos)
     xFXRingCreate(pos, &sPorterRing[1]);
 }
 
-// Dwarf data says this returns an xFXRing*, but symbols say it's void
+// PS2 dwarf data says this returns an xFXRing*, but gamecube symbols say it's void
 void zFXMuscleArmWave(xVec3* pos)
 {
     xFXRingCreate(pos, &sMuscleArmRing[0]);

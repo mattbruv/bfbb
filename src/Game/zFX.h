@@ -2,6 +2,7 @@
 #define ZFX_H
 
 #include <types.h>
+#include "../Core/x/xString.h"
 
 enum zFXGooState
 {
@@ -35,13 +36,8 @@ struct zFXGooInstance
     xVec3 pos_parentOnFreeze;
 };
 
+// TODO: figure out the best place for this struct
 typedef struct tweak_info;
-
-struct substr
-{
-    int8* text;
-    uint32 size;
-};
 
 struct _class_13
 {
