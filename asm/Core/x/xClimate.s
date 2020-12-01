@@ -96,7 +96,7 @@ xClimateInitAsset__FP11_tagClimateP9xEnvAsset:
 /* 8000EA84 0000B884  93 C1 00 08 */	stw r30, 8(r1)
 /* 8000EA88 0000B888  7C 7E 1B 78 */	mr r30, r3
 /* 8000EA8C 0000B88C  38 7E 00 18 */	addi r3, r30, 0x18
-/* 8000EA90 0000B890  93 CD 88 88 */	stw r30, lbl_803CB188-_SDA_BASE_(r13)
+/* 8000EA90 0000B890  93 CD 88 88 */	stw r30, sClimate-_SDA_BASE_(r13)
 /* 8000EA94 0000B894  C0 02 80 F0 */	lfs f0, lbl_803CCA70-_SDA2_BASE_(r2)
 /* 8000EA98 0000B898  D0 1E 00 10 */	stfs f0, 0x10(r30)
 /* 8000EA9C 0000B89C  C0 3E 00 14 */	lfs f1, 0x14(r30)
@@ -150,19 +150,19 @@ lbl_8000EB38:
 
 .global xClimateSetSnow__Ff
 xClimateSetSnow__Ff:
-/* 8000EB50 0000B950  80 6D 88 88 */	lwz r3, lbl_803CB188-_SDA_BASE_(r13)
+/* 8000EB50 0000B950  80 6D 88 88 */	lwz r3, sClimate-_SDA_BASE_(r13)
 /* 8000EB54 0000B954  38 00 00 00 */	li r0, 0
 /* 8000EB58 0000B958  90 03 00 00 */	stw r0, 0(r3)
-/* 8000EB5C 0000B95C  80 6D 88 88 */	lwz r3, lbl_803CB188-_SDA_BASE_(r13)
+/* 8000EB5C 0000B95C  80 6D 88 88 */	lwz r3, sClimate-_SDA_BASE_(r13)
 /* 8000EB60 0000B960  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8000EB64 0000B964  4E 80 00 20 */	blr 
 
 .global xClimateSetRain__Ff
 xClimateSetRain__Ff:
-/* 8000EB68 0000B968  80 6D 88 88 */	lwz r3, lbl_803CB188-_SDA_BASE_(r13)
+/* 8000EB68 0000B968  80 6D 88 88 */	lwz r3, sClimate-_SDA_BASE_(r13)
 /* 8000EB6C 0000B96C  38 00 00 01 */	li r0, 1
 /* 8000EB70 0000B970  90 03 00 00 */	stw r0, 0(r3)
-/* 8000EB74 0000B974  80 6D 88 88 */	lwz r3, lbl_803CB188-_SDA_BASE_(r13)
+/* 8000EB74 0000B974  80 6D 88 88 */	lwz r3, sClimate-_SDA_BASE_(r13)
 /* 8000EB78 0000B978  D0 23 00 04 */	stfs f1, 4(r3)
 /* 8000EB7C 0000B97C  4E 80 00 20 */	blr 
 
@@ -507,7 +507,8 @@ xMat3x3Copy__FP7xMat3x3PC7xMat3x3:
 
 .section .sbss
 .balign 8
-lbl_803CB188:
+.global sClimate
+sClimate:
 	.skip 0x8
 
 .section .sdata2

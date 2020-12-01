@@ -11,6 +11,7 @@ void memcpy(void* a, const void*b, int32 size);
 
 extern xGlobals xglobals;
 extern float32 xClimate_f_10_0;
+extern _tagClimate* sClimate;
 
 // func_8000E96C
 #pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xClimateVecFromAngle__FfP5xVec3")
@@ -21,11 +22,17 @@ extern float32 xClimate_f_10_0;
 // func_8000EA70
 #pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xClimateInitAsset__FP11_tagClimateP9xEnvAsset")
 
-// func_8000EB50
-#pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xClimateSetSnow__Ff")
+void xClimateSetSnow(float32 stre)
+{
+    sClimate->rain.rain = 0;
+    sClimate->rain.strength = stre;
+}
 
-// func_8000EB68
-#pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xClimateSetRain__Ff")
+void xClimateSetRain(float32 stre)
+{
+    sClimate->rain.rain = 1;
+    sClimate->rain.strength = stre;
+}
 
 // func_8000EB80
 #if 1
