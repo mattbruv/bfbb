@@ -28,11 +28,16 @@ void memcpy(void* a, const void*b, int32 size);
 // func_8000EBC4
 #pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "UpdateRain__FP11_tagClimatef")
 
-// func_8000EFB4
-#pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "UpdateWind__FP11_tagClimatef")
+void UpdateWind(_tagClimate* climate, float32 seconds)
+{
+    return;
+}
 
-// func_8000EFB8
-#pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xClimateUpdate__FP11_tagClimatef")
+void xClimateUpdate(_tagClimate* climate, float32 seconds)
+{
+    UpdateRain(climate, seconds);
+    UpdateWind(climate, seconds);
+}
 
 void xVec3Init(xVec3* vec, float32 x, float32 y, float32 z)
 {
