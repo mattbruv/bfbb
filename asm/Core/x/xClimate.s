@@ -168,17 +168,17 @@ xClimateSetRain__Ff:
 
 GetPosBigDogWhattupFool__FP5xVec3:
 /* 8000EB80 0000B980  80 8D 82 B0 */	lwz r4, xglobals-_SDA_BASE_(r13)
-/* 8000EB84 0000B984  C0 42 80 FC */	lfs f2, lbl_803CCA7C-_SDA2_BASE_(r2)
+/* 8000EB84 0000B984  C0 42 80 FC */	lfs f2, xClimate_f_10_0-_SDA2_BASE_(r2)
 /* 8000EB88 0000B988  C0 24 00 34 */	lfs f1, 0x34(r4)
 /* 8000EB8C 0000B98C  C0 04 00 44 */	lfs f0, 0x44(r4)
 /* 8000EB90 0000B990  EC 02 00 7A */	fmadds f0, f2, f1, f0
 /* 8000EB94 0000B994  D0 03 00 00 */	stfs f0, 0(r3)
-/* 8000EB98 0000B998  C0 42 80 FC */	lfs f2, lbl_803CCA7C-_SDA2_BASE_(r2)
+/* 8000EB98 0000B998  C0 42 80 FC */	lfs f2, xClimate_f_10_0-_SDA2_BASE_(r2)
 /* 8000EB9C 0000B99C  C0 24 00 38 */	lfs f1, 0x38(r4)
 /* 8000EBA0 0000B9A0  C0 04 00 48 */	lfs f0, 0x48(r4)
 /* 8000EBA4 0000B9A4  EC 02 00 7A */	fmadds f0, f2, f1, f0
 /* 8000EBA8 0000B9A8  D0 03 00 04 */	stfs f0, 4(r3)
-/* 8000EBAC 0000B9AC  C0 42 80 FC */	lfs f2, lbl_803CCA7C-_SDA2_BASE_(r2)
+/* 8000EBAC 0000B9AC  C0 42 80 FC */	lfs f2, xClimate_f_10_0-_SDA2_BASE_(r2)
 /* 8000EBB0 0000B9B0  C0 24 00 3C */	lfs f1, 0x3c(r4)
 /* 8000EBB4 0000B9B4  C0 04 00 4C */	lfs f0, 0x4c(r4)
 /* 8000EBB8 0000B9B8  EC 02 00 7A */	fmadds f0, f2, f1, f0
@@ -521,8 +521,11 @@ lbl_803CCA74:
 	.incbin "baserom.dol", 0x2B6314, 0x4
 lbl_803CCA78:
 	.incbin "baserom.dol", 0x2B6318, 0x4
-lbl_803CCA7C:
+
+.global xClimate_f_10_0
+xClimate_f_10_0:
 	.incbin "baserom.dol", 0x2B631C, 0x4
+
 lbl_803CCA80:
 	.incbin "baserom.dol", 0x2B6320, 0x4
 lbl_803CCA84:

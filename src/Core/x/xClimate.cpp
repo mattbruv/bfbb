@@ -1,11 +1,16 @@
 #include <types.h>
 #include "xVec3.h"
+#include "xGlobals.h"
 #include "xClimate.h"
 #include "xMath3.h"
 
+// TODO: figure out where to put this
 extern "C" {
 void memcpy(void* a, const void*b, int32 size);
 }
+
+extern xGlobals xglobals;
+extern float32 xClimate_f_10_0;
 
 // func_8000E96C
 #pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xClimateVecFromAngle__FfP5xVec3")
@@ -23,7 +28,16 @@ void memcpy(void* a, const void*b, int32 size);
 #pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xClimateSetRain__Ff")
 
 // func_8000EB80
+#if 1
 #pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "GetPosBigDogWhattupFool__FP5xVec3")
+#else
+void GetPosBigDogWhattupFool(xVec3* vec)
+{
+    vec->x = xClimate_f_10_0 * (xglobals.camera.mat.at.x + xglobals.camera.mat.pos.x);
+    vec->y = xClimate_f_10_0 * (xglobals.camera.mat.at.y + xglobals.camera.mat.pos.y);
+    vec->z = xClimate_f_10_0 * (xglobals.camera.mat.at.z + xglobals.camera.mat.pos.z);
+}
+#endif
 
 // func_8000EBC4
 #pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "UpdateRain__FP11_tagClimatef")
