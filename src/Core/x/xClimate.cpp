@@ -41,8 +41,11 @@ void xVec3Init(xVec3* vec, float32 x, float32 y, float32 z)
     vec->z = z;
 }
 
-// func_8000F00C
-#pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xMat3x3Identity__FP7xMat3x3")
+void xMat3x3Identity(xMat3x3* matrix)
+{
+    // TODO: figure out what/where this global variable is
+    xMat3x3Copy(matrix, (xMat3x3*)0x8038c2e0);
+}
 
 void xMat3x3Copy(xMat3x3* m1, const xMat3x3* m2)
 {
