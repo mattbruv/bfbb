@@ -49,40 +49,6 @@ xClimateVecFromAngle__FfP5xVec3:
 /* 8000E9EC 0000B7EC  38 21 00 50 */	addi r1, r1, 0x50
 /* 8000E9F0 0000B7F0  4E 80 00 20 */	blr 
 
-.global xClimateInit__FP11_tagClimate
-xClimateInit__FP11_tagClimate:
-/* 8000E9F4 0000B7F4  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 8000E9F8 0000B7F8  7C 08 02 A6 */	mflr r0
-/* 8000E9FC 0000B7FC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8000EA00 0000B800  93 E1 00 0C */	stw r31, 0xc(r1)
-/* 8000EA04 0000B804  7C 7F 1B 78 */	mr r31, r3
-/* 8000EA08 0000B808  3C 60 80 25 */	lis r3, xClimate_strings@ha
-/* 8000EA0C 0000B80C  C0 02 80 F0 */	lfs f0, xClimate_f_0-_SDA2_BASE_(r2)
-/* 8000EA10 0000B810  38 63 21 08 */	addi r3, r3, xClimate_strings@l
-/* 8000EA14 0000B814  D0 1F 00 04 */	stfs f0, 4(r31)
-/* 8000EA18 0000B818  48 03 D7 FD */	bl xStrHash__FPCc
-/* 8000EA1C 0000B81C  48 09 9D D1 */	bl zParEmitterFind__FUi
-/* 8000EA20 0000B820  90 7F 00 08 */	stw r3, 8(r31)
-/* 8000EA24 0000B824  3C 60 80 25 */	lis r3, xClimate_strings@ha
-/* 8000EA28 0000B828  38 63 21 08 */	addi r3, r3, xClimate_strings@l
-/* 8000EA2C 0000B82C  80 9F 00 08 */	lwz r4, 8(r31)
-/* 8000EA30 0000B830  38 63 00 0D */	addi r3, r3, 0xd
-/* 8000EA34 0000B834  88 04 00 30 */	lbz r0, 0x30(r4)
-/* 8000EA38 0000B838  54 00 06 3C */	rlwinm r0, r0, 0, 0x18, 0x1e
-/* 8000EA3C 0000B83C  98 04 00 30 */	stb r0, 0x30(r4)
-/* 8000EA40 0000B840  48 03 D7 D5 */	bl xStrHash__FPCc
-/* 8000EA44 0000B844  48 09 9D A9 */	bl zParEmitterFind__FUi
-/* 8000EA48 0000B848  90 7F 00 0C */	stw r3, 0xc(r31)
-/* 8000EA4C 0000B84C  80 7F 00 0C */	lwz r3, 0xc(r31)
-/* 8000EA50 0000B850  88 03 00 30 */	lbz r0, 0x30(r3)
-/* 8000EA54 0000B854  54 00 06 3C */	rlwinm r0, r0, 0, 0x18, 0x1e
-/* 8000EA58 0000B858  98 03 00 30 */	stb r0, 0x30(r3)
-/* 8000EA5C 0000B85C  83 E1 00 0C */	lwz r31, 0xc(r1)
-/* 8000EA60 0000B860  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8000EA64 0000B864  7C 08 03 A6 */	mtlr r0
-/* 8000EA68 0000B868  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000EA6C 0000B86C  4E 80 00 20 */	blr 
-
 .global xClimateInitAsset__FP11_tagClimateP9xEnvAsset
 xClimateInitAsset__FP11_tagClimateP9xEnvAsset:
 /* 8000EA70 0000B870  94 21 FF F0 */	stwu r1, -0x10(r1)
@@ -144,24 +110,6 @@ lbl_8000EB38:
 /* 8000EB44 0000B944  7C 08 03 A6 */	mtlr r0
 /* 8000EB48 0000B948  38 21 00 10 */	addi r1, r1, 0x10
 /* 8000EB4C 0000B94C  4E 80 00 20 */	blr 
-
-.global xClimateSetSnow__Ff
-xClimateSetSnow__Ff:
-/* 8000EB50 0000B950  80 6D 88 88 */	lwz r3, sClimate-_SDA_BASE_(r13)
-/* 8000EB54 0000B954  38 00 00 00 */	li r0, 0
-/* 8000EB58 0000B958  90 03 00 00 */	stw r0, 0(r3)
-/* 8000EB5C 0000B95C  80 6D 88 88 */	lwz r3, sClimate-_SDA_BASE_(r13)
-/* 8000EB60 0000B960  D0 23 00 04 */	stfs f1, 4(r3)
-/* 8000EB64 0000B964  4E 80 00 20 */	blr 
-
-.global xClimateSetRain__Ff
-xClimateSetRain__Ff:
-/* 8000EB68 0000B968  80 6D 88 88 */	lwz r3, sClimate-_SDA_BASE_(r13)
-/* 8000EB6C 0000B96C  38 00 00 01 */	li r0, 1
-/* 8000EB70 0000B970  90 03 00 00 */	stw r0, 0(r3)
-/* 8000EB74 0000B974  80 6D 88 88 */	lwz r3, sClimate-_SDA_BASE_(r13)
-/* 8000EB78 0000B978  D0 23 00 04 */	stfs f1, 4(r3)
-/* 8000EB7C 0000B97C  4E 80 00 20 */	blr 
 
 GetPosBigDogWhattupFool__FP5xVec3:
 /* 8000EB80 0000B980  80 8D 82 B0 */	lwz r4, xglobals-_SDA_BASE_(r13)
@@ -444,61 +392,6 @@ lbl_8000EF60:
 /* 8000EFA8 0000BDA8  7C 08 03 A6 */	mtlr r0
 /* 8000EFAC 0000BDAC  38 21 02 30 */	addi r1, r1, 0x230
 /* 8000EFB0 0000BDB0  4E 80 00 20 */	blr 
-
-UpdateWind__FP11_tagClimatef:
-/* 8000EFB4 0000BDB4  4E 80 00 20 */	blr 
-
-.global xClimateUpdate__FP11_tagClimatef
-xClimateUpdate__FP11_tagClimatef:
-/* 8000EFB8 0000BDB8  94 21 FF E0 */	stwu r1, -0x20(r1)
-/* 8000EFBC 0000BDBC  7C 08 02 A6 */	mflr r0
-/* 8000EFC0 0000BDC0  90 01 00 24 */	stw r0, 0x24(r1)
-/* 8000EFC4 0000BDC4  DB E1 00 18 */	stfd f31, 0x18(r1)
-/* 8000EFC8 0000BDC8  FF E0 08 90 */	fmr f31, f1
-/* 8000EFCC 0000BDCC  93 E1 00 14 */	stw r31, 0x14(r1)
-/* 8000EFD0 0000BDD0  7C 7F 1B 78 */	mr r31, r3
-/* 8000EFD4 0000BDD4  4B FF FB F1 */	bl UpdateRain__FP11_tagClimatef
-/* 8000EFD8 0000BDD8  FC 20 F8 90 */	fmr f1, f31
-/* 8000EFDC 0000BDDC  7F E3 FB 78 */	mr r3, r31
-/* 8000EFE0 0000BDE0  4B FF FF D5 */	bl UpdateWind__FP11_tagClimatef
-/* 8000EFE4 0000BDE4  80 01 00 24 */	lwz r0, 0x24(r1)
-/* 8000EFE8 0000BDE8  CB E1 00 18 */	lfd f31, 0x18(r1)
-/* 8000EFEC 0000BDEC  83 E1 00 14 */	lwz r31, 0x14(r1)
-/* 8000EFF0 0000BDF0  7C 08 03 A6 */	mtlr r0
-/* 8000EFF4 0000BDF4  38 21 00 20 */	addi r1, r1, 0x20
-/* 8000EFF8 0000BDF8  4E 80 00 20 */	blr 
-
-.global xVec3Init__FP5xVec3fff
-xVec3Init__FP5xVec3fff:
-/* 8000EFFC 0000BDFC  D0 23 00 00 */	stfs f1, 0(r3)
-/* 8000F000 0000BE00  D0 43 00 04 */	stfs f2, 4(r3)
-/* 8000F004 0000BE04  D0 63 00 08 */	stfs f3, 8(r3)
-/* 8000F008 0000BE08  4E 80 00 20 */	blr 
-
-.global xMat3x3Identity__FP7xMat3x3
-xMat3x3Identity__FP7xMat3x3:
-/* 8000F00C 0000BE0C  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 8000F010 0000BE10  7C 08 02 A6 */	mflr r0
-/* 8000F014 0000BE14  3C 80 80 39 */	lis r4, g_I3@ha
-/* 8000F018 0000BE18  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8000F01C 0000BE1C  38 84 C2 E0 */	addi r4, r4, g_I3@l
-/* 8000F020 0000BE20  48 00 00 15 */	bl xMat3x3Copy__FP7xMat3x3PC7xMat3x3
-/* 8000F024 0000BE24  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8000F028 0000BE28  7C 08 03 A6 */	mtlr r0
-/* 8000F02C 0000BE2C  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000F030 0000BE30  4E 80 00 20 */	blr 
-
-.global xMat3x3Copy__FP7xMat3x3PC7xMat3x3
-xMat3x3Copy__FP7xMat3x3PC7xMat3x3:
-/* 8000F034 0000BE34  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 8000F038 0000BE38  7C 08 02 A6 */	mflr r0
-/* 8000F03C 0000BE3C  38 A0 00 30 */	li r5, 0x30
-/* 8000F040 0000BE40  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8000F044 0000BE44  4B FF 44 FD */	bl memcpy
-/* 8000F048 0000BE48  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8000F04C 0000BE4C  7C 08 03 A6 */	mtlr r0
-/* 8000F050 0000BE50  38 21 00 10 */	addi r1, r1, 0x10
-/* 8000F054 0000BE54  4E 80 00 20 */	blr 
 
 .endif
 
