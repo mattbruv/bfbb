@@ -3,6 +3,8 @@
 #include "xGlobals.h"
 #include "xClimate.h"
 #include "xMath3.h"
+#include "xString.h"
+#include "../../Game/zParEmitter.h"
 
 // TODO: figure out where to put this
 extern "C" {
@@ -10,14 +12,36 @@ void memcpy(void* a, const void* b, int32 size);
 }
 
 extern xGlobals xglobals;
+extern float32 xClimate_f_0;
 extern float32 xClimate_f_10_0;
 extern _tagClimate* sClimate;
+extern const int8 xClimate_strings[];
 
 // func_8000E96C
 #pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xClimateVecFromAngle__FfP5xVec3")
 
 // func_8000E9F4
+#if 0
 #pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xClimateInit__FP11_tagClimate")
+#else
+void xClimateInit(_tagClimate* climate)
+{
+    uint32 hash;
+    zParEmitter* par;
+
+    climate->rain.strength = xClimate_f_0;
+    hash = xStrHash(xClimate_strings);
+    par = zParEmitterFind(hash);
+    climate->rain.rain_emitter = par;
+    par = climate->rain.rain_emitter;
+    par->emit_flags &= 0xfe;
+    hash = xStrHash(xClimate_strings + 0xd);
+    par = zParEmitterFind(hash);
+    climate->rain.snow_emitter = par;
+    par = climate->rain.snow_emitter;
+    par->emit_flags &= 0xfe;
+}
+#endif
 
 // func_8000EA70
 #pragma GLOBAL_ASM("asm/Core/x/xClimate.s", "xClimateInitAsset__FP11_tagClimateP9xEnvAsset")

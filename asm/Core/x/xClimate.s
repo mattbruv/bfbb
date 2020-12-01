@@ -8,8 +8,8 @@ lbl_802520F0:
 .global lbl_802520FC
 lbl_802520FC:
 	.incbin "baserom.dol", 0x24F0DC, 0xC
-.global lbl_80252108
-lbl_80252108:
+.global xClimate_strings
+xClimate_strings:
 	.incbin "baserom.dol", 0x24F0E8, 0x20
 
 .if 0
@@ -29,13 +29,13 @@ xClimateVecFromAngle__FfP5xVec3:
 /* 8000E990 0000B790  48 00 06 7D */	bl xMat3x3Identity__FP7xMat3x3
 /* 8000E994 0000B794  C0 02 80 E8 */	lfs f0, lbl_803CCA68-_SDA2_BASE_(r2)
 /* 8000E998 0000B798  38 61 00 08 */	addi r3, r1, 8
-/* 8000E99C 0000B79C  C0 42 80 F0 */	lfs f2, lbl_803CCA70-_SDA2_BASE_(r2)
+/* 8000E99C 0000B79C  C0 42 80 F0 */	lfs f2, xClimate_f_0-_SDA2_BASE_(r2)
 /* 8000E9A0 0000B7A0  EC 20 07 F2 */	fmuls f1, f0, f31
 /* 8000E9A4 0000B7A4  C0 02 80 EC */	lfs f0, lbl_803CCA6C-_SDA2_BASE_(r2)
 /* 8000E9A8 0000B7A8  FC 60 10 90 */	fmr f3, f2
 /* 8000E9AC 0000B7AC  EC 21 00 24 */	fdivs f1, f1, f0
 /* 8000E9B0 0000B7B0  48 02 38 21 */	bl xMat3x3Euler__FP7xMat3x3fff
-/* 8000E9B4 0000B7B4  C0 22 80 F0 */	lfs f1, lbl_803CCA70-_SDA2_BASE_(r2)
+/* 8000E9B4 0000B7B4  C0 22 80 F0 */	lfs f1, xClimate_f_0-_SDA2_BASE_(r2)
 /* 8000E9B8 0000B7B8  7F E3 FB 78 */	mr r3, r31
 /* 8000E9BC 0000B7BC  C0 62 80 F4 */	lfs f3, lbl_803CCA74-_SDA2_BASE_(r2)
 /* 8000E9C0 0000B7C0  FC 40 08 90 */	fmr f2, f1
@@ -59,15 +59,15 @@ xClimateInit__FP11_tagClimate:
 /* 8000E9FC 0000B7FC  90 01 00 14 */	stw r0, 0x14(r1)
 /* 8000EA00 0000B800  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 8000EA04 0000B804  7C 7F 1B 78 */	mr r31, r3
-/* 8000EA08 0000B808  3C 60 80 25 */	lis r3, lbl_80252108@ha
-/* 8000EA0C 0000B80C  C0 02 80 F0 */	lfs f0, lbl_803CCA70-_SDA2_BASE_(r2)
-/* 8000EA10 0000B810  38 63 21 08 */	addi r3, r3, lbl_80252108@l
+/* 8000EA08 0000B808  3C 60 80 25 */	lis r3, xClimate_strings@ha
+/* 8000EA0C 0000B80C  C0 02 80 F0 */	lfs f0, xClimate_f_0-_SDA2_BASE_(r2)
+/* 8000EA10 0000B810  38 63 21 08 */	addi r3, r3, xClimate_strings@l
 /* 8000EA14 0000B814  D0 1F 00 04 */	stfs f0, 4(r31)
 /* 8000EA18 0000B818  48 03 D7 FD */	bl xStrHash__FPCc
 /* 8000EA1C 0000B81C  48 09 9D D1 */	bl zParEmitterFind__FUi
 /* 8000EA20 0000B820  90 7F 00 08 */	stw r3, 8(r31)
-/* 8000EA24 0000B824  3C 60 80 25 */	lis r3, lbl_80252108@ha
-/* 8000EA28 0000B828  38 63 21 08 */	addi r3, r3, lbl_80252108@l
+/* 8000EA24 0000B824  3C 60 80 25 */	lis r3, xClimate_strings@ha
+/* 8000EA28 0000B828  38 63 21 08 */	addi r3, r3, xClimate_strings@l
 /* 8000EA2C 0000B82C  80 9F 00 08 */	lwz r4, 8(r31)
 /* 8000EA30 0000B830  38 63 00 0D */	addi r3, r3, 0xd
 /* 8000EA34 0000B834  88 04 00 30 */	lbz r0, 0x30(r4)
@@ -97,16 +97,16 @@ xClimateInitAsset__FP11_tagClimateP9xEnvAsset:
 /* 8000EA88 0000B888  7C 7E 1B 78 */	mr r30, r3
 /* 8000EA8C 0000B88C  38 7E 00 18 */	addi r3, r30, 0x18
 /* 8000EA90 0000B890  93 CD 88 88 */	stw r30, sClimate-_SDA_BASE_(r13)
-/* 8000EA94 0000B894  C0 02 80 F0 */	lfs f0, lbl_803CCA70-_SDA2_BASE_(r2)
+/* 8000EA94 0000B894  C0 02 80 F0 */	lfs f0, xClimate_f_0-_SDA2_BASE_(r2)
 /* 8000EA98 0000B898  D0 1E 00 10 */	stfs f0, 0x10(r30)
 /* 8000EA9C 0000B89C  C0 3E 00 14 */	lfs f1, 0x14(r30)
 /* 8000EAA0 0000B8A0  4B FF FE CD */	bl xClimateVecFromAngle__FfP5xVec3
 /* 8000EAA4 0000B8A4  80 7F 00 10 */	lwz r3, 0x10(r31)
 /* 8000EAA8 0000B8A8  28 03 00 00 */	cmplwi r3, 0
 /* 8000EAAC 0000B8AC  40 82 00 18 */	bne lbl_8000EAC4
-/* 8000EAB0 0000B8B0  C0 02 80 F0 */	lfs f0, lbl_803CCA70-_SDA2_BASE_(r2)
+/* 8000EAB0 0000B8B0  C0 02 80 F0 */	lfs f0, xClimate_f_0-_SDA2_BASE_(r2)
 /* 8000EAB4 0000B8B4  D0 1E 00 10 */	stfs f0, 0x10(r30)
-/* 8000EAB8 0000B8B8  C0 02 80 F0 */	lfs f0, lbl_803CCA70-_SDA2_BASE_(r2)
+/* 8000EAB8 0000B8B8  C0 02 80 F0 */	lfs f0, xClimate_f_0-_SDA2_BASE_(r2)
 /* 8000EABC 0000B8BC  D0 1E 00 04 */	stfs f0, 4(r30)
 /* 8000EAC0 0000B8C0  48 00 00 78 */	b lbl_8000EB38
 lbl_8000EAC4:
@@ -516,8 +516,11 @@ lbl_803CCA68:
 	.incbin "baserom.dol", 0x2B6308, 0x4
 lbl_803CCA6C:
 	.incbin "baserom.dol", 0x2B630C, 0x4
-lbl_803CCA70:
+
+.global xClimate_f_0
+xClimate_f_0:
 	.incbin "baserom.dol", 0x2B6310, 0x4
+
 lbl_803CCA74:
 	.incbin "baserom.dol", 0x2B6314, 0x4
 lbl_803CCA78:
