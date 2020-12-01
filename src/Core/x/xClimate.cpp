@@ -6,7 +6,7 @@
 
 // TODO: figure out where to put this
 extern "C" {
-void memcpy(void* a, const void*b, int32 size);
+void memcpy(void* a, const void* b, int32 size);
 }
 
 extern xGlobals xglobals;
@@ -40,9 +40,9 @@ void xClimateSetRain(float32 stre)
 #else
 void GetPosBigDogWhattupFool(xVec3* vec)
 {
-    vec->x = xClimate_f_10_0 * (xglobals.camera.mat.at.x + xglobals.camera.mat.pos.x);
-    vec->y = xClimate_f_10_0 * (xglobals.camera.mat.at.y + xglobals.camera.mat.pos.y);
-    vec->z = xClimate_f_10_0 * (xglobals.camera.mat.at.z + xglobals.camera.mat.pos.z);
+    vec->x = xClimate_f_10_0 * xglobals.camera.mat.at.x + xglobals.camera.mat.pos.x;
+    vec->y = xClimate_f_10_0 * xglobals.camera.mat.at.y + xglobals.camera.mat.pos.y;
+    vec->z = xClimate_f_10_0 * xglobals.camera.mat.at.z + xglobals.camera.mat.pos.z;
 }
 #endif
 
@@ -70,7 +70,7 @@ void xVec3Init(xVec3* vec, float32 x, float32 y, float32 z)
 void xMat3x3Identity(xMat3x3* matrix)
 {
     // TODO: figure out what/where this global variable is
-    xMat3x3Copy(matrix, (xMat3x3*)0x8038c2e0);
+    xMat3x3Copy(matrix, (xMat3x3*)0x8038C2E0);
 }
 
 void xMat3x3Copy(xMat3x3* m1, const xMat3x3* m2)
