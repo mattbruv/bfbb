@@ -8,9 +8,6 @@ lbl_802520F0:
 .global lbl_802520FC
 lbl_802520FC:
 	.incbin "baserom.dol", 0x24F0DC, 0xC
-.global xClimate_strings
-xClimate_strings:
-	.incbin "baserom.dol", 0x24F0E8, 0x20
 
 .if 0
 
