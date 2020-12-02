@@ -214,11 +214,15 @@ void GEC_cb_NoPantsMode()
 // func_8009A4B0
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_CruiseControl__Fv")
 
-// func_8009A56C
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_SwapCCLR__Fv")
+void GEC_cb_SwapCCLR()
+{
+    GEC_dfltSound();
+}
 
-// func_8009A58C
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_SwapCCUD__Fv")
+void GEC_cb_SwapCCUD()
+{
+    GEC_dfltSound();
+}
 
 // func_8009A5AC
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_villSound__Fv")
