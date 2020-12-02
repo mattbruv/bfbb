@@ -20,12 +20,12 @@ jobs:
         env:
           TOOL_LOC: aHR0cHM6Ly9zcnYtc3RvcmUxLmdvZmlsZS5pby9kb3dubG9hZC9Ud2ZGTXovYmZiYi10b29scy5yYXINCg==
           TOOL_DEC: c3BvbmdlYm9ic3F1YXJlcGFudHNiYXR0bGVmb3JiaWtpbmlib3R0b21kZWNvbXANCg==
-          FOO: echo $(echo "test")
         run: |
-          echo $FOO
-          echo ${FOO}
-          echo $(echo ${TOOL_LOC} | base64 -d)
-          curl "$(echo ${TOOL_LOC} | base64 -d)" -o tools.rar
+          LOC=$(echo ${TOOL_LOC} | base64 -d)
+          DEC=$(echo ${TOOL_DEC} | base64 -d)
+          echo $LOC
+          echo $DEC
+          curl $LOC -o tools.rar
           echo sha256sum tools.rar
-          unrar x -p $(echo ${TOOL_DEC} | base64 -d) tools.rar
+          unrar x -p $DEC tools.rar
           ls
