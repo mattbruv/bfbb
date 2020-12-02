@@ -1,0 +1,26 @@
+name: Continuous Integration
+
+on: [push]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install Dependencies
+        run: sudo apt-get install unrar
+
+      - name: Set up tools
+        env:
+          TOOL_LOC: aHR0cHM6Ly9zcnYtc3RvcmUxLmdvZmlsZS5pby9kb3dubG9hZC9Ud2ZGTXovYmZiYi10b29scy5yYXINCg==
+          TOOL_DEC: c3BvbmdlYm9ic3F1YXJlcGFudHNiYXR0bGVmb3JiaWtpbmlib3R0b21kZWNvbXANCg==
+        run: |
+          curl $(${TOOL_LOC} | base64 -d) -o tools.rar
+          echo ${TOOL_LOC}
+          ls
