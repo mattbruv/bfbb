@@ -754,27 +754,6 @@ lbl_8009A414:
 /* 8009A41C 0009721C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A420 00097220  4E 80 00 20 */	blr 
 
-GEC_cb_NoPantsMode__Fv:
-/* 8009A464 00097264  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 8009A468 00097268  7C 08 02 A6 */	mflr r0
-/* 8009A46C 0009726C  3C 60 80 26 */	lis r3, zGameExtras_strings@ha
-/* 8009A470 00097270  38 63 CA 20 */	addi r3, r3, zGameExtras_strings@l
-/* 8009A474 00097274  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8009A478 00097278  38 63 00 9F */	addi r3, r3, 0x9f
-/* 8009A47C 0009727C  4B FB 1D 99 */	bl xStrHash__FPCc
-/* 8009A480 00097280  C0 42 90 F8 */	lfs f2, zGameExtras_f_0-_SDA2_BASE_(r2)
-/* 8009A484 00097284  38 80 00 80 */	li r4, 0x80
-/* 8009A488 00097288  C0 22 91 04 */	lfs f1, zGameExtras_f_1-_SDA2_BASE_(r2)
-/* 8009A48C 0009728C  38 A0 00 00 */	li r5, 0
-/* 8009A490 00097290  FC 60 10 90 */	fmr f3, f2
-/* 8009A494 00097294  38 C0 00 00 */	li r6, 0
-/* 8009A498 00097298  38 E0 00 00 */	li r7, 0
-/* 8009A49C 0009729C  4B FA E5 91 */	bl xSndPlay__FUiffUiUiUi14sound_categoryf
-/* 8009A4A0 000972A0  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8009A4A4 000972A4  7C 08 03 A6 */	mtlr r0
-/* 8009A4A8 000972A8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009A4AC 000972AC  4E 80 00 20 */	blr 
-
 GEC_cb_CruiseControl__Fv:
 /* 8009A4B0 000972B0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A4B4 000972B4  7C 08 02 A6 */	mflr r0

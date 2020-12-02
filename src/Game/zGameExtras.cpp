@@ -205,8 +205,11 @@ void GEC_cb_ShrapBobMode()
     GEC_dfltSound();
 }
 
-// func_8009A464
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_NoPantsMode__Fv")
+void GEC_cb_NoPantsMode()
+{
+    uint32 aid_snd = xStrHash(zGameExtras_strings + 159); // "SBG01023"
+    xSndPlay(aid_snd, zGameExtras_f_1, zGameExtras_f_0, 0x80, 0, 0, SND_CAT_GAME, zGameExtras_f_0);
+}
 
 // func_8009A4B0
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_CruiseControl__Fv")
