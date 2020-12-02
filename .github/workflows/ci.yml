@@ -14,8 +14,9 @@ jobs:
           python-version: 3.8
 
       - name: Install Dependencies
-        run: sudo apt-get install unrar
-        run: sudo apt-get install curl
+        run: |
+          sudo apt-get install unrar
+          sudo apt-get install curl
 
       - name: Set up tools
         env:
