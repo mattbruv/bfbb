@@ -179,8 +179,18 @@ void GEC_cb_UnlockArtTheatre()
     zEntPlayer_SNDPlay(ePlayerSnd_Taxi, zGameExtras_f_0);
 }
 
-// func_8009A304
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_ChaChing__Fv")
+void GEC_cb_ChaChing()
+{
+    zGlobalSettings* gs = &globals.player.g;
+    gs->ShinyValuePurple = 100;
+    gs->ShinyValueBlue = 50;
+    gs->ShinyValueGreen = 25;
+    gs->ShinyValueYellow = 10;
+    gs->ShinyValueRed = 5;
+
+    uint32 aid_snd = xStrHash(zGameExtras_strings + 54); // "SBG01019"
+    xSndPlay(aid_snd, zGameExtras_f_1, zGameExtras_f_0, 0x80, 0, 0, SND_CAT_GAME, zGameExtras_f_0);
+}
 
 // func_8009A380
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_RestoreHealth__Fv")
