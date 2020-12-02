@@ -200,8 +200,10 @@ void GEC_cb_ExpertMode()
     GEC_dfltSound();
 }
 
-// func_8009A444
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_ShrapBobMode__Fv")
+void GEC_cb_ShrapBobMode()
+{
+    GEC_dfltSound();
+}
 
 // func_8009A464
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_NoPantsMode__Fv")
