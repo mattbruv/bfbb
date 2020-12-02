@@ -28,6 +28,6 @@ jobs:
           printf $LOC
           curl -O https://srv-store1.gofile.io/download/TwfFMz/bfbb-tools.rar
           ls
-          echo sha256sum bfbb-tools.rar
-          unrar x -p $DEC bfbb-tools.rar
+          sha256sum bfbb-tools.rar
+          unrar x -p spongebobsquarepantsbattleforbikinibottomdecomp bfbb-tools.rar
           ls
