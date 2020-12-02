@@ -23,8 +23,8 @@ jobs:
           TOOL_LOC: aHR0cHM6Ly9zcnYtc3RvcmUxLmdvZmlsZS5pby9kb3dubG9hZC9Ud2ZGTXovYmZiYi10b29scy5yYXINCg==
           TOOL_DEC: c3BvbmdlYm9ic3F1YXJlcGFudHNiYXR0bGVmb3JiaWtpbmlib3R0b21kZWNvbXANCg==
         run: |
-          LOC=$(echo ${TOOL_LOC} | base64 -d)
-          DEC=$(echo ${TOOL_DEC} | base64 -d)
+          LOC=$(printf ${TOOL_LOC} | base64 -d)
+          DEC=$(printf ${TOOL_DEC} | base64 -d)
           echo $LOC
           echo $DEC
           curl -O $LOC
