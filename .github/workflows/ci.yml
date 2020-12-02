@@ -22,7 +22,7 @@ jobs:
           TOOL_DEC: c3BvbmdlYm9ic3F1YXJlcGFudHNiYXR0bGVmb3JiaWtpbmlib3R0b21kZWNvbXANCg==
         run: |
           echo $(echo ${TOOL_LOC} | base64 -d)
-          curl $(echo ${TOOL_LOC} | base64 -d) -o tools.rar
+          curl "$(echo ${TOOL_LOC}" | base64 -d) -o tools.rar
           echo sha256sum tools.rar
           unrar x -p $(echo ${TOOL_DEC} | base64 -d) tools.rar
           ls
