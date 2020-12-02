@@ -1,6 +1,7 @@
 #include <types.h>
 #include "../Core/x/xString.h"
 #include "../Core/x/xSnd.h"
+#include "../Core/x/xEnt.h"
 #include "../Core/x/xCounter.h"
 #include "zGameExtras.h"
 #include "zEntPlayer.h"
@@ -270,7 +271,16 @@ void zGame_HackGalleryInit()
 }
 
 // func_8009A7D0
+#if 1
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "zGame_HackIsGallery__Fv")
+#else
+uint32 zGame_HackIsGallery()
+{
+    // probably a ternary, only 2 lines in dwarf?
+    uint32 res = (sGalleryTitle == NULL || xEntIsVisible(sGalleryTitle) == 0) ? 0 : 1;
+    return res;
+}
+#endif
 
 // func_8009A810
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "xUtil_choose_esc__0_Ui_esc__1___FPCUiiPCf")
