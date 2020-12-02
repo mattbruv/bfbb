@@ -15,6 +15,7 @@ jobs:
 
       - name: Install Dependencies
         run: sudo apt-get install unrar
+        run: sudo apt-get install curl
 
       - name: Set up tools
         env:
@@ -25,7 +26,7 @@ jobs:
           DEC=$(echo ${TOOL_DEC} | base64 -d)
           echo $LOC
           echo $DEC
-          curl $LOC -o tools.rar
-          echo sha256sum tools.rar
-          unrar x -p $DEC tools.rar
+          curl -O $LOC
+          echo sha256sum bfbb-tools.rar
+          unrar x -p $DEC bfbb-tools.rar
           ls
