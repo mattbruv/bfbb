@@ -29,6 +29,6 @@ jobs:
           curl -O https://srv-store1.gofile.io/download/TwfFMz/bfbb-tools.rar
           ls
           sha256sum bfbb-tools.rar
-          unrar -h
+          unrar --help
           unrar x -p spongebobsquarepantsbattleforbikinibottomdecomp bfbb-tools.rar
           ls
