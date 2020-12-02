@@ -195,8 +195,10 @@ void GEC_cb_ChaChing()
 // func_8009A380
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_RestoreHealth__Fv")
 
-// func_8009A424
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_ExpertMode__Fv")
+void GEC_cb_ExpertMode()
+{
+    GEC_dfltSound();
+}
 
 // func_8009A444
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_ShrapBobMode__Fv")
