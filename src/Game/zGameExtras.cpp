@@ -13,6 +13,7 @@ extern float32 zGameExtras_f_0;
 extern float32 zGameExtras_f_1;
 
 extern zGlobals globals;
+extern xEnt* sGalleryTitle;
 
 extern int32 g_currDay;
 extern int32 g_currMonth;
@@ -262,8 +263,11 @@ void GEC_cb_PanHandle()
     GEC_villSound();
 }
 
-// func_8009A79C
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "zGame_HackGalleryInit__Fv")
+void zGame_HackGalleryInit()
+{
+    uint32 obj = xStrHash(zGameExtras_strings + 263); // "KIOSK SELECT UIF"
+    sGalleryTitle = (xEnt*)zSceneFindObject(obj);
+}
 
 // func_8009A7D0
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "zGame_HackIsGallery__Fv")

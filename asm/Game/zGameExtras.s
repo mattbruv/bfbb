@@ -877,28 +877,12 @@ lbl_8009A6AC:
 /* 8009A6B4 000974B4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A6B8 000974B8  4E 80 00 20 */	blr 
 
-.global zGame_HackGalleryInit__Fv
-zGame_HackGalleryInit__Fv:
-/* 8009A79C 0009759C  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 8009A7A0 000975A0  7C 08 02 A6 */	mflr r0
-/* 8009A7A4 000975A4  3C 60 80 26 */	lis r3, zGameExtras_strings@ha
-/* 8009A7A8 000975A8  38 63 CA 20 */	addi r3, r3, zGameExtras_strings@l
-/* 8009A7AC 000975AC  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8009A7B0 000975B0  38 63 01 07 */	addi r3, r3, 0x107
-/* 8009A7B4 000975B4  4B FB 1A 61 */	bl xStrHash__FPCc
-/* 8009A7B8 000975B8  48 01 A2 85 */	bl zSceneFindObject__FUi
-/* 8009A7BC 000975BC  90 6D 8F A0 */	stw r3, lbl_803CB8A0-_SDA_BASE_(r13)
-/* 8009A7C0 000975C0  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8009A7C4 000975C4  7C 08 03 A6 */	mtlr r0
-/* 8009A7C8 000975C8  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009A7CC 000975CC  4E 80 00 20 */	blr 
-
 .global zGame_HackIsGallery__Fv
 zGame_HackIsGallery__Fv:
 /* 8009A7D0 000975D0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A7D4 000975D4  7C 08 02 A6 */	mflr r0
 /* 8009A7D8 000975D8  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8009A7DC 000975DC  80 6D 8F A0 */	lwz r3, lbl_803CB8A0-_SDA_BASE_(r13)
+/* 8009A7DC 000975DC  80 6D 8F A0 */	lwz r3, sGalleryTitle-_SDA_BASE_(r13)
 /* 8009A7E0 000975E0  28 03 00 00 */	cmplwi r3, 0
 /* 8009A7E4 000975E4  41 82 00 18 */	beq lbl_8009A7FC
 /* 8009A7E8 000975E8  4B F7 3E 51 */	bl xEntIsVisible__FPC4xEnt
@@ -1055,7 +1039,8 @@ lbl_803CB89E:
 	.skip 0x1
 lbl_803CB89F:
 	.skip 0x1
-lbl_803CB8A0:
+.global sGalleryTitle
+sGalleryTitle:
 	.skip 0x8
 /* SPECULATION: link order */
 .global gGameMode
