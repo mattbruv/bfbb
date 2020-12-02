@@ -227,26 +227,40 @@ void GEC_cb_SwapCCUD()
 // func_8009A5AC
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_villSound__Fv")
 
-// func_8009A6BC
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_BigPlank__Fv")
+void GEC_cb_BigPlank()
+{
+    GEC_villSound();
+}
 
-// func_8009A6DC
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_Medics__Fv")
+void GEC_cb_Medics()
+{
+    GEC_villSound();
+}
 
-// func_8009A6FC
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_DogTrix__Fv")
+void GEC_cb_DogTrix()
+{
+    GEC_villSound();
+}
 
-// func_8009A71C
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_SmallPeep__Fv")
+void GEC_cb_SmallPeep()
+{
+    GEC_villSound();
+}
 
-// func_8009A73C
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_SmallCostars__Fv")
+void GEC_cb_SmallCostars()
+{
+    GEC_villSound();
+}
 
-// func_8009A75C
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_RichPeep__Fv")
+void GEC_cb_RichPeep()
+{
+    GEC_villSound();
+}
 
-// func_8009A77C
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_PanHandle__Fv")
+void GEC_cb_PanHandle()
+{
+    GEC_villSound();
+}
 
 // func_8009A79C
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "zGame_HackGalleryInit__Fv")

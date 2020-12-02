@@ -5,5 +5,6 @@
 
 int32 zGameExtras_CheatFlags();
 void GEC_dfltSound();
+void GEC_villSound();
 
 #endif
