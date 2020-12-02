@@ -1,8 +1,11 @@
 #include <types.h>
 #include "../Core/x/xString.h"
 #include "../Core/x/xSnd.h"
+#include "../Core/x/xCounter.h"
 #include "zGameExtras.h"
+#include "zEntPlayer.h"
 #include "zGlobals.h"
+#include "zScene.h"
 
 extern int8 zGameExtras_strings[];
 
@@ -168,8 +171,13 @@ void GEC_cb_CruiseBubble()
 // func_8009A220
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_MonsterGallery__Fv")
 
-// func_8009A2C0
-#pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_UnlockArtTheatre__Fv")
+void GEC_cb_UnlockArtTheatre()
+{
+    uint32 aid_theatreCounter = xStrHash(zGameExtras_strings + 120); // "HB01_FREE_MOVIE_PASS"
+    _xCounter* cntr = (_xCounter*)zSceneFindObject(aid_theatreCounter);
+    cntr->count = 1;
+    zEntPlayer_SNDPlay(ePlayerSnd_Taxi, zGameExtras_f_0);
+}
 
 // func_8009A304
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "GEC_cb_ChaChing__Fv")

@@ -709,25 +709,6 @@ lbl_8009A274:
 /* 8009A2B8 000970B8  38 21 00 40 */	addi r1, r1, 0x40
 /* 8009A2BC 000970BC  4E 80 00 20 */	blr 
 
-GEC_cb_UnlockArtTheatre__Fv:
-/* 8009A2C0 000970C0  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 8009A2C4 000970C4  7C 08 02 A6 */	mflr r0
-/* 8009A2C8 000970C8  3C 60 80 26 */	lis r3, zGameExtras_strings@ha
-/* 8009A2CC 000970CC  38 63 CA 20 */	addi r3, r3, zGameExtras_strings@l
-/* 8009A2D0 000970D0  90 01 00 14 */	stw r0, 0x14(r1)
-/* 8009A2D4 000970D4  38 63 00 78 */	addi r3, r3, 0x78
-/* 8009A2D8 000970D8  4B FB 1F 3D */	bl xStrHash__FPCc
-/* 8009A2DC 000970DC  48 01 A7 61 */	bl zSceneFindObject__FUi
-/* 8009A2E0 000970E0  38 00 00 01 */	li r0, 1
-/* 8009A2E4 000970E4  B0 03 00 14 */	sth r0, 0x14(r3)
-/* 8009A2E8 000970E8  38 60 00 25 */	li r3, 0x25
-/* 8009A2EC 000970EC  C0 22 90 F8 */	lfs f1, zGameExtras_f_0-_SDA2_BASE_(r2)
-/* 8009A2F0 000970F0  4B FE 64 A1 */	bl zEntPlayer_SNDPlay__F14_tagePlayerSndf
-/* 8009A2F4 000970F4  80 01 00 14 */	lwz r0, 0x14(r1)
-/* 8009A2F8 000970F8  7C 08 03 A6 */	mtlr r0
-/* 8009A2FC 000970FC  38 21 00 10 */	addi r1, r1, 0x10
-/* 8009A300 00097100  4E 80 00 20 */	blr 
-
 GEC_cb_ChaChing__Fv:
 /* 8009A304 00097104  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A308 00097108  7C 08 02 A6 */	mflr r0
