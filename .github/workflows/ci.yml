@@ -25,9 +25,8 @@ jobs:
         run: |
           LOC=printf $(printf ${TOOL_LOC} | base64 -d)
           DEC=printf $(printf ${TOOL_DEC} | base64 -d)
-          echo $LOC
-          echo $DEC
           curl -O $LOC
+          ls
           echo sha256sum bfbb-tools.rar
           unrar x -p $DEC bfbb-tools.rar
           ls
