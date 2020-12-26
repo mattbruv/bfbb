@@ -7,6 +7,10 @@
 		"include/rwsdk",
 		"include/CodeWarrior"
 	],
+    "python.analysis.extraPaths": [
+        "tools/inlineasm"
+    ],
+    "python.formatting.provider": "yapf",
 	"C_Cpp.default.defines": [
 		"GAMECUBE"
 	],
