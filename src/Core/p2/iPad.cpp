@@ -2,7 +2,9 @@
 #include <dolphin.h>
 
 #include "iPad.h"
+#include "../../Game/zGlobals.h"
 
+extern zGlobals globals;
 extern _tagTRCPadInfo gTrcPad[4];
 
 int32 iPadInit()
@@ -44,7 +46,15 @@ void iPadStopRumble(_tagxPad* pad)
 }
 
 // func_800CAE7C
+#if 1
 #pragma GLOBAL_ASM("asm/Core/p2/iPad.s", "iPadStopRumble__Fv")
+#else
+void iPadStopRumble()
+{
+    // appears to be correct, but the wrong registers are used
+    PADControlMotor(mPad[globals.currentActivePad].port, 0);
+}
+#endif
 
 void iPadStartRumble(_tagxPad* pad, _tagxRumble* rumble)
 {

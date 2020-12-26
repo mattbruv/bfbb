@@ -4,27 +4,6 @@
 
 .section .text  # 0x800CA920 - 0x800CAEEC
 
-.global iPadEnable__FP8_tagxPads
-iPadEnable__FP8_tagxPads:
-/* 800CA944 000C7744  B0 83 00 54 */	sth r4, 0x54(r3)
-/* 800CA948 000C7748  38 00 00 00 */	li r0, 0
-/* 800CA94C 000C774C  3C 80 80 3C */	lis r4, gTrcPad@ha
-/* 800CA950 000C7750  38 A0 00 02 */	li r5, 2
-/* 800CA954 000C7754  B0 03 00 56 */	sth r0, 0x56(r3)
-/* 800CA958 000C7758  38 84 EF 88 */	addi r4, r4, gTrcPad@l
-/* 800CA95C 000C775C  90 A3 00 3C */	stw r5, 0x3c(r3)
-/* 800CA960 000C7760  A8 03 00 54 */	lha r0, 0x54(r3)
-/* 800CA964 000C7764  1C 00 00 0C */	mulli r0, r0, 0xc
-/* 800CA968 000C7768  7C 84 02 14 */	add r4, r4, r0
-/* 800CA96C 000C776C  90 A4 00 08 */	stw r5, 8(r4)
-/* 800CA970 000C7770  80 03 00 40 */	lwz r0, 0x40(r3)
-/* 800CA974 000C7774  60 00 00 03 */	ori r0, r0, 3
-/* 800CA978 000C7778  90 03 00 40 */	stw r0, 0x40(r3)
-/* 800CA97C 000C777C  80 03 00 40 */	lwz r0, 0x40(r3)
-/* 800CA980 000C7780  60 00 00 04 */	ori r0, r0, 4
-/* 800CA984 000C7784  90 03 00 40 */	stw r0, 0x40(r3)
-/* 800CA988 000C7788  4E 80 00 20 */	blr 
-
 iPadConvStick__Ff:
 /* 800CA98C 000C778C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800CA990 000C7790  C0 02 97 98 */	lfs f0, lbl_803CE118-_SDA2_BASE_(r2)
