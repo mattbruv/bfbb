@@ -6,26 +6,26 @@
 
 iPadConvStick__Ff:
 /* 800CA98C 000C778C  94 21 FF F0 */	stwu r1, -0x10(r1)
-/* 800CA990 000C7790  C0 02 97 98 */	lfs f0, lbl_803CE118-_SDA2_BASE_(r2)
+/* 800CA990 000C7790  C0 02 97 98 */	lfs f0, iPad_float_40-_SDA2_BASE_(r2)
 /* 800CA994 000C7794  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 800CA998 000C7798  40 81 00 0C */	ble lbl_800CA9A4
 /* 800CA99C 000C779C  FC 20 00 90 */	fmr f1, f0
 /* 800CA9A0 000C77A0  48 00 00 14 */	b lbl_800CA9B4
 lbl_800CA9A4:
-/* 800CA9A4 000C77A4  C0 02 97 9C */	lfs f0, lbl_803CE11C-_SDA2_BASE_(r2)
+/* 800CA9A4 000C77A4  C0 02 97 9C */	lfs f0, iPad_float_minus_40-_SDA2_BASE_(r2)
 /* 800CA9A8 000C77A8  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 800CA9AC 000C77AC  40 80 00 08 */	bge lbl_800CA9B4
 /* 800CA9B0 000C77B0  FC 20 00 90 */	fmr f1, f0
 lbl_800CA9B4:
-/* 800CA9B4 000C77B4  C0 42 97 A0 */	lfs f2, lbl_803CE120-_SDA2_BASE_(r2)
-/* 800CA9B8 000C77B8  C0 02 97 A4 */	lfs f0, lbl_803CE124-_SDA2_BASE_(r2)
+/* 800CA9B4 000C77B4  C0 42 97 A0 */	lfs f2, iPad_float_3_2-_SDA2_BASE_(r2)
+/* 800CA9B8 000C77B8  C0 02 97 A4 */	lfs f0, iPad_float_127-_SDA2_BASE_(r2)
 /* 800CA9BC 000C77BC  EC 22 00 72 */	fmuls f1, f2, f1
 /* 800CA9C0 000C77C0  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 800CA9C4 000C77C4  40 81 00 0C */	ble lbl_800CA9D0
 /* 800CA9C8 000C77C8  FC 20 00 90 */	fmr f1, f0
 /* 800CA9CC 000C77CC  48 00 00 14 */	b lbl_800CA9E0
 lbl_800CA9D0:
-/* 800CA9D0 000C77D0  C0 02 97 A8 */	lfs f0, lbl_803CE128-_SDA2_BASE_(r2)
+/* 800CA9D0 000C77D0  C0 02 97 A8 */	lfs f0, iPad_float_minus_127-_SDA2_BASE_(r2)
 /* 800CA9D4 000C77D4  FC 01 00 40 */	fcmpo cr0, f1, f0
 /* 800CA9D8 000C77D8  40 80 00 08 */	bge lbl_800CA9E0
 /* 800CA9DC 000C77DC  FC 20 00 90 */	fmr f1, f0
@@ -352,15 +352,26 @@ lbl_80292620:
 	.incbin "baserom.dol", 0x28F600, 0x30
 
 .section .sdata2
-lbl_803CE118:
+
+.global iPad_float_40
+iPad_float_40:
 	.incbin "baserom.dol", 0x2B79B8, 0x4
-lbl_803CE11C:
+
+.global iPad_float_minus_40
+iPad_float_minus_40:
 	.incbin "baserom.dol", 0x2B79BC, 0x4
-lbl_803CE120:
+
+.global iPad_float_3_2
+iPad_float_3_2:
 	.incbin "baserom.dol", 0x2B79C0, 0x4
-lbl_803CE124:
+
+.global iPad_float_127
+iPad_float_127:
 	.incbin "baserom.dol", 0x2B79C4, 0x4
-lbl_803CE128:
+
+.global iPad_float_minus_127
+iPad_float_minus_127:
 	.incbin "baserom.dol", 0x2B79C8, 0x8
+
 lbl_803CE130:
 	.incbin "baserom.dol", 0x2B79D0, 0x8
