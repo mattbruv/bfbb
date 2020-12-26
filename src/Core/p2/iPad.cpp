@@ -30,7 +30,7 @@ _tagxPad* iPadEnable(_tagxPad* pad, int16 port)
 }
 
 // func_800CA98C
-#if 0
+#if 1
 #pragma GLOBAL_ASM("asm/Core/p2/iPad.s", "iPadConvStick__Ff")
 #else
 int32 iPadConvStick(float32 param_1)
