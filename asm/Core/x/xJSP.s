@@ -19,7 +19,7 @@ AddMeshCB__FP6RpMeshP12RpMeshHeaderPv:
 /* 80122C58 0011FA58  48 00 00 34 */	b lbl_80122C8C
 lbl_80122C5C:
 /* 80122C5C 0011FA5C  80 7C 00 00 */	lwz r3, 0(r28)
-/* 80122C60 0011FA60  80 8D 95 38 */	lwz r4, lbl_803CBE38-_SDA_BASE_(r13)
+/* 80122C60 0011FA60  80 8D 95 38 */	lwz r4, sCurrVert-_SDA_BASE_(r13)
 /* 80122C64 0011FA64  7C 03 FA 2E */	lhzx r0, r3, r31
 /* 80122C68 0011FA68  80 7D 00 00 */	lwz r3, 0(r29)
 /* 80122C6C 0011FA6C  1C 00 00 0C */	mulli r0, r0, 0xc
@@ -63,7 +63,7 @@ AddAtomicCB__FP8RpAtomicPv:
 /* 80122CF8 0011FAF8  80 63 00 18 */	lwz r3, 0x18(r3)
 /* 80122CFC 0011FAFC  80 63 00 5C */	lwz r3, 0x5c(r3)
 /* 80122D00 0011FB00  80 03 00 14 */	lwz r0, 0x14(r3)
-/* 80122D04 0011FB04  90 0D 95 38 */	stw r0, lbl_803CBE38-_SDA_BASE_(r13)
+/* 80122D04 0011FB04  90 0D 95 38 */	stw r0, sCurrVert-_SDA_BASE_(r13)
 /* 80122D08 0011FB08  80 7F 00 18 */	lwz r3, 0x18(r31)
 /* 80122D0C 0011FB0C  80 63 00 54 */	lwz r3, 0x54(r3)
 /* 80122D10 0011FB10  48 0F 66 D1 */	bl _rpMeshHeaderForAllMeshes
@@ -421,7 +421,9 @@ lbl_801231FC:
 .endif
 
 .section .sbss
-lbl_803CBE38:
+
+.global sCurrVert
+sCurrVert:
 	.skip 0x4
 
 .global sAtomicStartCount
