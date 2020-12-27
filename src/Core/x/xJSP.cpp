@@ -3,7 +3,7 @@
 #include <types.h>
 
 extern int32 sAtomicStartCount; // not exactly sure of the type
-extern RwV3d sCurrVert[]; // likely not correct. not sure what this is.
+extern RwV3d sCurrVert[]; // not sure if correct type. not sure what this is.
 
 // No dwarf info
 // ghidra said return type and type of param_2 was void
