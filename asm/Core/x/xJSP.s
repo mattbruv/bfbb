@@ -4,18 +4,6 @@
 
 .section .text  # 0x80122C04 - 0x80123228
 
-CountAtomicCB__FP8RpAtomicPv:
-/* 80122C04 0011FA04  80 AD 95 3C */	lwz r5, lbl_803CBE3C-_SDA_BASE_(r13)
-/* 80122C08 0011FA08  38 05 00 01 */	addi r0, r5, 1
-/* 80122C0C 0011FA0C  90 0D 95 3C */	stw r0, lbl_803CBE3C-_SDA_BASE_(r13)
-/* 80122C10 0011FA10  80 A3 00 18 */	lwz r5, 0x18(r3)
-/* 80122C14 0011FA14  80 C4 00 00 */	lwz r6, 0(r4)
-/* 80122C18 0011FA18  80 A5 00 54 */	lwz r5, 0x54(r5)
-/* 80122C1C 0011FA1C  80 05 00 08 */	lwz r0, 8(r5)
-/* 80122C20 0011FA20  7C 06 02 14 */	add r0, r6, r0
-/* 80122C24 0011FA24  90 04 00 00 */	stw r0, 0(r4)
-/* 80122C28 0011FA28  4E 80 00 20 */	blr 
-
 AddMeshCB__FP6RpMeshP12RpMeshHeaderPv:
 /* 80122C2C 0011FA2C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80122C30 0011FA30  7C 08 02 A6 */	mflr r0
@@ -63,13 +51,13 @@ AddAtomicCB__FP8RpAtomicPv:
 /* 80122CC8 0011FAC8  90 01 00 14 */	stw r0, 0x14(r1)
 /* 80122CCC 0011FACC  93 E1 00 0C */	stw r31, 0xc(r1)
 /* 80122CD0 0011FAD0  7C 7F 1B 78 */	mr r31, r3
-/* 80122CD4 0011FAD4  80 CD 95 3C */	lwz r6, lbl_803CBE3C-_SDA_BASE_(r13)
+/* 80122CD4 0011FAD4  80 CD 95 3C */	lwz r6, sAtomicStartCount-_SDA_BASE_(r13)
 /* 80122CD8 0011FAD8  80 E4 00 00 */	lwz r7, 0(r4)
 /* 80122CDC 0011FADC  3C 80 80 12 */	lis r4, AddMeshCB__FP6RpMeshP12RpMeshHeaderPv@ha
 /* 80122CE0 0011FAE0  38 06 FF FF */	addi r0, r6, -1
 /* 80122CE4 0011FAE4  80 CD 95 40 */	lwz r6, lbl_803CBE40-_SDA_BASE_(r13)
 /* 80122CE8 0011FAE8  38 84 2C 2C */	addi r4, r4, AddMeshCB__FP6RpMeshP12RpMeshHeaderPv@l
-/* 80122CEC 0011FAEC  90 0D 95 3C */	stw r0, lbl_803CBE3C-_SDA_BASE_(r13)
+/* 80122CEC 0011FAEC  90 0D 95 3C */	stw r0, sAtomicStartCount-_SDA_BASE_(r13)
 /* 80122CF0 0011FAF0  54 00 10 3A */	slwi r0, r0, 2
 /* 80122CF4 0011FAF4  7C E6 01 2E */	stwx r7, r6, r0
 /* 80122CF8 0011FAF8  80 63 00 18 */	lwz r3, 0x18(r3)
@@ -87,12 +75,12 @@ AddAtomicCB__FP8RpAtomicPv:
 /* 80122D28 0011FB28  4E 80 00 20 */	blr 
 
 AddAtomicPrecalcedVertCB__FP8RpAtomicPv:
-/* 80122D2C 0011FB2C  80 AD 95 3C */	lwz r5, lbl_803CBE3C-_SDA_BASE_(r13)
+/* 80122D2C 0011FB2C  80 AD 95 3C */	lwz r5, sAtomicStartCount-_SDA_BASE_(r13)
 /* 80122D30 0011FB30  80 E4 00 00 */	lwz r7, 0(r4)
 /* 80122D34 0011FB34  38 A5 FF FF */	addi r5, r5, -1
 /* 80122D38 0011FB38  80 CD 95 40 */	lwz r6, lbl_803CBE40-_SDA_BASE_(r13)
 /* 80122D3C 0011FB3C  54 A0 10 3A */	slwi r0, r5, 2
-/* 80122D40 0011FB40  90 AD 95 3C */	stw r5, lbl_803CBE3C-_SDA_BASE_(r13)
+/* 80122D40 0011FB40  90 AD 95 3C */	stw r5, sAtomicStartCount-_SDA_BASE_(r13)
 /* 80122D44 0011FB44  7C E6 01 2E */	stwx r7, r6, r0
 /* 80122D48 0011FB48  80 A3 00 18 */	lwz r5, 0x18(r3)
 /* 80122D4C 0011FB4C  80 C4 00 00 */	lwz r6, 0(r4)
@@ -218,9 +206,9 @@ lbl_80122EB8:
 /* 80122F0C 0011FD0C  90 7D 00 1C */	stw r3, 0x1c(r29)
 /* 80122F10 0011FD10  80 7D 00 0C */	lwz r3, 0xc(r29)
 /* 80122F14 0011FD14  48 0F 00 E5 */	bl RpClumpGetNumAtomics
-/* 80122F18 0011FD18  90 6D 95 3C */	stw r3, lbl_803CBE3C-_SDA_BASE_(r13)
+/* 80122F18 0011FD18  90 6D 95 3C */	stw r3, sAtomicStartCount-_SDA_BASE_(r13)
 /* 80122F1C 0011FD1C  80 6D 9F 7C */	lwz r3, RwEngineInstance-_SDA_BASE_(r13)
-/* 80122F20 0011FD20  80 0D 95 3C */	lwz r0, lbl_803CBE3C-_SDA_BASE_(r13)
+/* 80122F20 0011FD20  80 0D 95 3C */	lwz r0, sAtomicStartCount-_SDA_BASE_(r13)
 /* 80122F24 0011FD24  81 83 01 34 */	lwz r12, 0x134(r3)
 /* 80122F28 0011FD28  54 03 10 3A */	slwi r3, r0, 2
 /* 80122F2C 0011FD2C  7D 89 03 A6 */	mtctr r12
@@ -242,7 +230,7 @@ lbl_80122F54:
 /* 80122F68 0011FD68  90 1D 00 18 */	stw r0, 0x18(r29)
 /* 80122F6C 0011FD6C  38 83 2C 04 */	addi r4, r3, CountAtomicCB__FP8RpAtomicPv@l
 /* 80122F70 0011FD70  38 BD 00 18 */	addi r5, r29, 0x18
-/* 80122F74 0011FD74  90 0D 95 3C */	stw r0, lbl_803CBE3C-_SDA_BASE_(r13)
+/* 80122F74 0011FD74  90 0D 95 3C */	stw r0, sAtomicStartCount-_SDA_BASE_(r13)
 /* 80122F78 0011FD78  80 7D 00 0C */	lwz r3, 0xc(r29)
 /* 80122F7C 0011FD7C  48 0F 00 B5 */	bl RpClumpForAllAtomics
 /* 80122F80 0011FD80  80 6D 9F 7C */	lwz r3, RwEngineInstance-_SDA_BASE_(r13)
@@ -253,7 +241,7 @@ lbl_80122F54:
 /* 80122F94 0011FD94  4E 80 04 21 */	bctrl 
 /* 80122F98 0011FD98  90 7D 00 1C */	stw r3, 0x1c(r29)
 /* 80122F9C 0011FD9C  80 6D 9F 7C */	lwz r3, RwEngineInstance-_SDA_BASE_(r13)
-/* 80122FA0 0011FDA0  80 0D 95 3C */	lwz r0, lbl_803CBE3C-_SDA_BASE_(r13)
+/* 80122FA0 0011FDA0  80 0D 95 3C */	lwz r0, sAtomicStartCount-_SDA_BASE_(r13)
 /* 80122FA4 0011FDA4  81 83 01 34 */	lwz r12, 0x134(r3)
 /* 80122FA8 0011FDA8  54 03 10 3A */	slwi r3, r0, 2
 /* 80122FAC 0011FDAC  7D 89 03 A6 */	mtctr r12
@@ -435,8 +423,11 @@ lbl_801231FC:
 .section .sbss
 lbl_803CBE38:
 	.skip 0x4
-lbl_803CBE3C:
+
+.global sAtomicStartCount
+sAtomicStartCount:
 	.skip 0x4
+
 lbl_803CBE40:
 	.skip 0x8
 /* SPECULATION: link order */

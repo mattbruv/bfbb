@@ -2,8 +2,17 @@
 
 #include <types.h>
 
-// func_80122C04
-#pragma GLOBAL_ASM("asm/Core/x/xJSP.s", "CountAtomicCB__FP8RpAtomicPv")
+extern int32 sAtomicStartCount; // not exactly sure of the type
+
+// No dwarf info
+// ghidra said return type and type of param_2 was void
+// but changing it to return atomic matches.
+RpAtomic* CountAtomicCB(RpAtomic* atomic, uint32* param_2)
+{
+    sAtomicStartCount++;
+    *param_2 += atomic->geometry->mesh->totalIndicesInMesh;
+    return atomic;
+}
 
 // func_80122C2C
 #pragma GLOBAL_ASM("asm/Core/x/xJSP.s", "AddMeshCB__FP6RpMeshP12RpMeshHeaderPv")
