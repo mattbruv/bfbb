@@ -152,7 +152,7 @@ uint8 zNPCRobot::ColPenFlags() const
 {
     int32 flags = 0x3E;
 
-    if (npcset.reduceCollide)
+    if (this->npcset.reduceCollide)
     {
         flags &= ~0x6;
     }
@@ -164,12 +164,12 @@ uint8 zNPCRobot::PhysicsFlags() const
 {
     int32 flags = 0;
 
-    if ((flg_move & 0x6) != 0)
+    if (this->flg_move & 0x6)
     {
         flags |= 3;
     }
 
-    if ((flg_move & 0x2) != 0)
+    if (this->flg_move & 0x2)
     {
         flags |= 4;
     }
@@ -178,7 +178,28 @@ uint8 zNPCRobot::PhysicsFlags() const
 }
 
 // func_800F7960
+#if 1
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeRobot.s", "Init__9zNPCRobotFP9xEntAsset")
+#else
+void zNPCRobot::Init(xEntAsset* asset)
+{
+    // ((zNPCCommon*)this)->Init(asset);
+    this->flg_move = 10;
+    // Size=76
+    /*
+    r31 = r3;
+    zNPCCommon::Init(xEntAsset*); // [Init__10zNPCCommonFP9xEntAsset]
+    r3 = 0xa;
+    r0 = -1;
+    0x1cc(r31) = r3;
+    0x1c8(r31) = r0;
+    0x2cc(r31) = r0;
+    lha r0, 0xe4(r31)
+    ori r0, r0, 8
+    sth r0, 0xe4(r31)
+    */
+}
+#endif
 
 // func_800F79AC
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeRobot.s", "Reset__9zNPCRobotFv")
