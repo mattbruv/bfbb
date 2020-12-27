@@ -183,21 +183,11 @@ uint8 zNPCRobot::PhysicsFlags() const
 #else
 void zNPCRobot::Init(xEntAsset* asset)
 {
-    // ((zNPCCommon*)this)->Init(asset);
+    zNPCCommon::Init(asset);
     this->flg_move = 10;
-    // Size=76
-    /*
-    r31 = r3;
-    zNPCCommon::Init(xEntAsset*); // [Init__10zNPCCommonFP9xEntAsset]
-    r3 = 0xa;
-    r0 = -1;
-    0x1cc(r31) = r3;
-    0x1c8(r31) = r0;
-    0x2cc(r31) = r0;
-    lha r0, 0xe4(r31)
-    ori r0, r0, 8
-    sth r0, 0xe4(r31)
-    */
+    this->flg_vuln = -1;
+    this->idx_neckBone = -1;
+    this->flags1.flg_basenpc |= 8;
 }
 #endif
 
