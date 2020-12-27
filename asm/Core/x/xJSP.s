@@ -91,14 +91,6 @@ AddAtomicPrecalcedVertCB__FP8RpAtomicPv:
 /* 80122D60 0011FB60  90 04 00 00 */	stw r0, 0(r4)
 /* 80122D64 0011FB64  4E 80 00 20 */	blr 
 
-ListAtomicCB__FP8RpAtomicPv:
-/* 80122D68 0011FB68  80 A4 00 00 */	lwz r5, 0(r4)
-/* 80122D6C 0011FB6C  90 65 00 00 */	stw r3, 0(r5)
-/* 80122D70 0011FB70  80 A4 00 00 */	lwz r5, 0(r4)
-/* 80122D74 0011FB74  38 05 00 04 */	addi r0, r5, 4
-/* 80122D78 0011FB78  90 04 00 00 */	stw r0, 0(r4)
-/* 80122D7C 0011FB7C  4E 80 00 20 */	blr 
-
 .global xJSP_MultiStreamRead__FPvUiPP10xJSPHeader
 xJSP_MultiStreamRead__FPvUiPP10xJSPHeader:
 /* 80122D80 0011FB80  94 21 FF C0 */	stwu r1, -0x40(r1)

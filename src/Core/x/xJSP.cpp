@@ -45,8 +45,14 @@ RpMesh* AddMeshCB(RpMesh* mesh, RpMeshHeader* header, RwV3d** param_3)
 // func_80122D2C
 #pragma GLOBAL_ASM("asm/Core/x/xJSP.s", "AddAtomicPrecalcedVertCB__FP8RpAtomicPv")
 
-// func_80122D68
-#pragma GLOBAL_ASM("asm/Core/x/xJSP.s", "ListAtomicCB__FP8RpAtomicPv")
+RpAtomic* ListAtomicCB(RpAtomic* atomic, void* data)
+{
+    // RpAtomic*** aList; <- declared in dwarf data
+    // ¯\_(ツ)_/¯ idk what's going on
+    **(RpAtomic***)data = atomic;
+    *(int32*)data += 4;
+    return atomic;
+}
 
 // func_80122D80
 #pragma GLOBAL_ASM("asm/Core/x/xJSP.s", "xJSP_MultiStreamRead__FPvUiPP10xJSPHeader")
