@@ -43,7 +43,31 @@ RpMesh* AddMeshCB(RpMesh* mesh, RpMeshHeader* header, RwV3d** param_3)
 #pragma GLOBAL_ASM("asm/Core/x/xJSP.s", "AddAtomicCB__FP8RpAtomicPv")
 
 // func_80122D2C
+#if 1
 #pragma GLOBAL_ASM("asm/Core/x/xJSP.s", "AddAtomicPrecalcedVertCB__FP8RpAtomicPv")
+#else
+// not in dwarf data
+RpAtomic* AddAtomicPrecalcedVertCB(RpAtomic* atomic, void* data)
+{
+    sAtomicStartCount = sAtomicStartCount - 1;
+
+    // Size=60
+    /*
+    r5 = sAtomicStartCount;
+    r7 = 0(r4);
+    r5 = r5 + -1;
+    r6 = lbl_803CBE40;
+    slwi r0, r5, 2 sAtomicStartCount = r5;
+    stwx r7, r6, r0 r5 = 0x18(r3);
+    r6 = 0(r4);
+    r5 = 0x54(r5);
+    r0 = 8(r5);
+    mulli r0, r0, 0xc add r0, r6, r0 0(r4) = r0;
+    */
+
+    return atomic;
+}
+#endif
 
 RpAtomic* ListAtomicCB(RpAtomic* atomic, void* data)
 {
