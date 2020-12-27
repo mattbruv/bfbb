@@ -3,8 +3,11 @@
 #include <types.h>
 #include <string.h>
 
+#include "zNPCGoalCommon.h"
+#include "zNPCGoalStd.h"
 #include "zNPCGoalRobo.h"
 #include "zNPCTypes.h"
+
 #include "../Core/x/xFactory.h"
 
 extern UVAModelInfo g_uvaShield;
@@ -230,8 +233,19 @@ void zNPCRobot::Process(xScene* xscn, float32 dt)
 // func_800F8304
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeRobot.s", "RoboHandleMail__9zNPCRobotFP6NPCMsg")
 
-// func_800F84D8
-#pragma GLOBAL_ASM("asm/Game/zNPCTypeRobot.s", "DuploOwner__9zNPCRobotFP10zNPCCommon")
+void zNPCRobot::DuploOwner(zNPCCommon* duper)
+{
+    zNPCCommon::DuploOwner(duper);
+
+    xPsyche* psyche = this->psy_instinct;
+
+    if (psyche)
+    {
+        zNPCGoalDead* dead = (zNPCGoalDead*)psyche->FindGoal('NGRj'); // 0x4E47526A
+        dead->DieQuietly();
+        psyche->GoalSet('NGRj', 1);
+    }
+}
 
 // func_800F8538
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeRobot.s", "DoAliveStuff__9zNPCRobotFf")

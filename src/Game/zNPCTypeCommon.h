@@ -268,7 +268,7 @@ struct zNPCCommon : xNPCBasic
     float32 len_mvptspline;
     float32 dst_curspline;
     xEntDrive* drv_data;
-    xPsyche* psy_instinct;
+    xPsyche* psy_instinct; // 0x228
     zNPCCommon* npc_duplodude;
     float32 spd_throttle;
     int32 flg_xtrarend;

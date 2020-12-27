@@ -12,12 +12,12 @@ typedef struct zNPCRobot;
 
 struct NPCArena
 {
-    int32 flg_arena;
+    int32 flg_arena; // 0x2a8
     xVec3 pos_arena;
     float32 rad_arena;
     zMovePoint* nav_arena;
     zMovePoint* nav_refer_dest;
-    zMovePoint* nav_refer_curr;
+    zMovePoint* nav_refer_curr; // 0x2c4
 
     void SetHome(zNPCCommon* npc, xVec3* pos, float32 rad);
     void SetHome(zNPCCommon* npc, zMovePoint* nav);
@@ -35,14 +35,14 @@ struct NPCBattle
 
 struct zNPCRobot : zNPCCommon
 {
-    int32 hitpoints;
+    int32 hitpoints; // 0x2a0
     float32 tmr_safetime;
     NPCArena arena;
     NPCBattle* inf_battle;
     int32 idx_neckBone;
     float32 tmr_stunned;
     NPCGlyph* glyf_stun;
-    int32 cnt_nextemit;
+    int32 cnt_nextemit; // 0x2d8
     xVec3 vel_bunnyhop;
     zNPCLassoInfo raw_lassoinfo;
     xEntDrive raw_drvdata;
