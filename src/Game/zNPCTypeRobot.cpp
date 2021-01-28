@@ -8,6 +8,8 @@
 #include "zNPCGoalStd.h"
 
 #include "../Core/x/xFactory.h"
+#include "../Core/x/xBehaviour.h"
+//
 
 extern UVAModelInfo g_uvaShield;
 extern int32 g_cnt_fodbzzt;
@@ -67,11 +69,11 @@ void zNPCRobot_ScenePostInit()
 
 void zNPCRobot_Timestep(float dt)
 {
-    if (g_cnt_fodbzzt != 0)
+    if (g_cnt_fodbzzt)
     {
         zNPCFodBzzt_DoTheHokeyPokey(dt);
     }
-    if (g_cnt_sleepy != 0)
+    if (g_cnt_sleepy)
     {
         zNPCSleepy_Timestep(dt);
     }
@@ -371,7 +373,45 @@ void zNPCRobot::DuploOwner(zNPCCommon* duper)
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeRobot.s", "LassoSetup__9zNPCRobotFv")
 
 // func_800F8CA0
+#if 0
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeRobot.s", "IsDying__9zNPCRobotFv")
+#else
+int32 zNPCRobot::IsDying()
+{
+    int32 isdying = 0;
+
+    if (!psy_instinct)
+    {
+        return isdying;
+    }
+    xGoal* goal = psy_instinct->GetCurGoal();
+
+    if (!goal)
+    {
+        return isdying;
+    }
+
+    switch (goal->GetID())
+    {
+    case 'NGR7':
+    {
+        isdying = 1;
+        break;
+    }
+    case 'NGRd':
+    {
+        isdying = 2;
+    }
+    case 'NGRi':
+    case 'NGRk':
+    {
+        isdying = 0;
+        break;
+    }
+    }
+    return isdying;
+}
+#endif
 
 int32 zNPCRobot::IsWounded()
 {

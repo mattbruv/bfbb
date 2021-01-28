@@ -81,6 +81,7 @@ struct xGoal : xListItem<xGoal>, xFactoryInst
     en_GOALSTATE GetState();
 
     xBase* GetOwner();
+    int32 GetID() const;
     int32 PreCalc(float32 dt, void* updCtxt);
     int32 EvalRules(en_trantype* trantype, float32 dt, void* updCtxt);
     int32 Process(en_trantype* trantype, float dt, void* ctxt, xScene* scene);
@@ -129,6 +130,7 @@ struct xPsyche : RyzMemData
     void BrainEnd();
     void SetSafety(int32);
     xPsyche* GetClient();
+    xGoal* GetCurGoal() const; //
 };
 
 #endif
