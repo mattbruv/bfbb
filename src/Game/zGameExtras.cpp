@@ -62,6 +62,7 @@ static uint32 jumpTable[] = {
 };
 
 // 22 cheats
+// REPLACE ME
 
 int32 zGameExtras_ExtrasFlags()
 {
