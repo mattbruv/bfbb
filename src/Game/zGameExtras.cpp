@@ -38,6 +38,25 @@ extern uint32 sCheatPressed[16];
 
 extern EGGItem g_eggBasket[2];
 
+/*
+EGGItem g_eggBasket[] = {
+    { EGG_check_ExtrasFlags, 3 },
+    { NULL }
+}
+*/
+
+/*
+80 09 99 38
+80 28 F1 A0
+00 00 00 00
+00 00 00 00
+
+00 00 00 00
+00 00 00 00
+00 00 00 00
+00 00 00 00
+*/
+
 int32 zGameExtras_ExtrasFlags()
 {
     return g_gameExtraFlags;
