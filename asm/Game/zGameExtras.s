@@ -664,10 +664,10 @@ zGameExtras_strings:
 EGGEmpty:
 	.incbin "baserom.dol", 0x28C180, 0x10
 
-*/
 .global g_eggBasket
 g_eggBasket:
 	.incbin "baserom.dol", 0x28C190, 0x20
+*/
 
 lbl_8028F1D0:
 	.incbin "baserom.dol", 0x28C1B0, 0x34

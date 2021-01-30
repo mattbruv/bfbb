@@ -43,29 +43,7 @@ EGGItemFuncs EGGEmpty = {
     NULL,
 };
 
-extern EGGItem g_eggBasket[2];
-/*
-EGGItem g_eggBasket[] = { //
-    {
-        EGG_check_ExtrasFlags, //
-        &EGGEmpty, //
-        NULL, //
-        NULL //
-    }
-};
-*/
-
-/*
-80 09 99 38
-80 28 F1 A0
-00 00 00 00
-00 00 00 00
-
-00 00 00 00
-00 00 00 00
-00 00 00 00
-00 00 00 00
-*/
+EGGItem g_eggBasket[] = { { EGG_check_ExtrasFlags, &EGGEmpty, NULL, NULL }, {} };
 
 int32 zGameExtras_ExtrasFlags()
 {
