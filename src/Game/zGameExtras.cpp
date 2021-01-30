@@ -36,16 +36,16 @@ extern int32 g_enableGameExtras;
 
 extern uint32 sCheatPressed[16];
 
-EGGItemFuncs EGGEmpty = {
+static EGGItemFuncs EGGEmpty = {
     NULL,
     NULL,
     NULL,
     NULL,
 };
 
-EGGItem g_eggBasket[] = { { EGG_check_ExtrasFlags, &EGGEmpty, NULL, NULL }, {} };
+static EGGItem g_eggBasket[] = { { EGG_check_ExtrasFlags, &EGGEmpty, NULL, NULL }, {} };
 
-uint32 jumpTable[] = {
+static uint32 jumpTable[] = {
     0x80099AFC, //
     0x8009995C, //
     0x80099978, //
