@@ -668,16 +668,13 @@ EGGEmpty:
 g_eggBasket:
 	.incbin "baserom.dol", 0x28C190, 0x20
 
-lbl_8028F1D0:
+jumpTable:
 	.incbin "baserom.dol", 0x28C1B0, 0x34
 */
 
-blob:
-	.incbin "baserom.dol", 0x28C1E4, 0x540
-
-lbl_8028F744:
-	.incbin "baserom.dol", 0x28C724, 0x160
-/* SPECULATION: link order */
+/* 8028 F204 */
+cheatBlob:
+	.incbin "baserom.dol", 0x28C1E4, 0x6A0
 
 .global sCheatPressed
 sCheatPressed:

@@ -61,6 +61,8 @@ static uint32 jumpTable[] = {
     0x80099AFC //
 };
 
+// 22 cheats
+
 int32 zGameExtras_ExtrasFlags()
 {
     return g_gameExtraFlags;
