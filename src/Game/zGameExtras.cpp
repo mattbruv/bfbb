@@ -45,6 +45,22 @@ EGGItemFuncs EGGEmpty = {
 
 EGGItem g_eggBasket[] = { { EGG_check_ExtrasFlags, &EGGEmpty, NULL, NULL }, {} };
 
+uint32 jumpTable[] = {
+    0x80099AFC, //
+    0x8009995C, //
+    0x80099978, //
+    0x80099994, //
+    0x80099A00, //
+    0x80099AFC, //
+    0x80099A1C, //
+    0x80099A38, //
+    0x80099A54, //
+    0x80099A70, //
+    0x80099A8C, //
+    0x80099AE4, //
+    0x80099AFC //
+};
+
 int32 zGameExtras_ExtrasFlags()
 {
     return g_gameExtraFlags;
