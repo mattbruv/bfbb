@@ -673,9 +673,10 @@ jumpTable:
 */
 
 /* 8028 F204 */
+/*
 cheatBlob:
 	.incbin "baserom.dol", 0x28C1E4, 0x540
-
+*/
 /* 64 in hex = 40 */
 /* 8028f744 */
 /* cheat list goes here, size = 0x160 */
