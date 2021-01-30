@@ -659,16 +659,22 @@ zGameExtras_strings:
 
 .section .data
 
+/*
 .global EGGEmpty 
 EGGEmpty:
 	.incbin "baserom.dol", 0x28C180, 0x10
 
+*/
 .global g_eggBasket
 g_eggBasket:
 	.incbin "baserom.dol", 0x28C190, 0x20
 
 lbl_8028F1D0:
-	.incbin "baserom.dol", 0x28C1B0, 0x574
+	.incbin "baserom.dol", 0x28C1B0, 0x34
+
+blob:
+	.incbin "baserom.dol", 0x28C1E4, 0x540
+
 lbl_8028F744:
 	.incbin "baserom.dol", 0x28C724, 0x160
 /* SPECULATION: link order */
@@ -676,7 +682,6 @@ lbl_8028F744:
 .global sCheatPressed
 sCheatPressed:
 	.incbin "baserom.dol", 0x28C884, 0x40
-
 lbl_8028F8E4:
 	.incbin "baserom.dol", 0x28C8C4, 0x1C
 lbl_8028F900:

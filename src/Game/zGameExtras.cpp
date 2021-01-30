@@ -36,13 +36,23 @@ extern int32 g_enableGameExtras;
 
 extern uint32 sCheatPressed[16];
 
-extern EGGItem g_eggBasket[2];
+EGGItemFuncs EGGEmpty = {
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+};
 
+extern EGGItem g_eggBasket[2];
 /*
-EGGItem g_eggBasket[] = {
-    { EGG_check_ExtrasFlags, 3 },
-    { NULL }
-}
+EGGItem g_eggBasket[] = { //
+    {
+        EGG_check_ExtrasFlags, //
+        &EGGEmpty, //
+        NULL, //
+        NULL //
+    }
+};
 */
 
 /*
