@@ -240,7 +240,6 @@ int32 zGameExtras_CheatFlags()
 #else if
 void zGameExtras_NewGameReset()
 {
-    // very close to matching
     g_flg_chEnabled = 0;
     zGlobalSettings* gs = &globals.player.g;
 

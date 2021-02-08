@@ -400,7 +400,7 @@ def run_make(target: str) -> None:
 
 def run_make_capture_output(target: str) -> "subprocess.CompletedProcess[bytes]":
     return subprocess.run(
-        ["make"] + makeflags + [target],
+        ["make"] + makeflags + [target.replace("\\", "/")],
         stderr=subprocess.PIPE,
         stdout=subprocess.PIPE,
     )
@@ -1714,6 +1714,7 @@ def main() -> None:
                 last_build = time.time()
                 if args.make:
                     display.progress("Building...")
+                    #fuck
                     ret = run_make_capture_output(make_target)
                     if ret.returncode != 0:
                         display.update(
