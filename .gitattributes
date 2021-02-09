@@ -1,5 +1,9 @@
 
 
 # exclude all code from being processed by linguist stats
-!src linguist-vendored
+.vscode/ linguist-vendored
+docs/ linguist-vendored
+dwarf/ linguist-vendored
+include/ linguist-vendored
+tools/ linguist-vendored
 #*.h linguist-language=CPP
