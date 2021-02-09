@@ -1,6 +1,5 @@
 
 
 # exclude all code from being processed by linguist stats
-* linguist-vendored
-src/* linguist-detectable=true
+!src linguist-vendored
 #*.h linguist-language=CPP
