@@ -985,12 +985,12 @@ uint32 count_talk_anims(xAnimTable* anims)
 }
 
 void load_player_ini(zPlayerSettings& ps, xModelInstance& model, xModelAssetParam* modelass,
-                     uint32 param_4)
+                     uint32 params_size)
 {
     uint32 count;
     count = count_talk_anims(model.Anim->Table);
     ps.talk_anims = count;
-    count = load_talk_filter(ps.talk_filter, modelass, param_4, ps.talk_anims);
+    count = load_talk_filter(ps.talk_filter, modelass, params_size, ps.talk_anims);
     ps.talk_filter_size = count;
 }
 
