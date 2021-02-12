@@ -955,18 +955,19 @@ int32 load_talk_filter(uint8* filter, xModelAssetParam* params, uint32 params_si
 }
 #endif
 
-// func_8006D71C
-#if 1
-#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "count_talk_anims__FP10xAnimTable")
-#else
-// Slightly off instruction order in the first few lines, loop is correct
 uint32 count_talk_anims(xAnimTable* anims)
 {
-    int32 talkAnimCount = 0;
     xAnimFile* firstData = anims->StateList->Data;
-
     int8 talkAnimName[20];
-    sprintf(talkAnimName, &zEntPlayer_Strings[0x29ff], 1);
+    int32 talkAnimCount = 0;
+
+    sprintf(talkAnimName, (zEntPlayer_Strings + 0x29ff), 1);
+
+    // having this here is necessary for some reason
+    // The beginnign address of the strings are stored in a register
+    // which is later added to in the loop itself
+    // Don't know if this will break when we substitute strings
+    const char* strings = zEntPlayer_Strings;
 
     for (xAnimState* state = anims->StateList; state != NULL; state = state->Next)
     {
@@ -976,13 +977,12 @@ uint32 count_talk_anims(xAnimTable* anims)
             {
                 break;
             }
-            sprintf(talkAnimName, &zEntPlayer_Strings[0x29ff], talkAnimCount + 1);
+            sprintf(talkAnimName, (strings + 0x29ff), talkAnimCount + 1);
         }
     }
 
     return talkAnimCount;
 }
-#endif
 
 // func_8006D7E4
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
