@@ -17,6 +17,7 @@
 #include "zEntTeleportBox.h"
 #include "zGame.h"
 #include "zGameExtras.h"
+#include "zNPCTypeTiki.h"
 #include "zGlobals.h"
 #include "zGoo.h"
 #include "zLasso.h"
@@ -63,14 +64,6 @@ extern uint32 sPlayerSndID[ePlayer_MAXTYPES][ePlayerSnd_Total];
 // func_80066210
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayer_SpawnWandBubbles__FP5xVec3Ui")
 
-// func_80066430
-#ifndef NONMATCHING
-#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayerKillCarry__Fv")
-#else
-
-// TODO: figure out what type has this callback and remove this
-typedef void (*killCarryCallback)(xEnt* self, uint32 a, uint32 b, uint32 c);
-
 void zEntPlayerKillCarry()
 {
     if (!globals.player.carry.grabbed)
@@ -85,15 +78,10 @@ void zEntPlayerKillCarry()
             zEntEvent((xBase*)globals.player.carry.grabbed, 0x16);
         }
         else if (globals.player.carry.grabbed->baseType == eBaseTypeNPC &&
-                 (((xNPCBasic*)globals.player.carry.grabbed)->SelfType() & 0xffffff00) ==
-                     0x4e545400)
+                 (((xNPCBasic*)globals.player.carry.grabbed)->SelfType() & 0xffffff00) == 'NTT\0')
         {
-            // this is the only line preventing a match
-            // the compiler is using an extra register here.
-            // I don't know any type information of the object here
-            // So I have to hack this callback until we can figure it out.
-            (*(killCarryCallback*)(*(int32*)(&globals.player.carry.grabbed->user_data + 59) +
-                                   0x80))(globals.player.carry.grabbed, 0xd, 0, 0);
+            zNPCTiki* tiki = (zNPCTiki*)globals.player.carry.grabbed;
+            tiki->Damage(DMGTYP_THUNDER_TIKI_EXPLOSION, NULL, NULL);
         }
         else if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
         {
@@ -103,7 +91,6 @@ void zEntPlayerKillCarry()
     }
     globals.player.carry.grabbed = NULL;
 }
-#endif
 
 // func_80066500
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayerControlOn__F13zControlOwner")
