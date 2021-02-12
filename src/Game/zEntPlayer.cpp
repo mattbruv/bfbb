@@ -98,8 +98,10 @@ void zEntPlayerKillCarry()
 // func_80066558
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayerControlOff__F13zControlOwner")
 
-// func_800665B8
-#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "TellPlayerVillainIsNear__Ff")
+void TellPlayerVillainIsNear(float32 visnear)
+{
+    globals.player.BadGuyNearTimer = visnear;
+}
 
 // func_800665C8
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "SetPlayerKillsVillainTimer__Ff")

@@ -202,13 +202,6 @@ lbl_800665A4:
 /* 800665B0 000633B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 800665B4 000633B4  4E 80 00 20 */	blr 
 
-.global TellPlayerVillainIsNear__Ff
-TellPlayerVillainIsNear__Ff:
-/* 800665B8 000633B8  3C 60 80 3C */	lis r3, globals@ha
-/* 800665BC 000633BC  38 63 05 58 */	addi r3, r3, globals@l
-/* 800665C0 000633C0  D0 23 17 44 */	stfs f1, 0x1744(r3)
-/* 800665C4 000633C4  4E 80 00 20 */	blr 
-
 .global SetPlayerKillsVillainTimer__Ff
 SetPlayerKillsVillainTimer__Ff:
 /* 800665C8 000633C8  3C 60 80 3C */	lis r3, globals@ha
