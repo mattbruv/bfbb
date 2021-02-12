@@ -276,5 +276,7 @@ void zEntPlayerControlOff(zControlOwner owner);
 void zEntPlayerControlOn(zControlOwner owner);
 
 void zEntPlayer_StoreCheckPoint(xVec3* pos, float32 rot, uint32 initCamID);
+void load_player_ini(zPlayerSettings& ps, xModelInstance& model, xModelAssetParam* modelass,
+                     uint32 param_4);
 
 #endif

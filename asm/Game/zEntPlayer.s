@@ -7592,68 +7592,6 @@ load_player_ini__FR15zPlayerSettingsR14xModelInstanceP16xModelAssetParamUi:
 /* 8006D844 0006A644  38 21 00 20 */	addi r1, r1, 0x20
 /* 8006D848 0006A648  4E 80 00 20 */	blr 
 
-load_player_ini__Fv:
-/* 8006D84C 0006A64C  94 21 FF E0 */	stwu r1, -0x20(r1)
-/* 8006D850 0006A650  7C 08 02 A6 */	mflr r0
-/* 8006D854 0006A654  3C 60 80 3C */	lis r3, globals@ha
-/* 8006D858 0006A658  90 01 00 24 */	stw r0, 0x24(r1)
-/* 8006D85C 0006A65C  93 E1 00 1C */	stw r31, 0x1c(r1)
-/* 8006D860 0006A660  3B E3 05 58 */	addi r31, r3, globals@l
-/* 8006D864 0006A664  80 1F 16 A0 */	lwz r0, 0x16a0(r31)
-/* 8006D868 0006A668  28 00 00 00 */	cmplwi r0, 0
-/* 8006D86C 0006A66C  41 82 00 30 */	beq lbl_8006D89C
-/* 8006D870 0006A670  80 7F 06 F0 */	lwz r3, 0x6f0(r31)
-/* 8006D874 0006A674  38 81 00 10 */	addi r4, r1, 0x10
-/* 8006D878 0006A678  80 63 00 4C */	lwz r3, 0x4c(r3)
-/* 8006D87C 0006A67C  4B FE 86 79 */	bl zEntGetModelParams__FUiPUi
-/* 8006D880 0006A680  3C A0 80 3C */	lis r5, globals@ha
-/* 8006D884 0006A684  80 9F 16 A0 */	lwz r4, 0x16a0(r31)
-/* 8006D888 0006A688  38 E5 05 58 */	addi r7, r5, globals@l
-/* 8006D88C 0006A68C  80 C1 00 10 */	lwz r6, 0x10(r1)
-/* 8006D890 0006A690  7C 65 1B 78 */	mr r5, r3
-/* 8006D894 0006A694  38 67 09 C8 */	addi r3, r7, 0x9c8
-/* 8006D898 0006A698  4B FF FF 4D */	bl load_player_ini__FR15zPlayerSettingsR14xModelInstanceP16xModelAssetParamUi
-lbl_8006D89C:
-/* 8006D89C 0006A69C  3C 60 80 3C */	lis r3, globals@ha
-/* 8006D8A0 0006A6A0  3B E3 05 58 */	addi r31, r3, globals@l
-/* 8006D8A4 0006A6A4  80 1F 16 A4 */	lwz r0, 0x16a4(r31)
-/* 8006D8A8 0006A6A8  28 00 00 00 */	cmplwi r0, 0
-/* 8006D8AC 0006A6AC  41 82 00 30 */	beq lbl_8006D8DC
-/* 8006D8B0 0006A6B0  3C 60 79 10 */	lis r3, 0x791025AC@ha
-/* 8006D8B4 0006A6B4  38 81 00 0C */	addi r4, r1, 0xc
-/* 8006D8B8 0006A6B8  38 63 25 AC */	addi r3, r3, 0x791025AC@l
-/* 8006D8BC 0006A6BC  4B FE 86 39 */	bl zEntGetModelParams__FUiPUi
-/* 8006D8C0 0006A6C0  3C A0 80 3C */	lis r5, globals@ha
-/* 8006D8C4 0006A6C4  80 9F 16 A4 */	lwz r4, 0x16a4(r31)
-/* 8006D8C8 0006A6C8  38 E5 05 58 */	addi r7, r5, globals@l
-/* 8006D8CC 0006A6CC  80 C1 00 0C */	lwz r6, 0xc(r1)
-/* 8006D8D0 0006A6D0  7C 65 1B 78 */	mr r5, r3
-/* 8006D8D4 0006A6D4  38 67 0E 10 */	addi r3, r7, 0xe10
-/* 8006D8D8 0006A6D8  4B FF FF 0D */	bl load_player_ini__FR15zPlayerSettingsR14xModelInstanceP16xModelAssetParamUi
-lbl_8006D8DC:
-/* 8006D8DC 0006A6DC  3C 60 80 3C */	lis r3, globals@ha
-/* 8006D8E0 0006A6E0  3B E3 05 58 */	addi r31, r3, globals@l
-/* 8006D8E4 0006A6E4  80 1F 16 A8 */	lwz r0, 0x16a8(r31)
-/* 8006D8E8 0006A6E8  28 00 00 00 */	cmplwi r0, 0
-/* 8006D8EC 0006A6EC  41 82 00 30 */	beq lbl_8006D91C
-/* 8006D8F0 0006A6F0  3C 60 C0 E3 */	lis r3, 0xC0E34B23@ha
-/* 8006D8F4 0006A6F4  38 81 00 08 */	addi r4, r1, 8
-/* 8006D8F8 0006A6F8  38 63 4B 23 */	addi r3, r3, 0xC0E34B23@l
-/* 8006D8FC 0006A6FC  4B FE 85 F9 */	bl zEntGetModelParams__FUiPUi
-/* 8006D900 0006A700  3C A0 80 3C */	lis r5, globals@ha
-/* 8006D904 0006A704  80 9F 16 A8 */	lwz r4, 0x16a8(r31)
-/* 8006D908 0006A708  38 E5 05 58 */	addi r7, r5, globals@l
-/* 8006D90C 0006A70C  80 C1 00 08 */	lwz r6, 8(r1)
-/* 8006D910 0006A710  7C 65 1B 78 */	mr r5, r3
-/* 8006D914 0006A714  38 67 12 58 */	addi r3, r7, 0x1258
-/* 8006D918 0006A718  4B FF FE CD */	bl load_player_ini__FR15zPlayerSettingsR14xModelInstanceP16xModelAssetParamUi
-lbl_8006D91C:
-/* 8006D91C 0006A71C  80 01 00 24 */	lwz r0, 0x24(r1)
-/* 8006D920 0006A720  83 E1 00 1C */	lwz r31, 0x1c(r1)
-/* 8006D924 0006A724  7C 08 03 A6 */	mtlr r0
-/* 8006D928 0006A728  38 21 00 20 */	addi r1, r1, 0x20
-/* 8006D92C 0006A72C  4E 80 00 20 */	blr 
-
 .global zEntPlayer_Init__FP4xEntP9xEntAsset
 zEntPlayer_Init__FP4xEntP9xEntAsset:
 /* 8006D930 0006A730  94 21 FF C0 */	stwu r1, -0x40(r1)

@@ -989,20 +989,33 @@ uint32 count_talk_anims(xAnimTable* anims)
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
                    "load_player_ini__FR15zPlayerSettingsR14xModelInstanceP16xModelAssetParamUi")
 #else
-void load_player_ini(zPlayerSettings* ps, xModelInstance* model, xModelAssetParam* modelass,
-                     uint32 param_4)
-{
-}
 #endif
 
-// func_8006D84C
-#if 1
-#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "load_player_ini__Fv")
-#else
 void load_player_ini()
 {
+    xModelAssetParam* modelass;
+    uint32 size[3];
+
+    if (globals.player.model_spongebob != NULL)
+    {
+        modelass = zEntGetModelParams(globals.player.ent.asset->modelInfoID, &size[2]);
+        load_player_ini(globals.player.sb, *globals.player.model_spongebob, modelass, size[2]);
+    }
+
+    if (globals.player.model_patrick != NULL)
+    {
+        // TODO: figure out hardcoded int
+        modelass = zEntGetModelParams(0x791025ac, &size[1]);
+        load_player_ini(globals.player.patrick, *globals.player.model_patrick, modelass, size[1]);
+    }
+
+    if (globals.player.model_sandy != NULL)
+    {
+        // TODO: figure out hardcoded int
+        modelass = zEntGetModelParams(0xc0e34b23, &size[0]);
+        load_player_ini(globals.player.sandy, *globals.player.model_sandy, modelass, size[0]);
+    }
 }
-#endif
 
 // func_8006D930
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayer_Init__FP4xEntP9xEntAsset")
