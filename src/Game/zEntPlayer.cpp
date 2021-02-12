@@ -927,12 +927,12 @@ int32 load_talk_filter(uint8* filter, xModelAssetParam* params, uint32 params_si
     int32 size = zParamGetFloatList(params, params_size, zEntPlayer_Strings + 0x29ec, max_size,
                                     non_choices, non_choices);
 
-    for (int32 i = 0; i < max_size; ++i)
+    for (int32 i = 0; i < max_size; i++)
     {
         bool skip = false;
-        for (int32 j = 0; j < size; ++j)
+        for (int32 j = 0; j < size; j++)
         {
-            if (i == (int32)non_choices[j] - 1)
+            if ((int32)non_choices[j] - 1 == i)
             {
                 skip = true;
                 break;
@@ -964,7 +964,7 @@ uint32 count_talk_anims(xAnimTable* anims)
     sprintf(talkAnimName, (zEntPlayer_Strings + 0x29ff), 1);
 
     // having this here is necessary for some reason
-    // The beginnign address of the strings are stored in a register
+    // The beginning address of the strings are stored in a register
     // which is later added to in the loop itself
     // Don't know if this will break when we substitute strings
     const char* strings = zEntPlayer_Strings;
