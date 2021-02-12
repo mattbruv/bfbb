@@ -64,7 +64,7 @@ extern uint32 sPlayerSndID[ePlayer_MAXTYPES][ePlayerSnd_Total];
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayer_SpawnWandBubbles__FP5xVec3Ui")
 
 // func_80066430
-#if 0
+#if 1
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayerKillCarry__Fv")
 #else
 
@@ -96,6 +96,11 @@ void zEntPlayerKillCarry()
                 (*(killCarryCallback*)(*(int32*)(&globals.player.carry.grabbed->user_data + 59) +
                                        0x80))(globals.player.carry.grabbed, 0xd, 0, 0);
             }
+        }
+        if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
+        {
+            zThrown_LaunchDir(globals.player.carry.grabbed,
+                              (xVec3*)&globals.player.ent.model->Mat->at);
         }
     }
     globals.player.carry.grabbed = NULL;
