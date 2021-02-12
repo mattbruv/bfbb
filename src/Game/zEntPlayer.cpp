@@ -64,7 +64,7 @@ extern uint32 sPlayerSndID[ePlayer_MAXTYPES][ePlayerSnd_Total];
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayer_SpawnWandBubbles__FP5xVec3Ui")
 
 // func_80066430
-#if 1
+#ifndef NONMATCHING
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayerKillCarry__Fv")
 #else
 
