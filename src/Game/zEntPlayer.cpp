@@ -6,10 +6,12 @@
 
 #include "../Core/x/xEnt.h"
 #include "../Core/x/xEntBoulder.h"
+#include "../Core/x/xEvent.h"
 #include "../Core/x/xSnd.h"
 #include "../Core/x/xVec3.h"
 #include "../Core/x/xMemMgr.h"
 
+#include "zBase.h"
 #include "zCamera.h"
 #include "zEntPlayer.h"
 #include "zEntTeleportBox.h"
@@ -21,6 +23,7 @@
 #include "zNPCTypeTiki.h"
 #include "zNPCMessenger.h"
 #include "zMusic.h"
+#include "zThrown.h"
 
 extern zGlobals globals;
 extern uint32 sCurrentStreamSndID;
@@ -61,7 +64,43 @@ extern uint32 sPlayerSndID[ePlayer_MAXTYPES][ePlayerSnd_Total];
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayer_SpawnWandBubbles__FP5xVec3Ui")
 
 // func_80066430
+#if 0
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayerKillCarry__Fv")
+#else
+
+typedef void (*killCarryCallback)(xEnt* self, uint32 a, uint32 b, uint32 c);
+
+void zEntPlayerKillCarry()
+{
+    int32 iVar1;
+    uint32 uVar2;
+
+    if (!globals.player.carry.grabbed)
+    {
+        return;
+    }
+
+    iVar1 = zThrown_KillFruit(globals.player.carry.grabbed);
+
+    if (!iVar1)
+    {
+        if (globals.player.carry.grabbed->baseType == eBaseTypeDestructObj)
+        {
+            zEntEvent((xBase*)globals.player.carry.grabbed, 0x16);
+        }
+        else if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
+        {
+            uVar2 = ((xNPCBasic*)globals.player.carry.grabbed)->SelfType();
+            if ((uVar2 & 0xffffff00) == 0x4e545400) // 'NTT.'
+            {
+                (*(killCarryCallback*)(*(int32*)(&globals.player.carry.grabbed->user_data + 59) +
+                                       0x80))(globals.player.carry.grabbed, 0xd, 0, 0);
+            }
+        }
+    }
+    globals.player.carry.grabbed = NULL;
+}
+#endif
 
 // func_80066500
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayerControlOn__F13zControlOwner")
