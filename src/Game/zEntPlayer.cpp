@@ -68,6 +68,7 @@ extern uint32 sPlayerSndID[ePlayer_MAXTYPES][ePlayerSnd_Total];
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayerKillCarry__Fv")
 #else
 
+// TODO: figure out what type has this callback and remove this
 typedef void (*killCarryCallback)(xEnt* self, uint32 a, uint32 b, uint32 c);
 
 void zEntPlayerKillCarry()
@@ -84,23 +85,30 @@ void zEntPlayerKillCarry()
 
     if (!iVar1)
     {
+        // something about the control flow is messed up here
+        // not sure if it's supposed to be a switch
         if (globals.player.carry.grabbed->baseType == eBaseTypeDestructObj)
         {
             zEntEvent((xBase*)globals.player.carry.grabbed, 0x16);
         }
-        else if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
+        else
         {
-            uVar2 = ((xNPCBasic*)globals.player.carry.grabbed)->SelfType();
-            if ((uVar2 & 0xffffff00) == 0x4e545400) // 'NTT.'
+            if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
             {
-                (*(killCarryCallback*)(*(int32*)(&globals.player.carry.grabbed->user_data + 59) +
-                                       0x80))(globals.player.carry.grabbed, 0xd, 0, 0);
-            }
-            else
-            {
-                if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
-                    zThrown_LaunchDir(globals.player.carry.grabbed,
-                                      (xVec3*)&globals.player.ent.model->Mat->at);
+                uVar2 = ((xNPCBasic*)globals.player.carry.grabbed)->SelfType();
+                if ((uVar2 & 0xffffff00) == 0x4e545400) // 'NTT.'
+                {
+                    // I don't know any type information of the object here
+                    // So I have to hack this callback until we can figure it out.
+                    (*(killCarryCallback*)(*(int32*)(&globals.player.carry.grabbed->user_data + 59) +
+                                           0x80))(globals.player.carry.grabbed, 0xd, 0, 0);
+                }
+                else
+                {
+                    if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
+                        zThrown_LaunchDir(globals.player.carry.grabbed,
+                                          (xVec3*)&globals.player.ent.model->Mat->at);
+                }
             }
         }
     }
