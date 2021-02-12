@@ -75,7 +75,7 @@ void zEntPlayerKillCarry()
     {
         if (globals.player.carry.grabbed->baseType == eBaseTypeDestructObj)
         {
-            zEntEvent((xBase*)globals.player.carry.grabbed, 0x16);
+            zEntEvent(globals.player.carry.grabbed, eEventDestroy);
         }
         else if (globals.player.carry.grabbed->baseType == eBaseTypeNPC &&
                  (((xNPCBasic*)globals.player.carry.grabbed)->SelfType() & 0xffffff00) == 'NTT\0')
