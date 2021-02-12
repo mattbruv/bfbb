@@ -103,8 +103,10 @@ void TellPlayerVillainIsNear(float32 visnear)
     globals.player.BadGuyNearTimer = visnear;
 }
 
-// func_800665C8
-#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "SetPlayerKillsVillainTimer__Ff")
+void SetPlayerKillsVillainTimer(float32 time)
+{
+    globals.player.VictoryTimer = time;
+}
 
 // func_800665D8
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "DampenControls__FPfPfff")

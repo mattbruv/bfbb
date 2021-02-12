@@ -202,13 +202,6 @@ lbl_800665A4:
 /* 800665B0 000633B0  38 21 00 10 */	addi r1, r1, 0x10
 /* 800665B4 000633B4  4E 80 00 20 */	blr 
 
-.global SetPlayerKillsVillainTimer__Ff
-SetPlayerKillsVillainTimer__Ff:
-/* 800665C8 000633C8  3C 60 80 3C */	lis r3, globals@ha
-/* 800665CC 000633CC  38 63 05 58 */	addi r3, r3, globals@l
-/* 800665D0 000633D0  D0 23 17 40 */	stfs f1, 0x1740(r3)
-/* 800665D4 000633D4  4E 80 00 20 */	blr 
-
 DampenControls__FPfPfff:
 /* 800665D8 000633D8  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 800665DC 000633DC  7C 08 02 A6 */	mflr r0
