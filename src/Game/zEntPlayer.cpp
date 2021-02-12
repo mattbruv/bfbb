@@ -96,11 +96,12 @@ void zEntPlayerKillCarry()
                 (*(killCarryCallback*)(*(int32*)(&globals.player.carry.grabbed->user_data + 59) +
                                        0x80))(globals.player.carry.grabbed, 0xd, 0, 0);
             }
-        }
-        if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
-        {
-            zThrown_LaunchDir(globals.player.carry.grabbed,
-                              (xVec3*)&globals.player.ent.model->Mat->at);
+            else
+            {
+                if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
+                    zThrown_LaunchDir(globals.player.carry.grabbed,
+                                      (xVec3*)&globals.player.ent.model->Mat->at);
+            }
         }
     }
     globals.player.carry.grabbed = NULL;
