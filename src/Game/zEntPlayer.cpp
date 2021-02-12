@@ -985,11 +985,24 @@ uint32 count_talk_anims(xAnimTable* anims)
 }
 
 // func_8006D7E4
+#if 1
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
                    "load_player_ini__FR15zPlayerSettingsR14xModelInstanceP16xModelAssetParamUi")
+#else
+void load_player_ini(zPlayerSettings* ps, xModelInstance* model, xModelAssetParam* modelass,
+                     uint32 param_4)
+{
+}
+#endif
 
 // func_8006D84C
+#if 1
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "load_player_ini__Fv")
+#else
+void load_player_ini()
+{
+}
+#endif
 
 // func_8006D930
 #pragma GLOBAL_ASM("asm/Game/zEntPlayer.s", "zEntPlayer_Init__FP4xEntP9xEntAsset")
