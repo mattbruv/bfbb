@@ -73,43 +73,32 @@ typedef void (*killCarryCallback)(xEnt* self, uint32 a, uint32 b, uint32 c);
 
 void zEntPlayerKillCarry()
 {
-    int32 iVar1;
-    uint32 uVar2;
-
     if (!globals.player.carry.grabbed)
     {
         return;
     }
 
-    iVar1 = zThrown_KillFruit(globals.player.carry.grabbed);
-
-    if (!iVar1)
+    if (!zThrown_KillFruit(globals.player.carry.grabbed))
     {
-        // something about the control flow is messed up here
-        // not sure if it's supposed to be a switch
         if (globals.player.carry.grabbed->baseType == eBaseTypeDestructObj)
         {
             zEntEvent((xBase*)globals.player.carry.grabbed, 0x16);
         }
-        else
+        else if (globals.player.carry.grabbed->baseType == eBaseTypeNPC &&
+                 (((xNPCBasic*)globals.player.carry.grabbed)->SelfType() & 0xffffff00) ==
+                     0x4e545400)
         {
-            if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
-            {
-                uVar2 = ((xNPCBasic*)globals.player.carry.grabbed)->SelfType();
-                if ((uVar2 & 0xffffff00) == 0x4e545400) // 'NTT.'
-                {
-                    // I don't know any type information of the object here
-                    // So I have to hack this callback until we can figure it out.
-                    (*(killCarryCallback*)(*(int32*)(&globals.player.carry.grabbed->user_data + 59) +
-                                           0x80))(globals.player.carry.grabbed, 0xd, 0, 0);
-                }
-                else
-                {
-                    if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
-                        zThrown_LaunchDir(globals.player.carry.grabbed,
-                                          (xVec3*)&globals.player.ent.model->Mat->at);
-                }
-            }
+            // this is the only line preventing a match
+            // the compiler is using an extra register here.
+            // I don't know any type information of the object here
+            // So I have to hack this callback until we can figure it out.
+            (*(killCarryCallback*)(*(int32*)(&globals.player.carry.grabbed->user_data + 59) +
+                                   0x80))(globals.player.carry.grabbed, 0xd, 0, 0);
+        }
+        else if (globals.player.carry.grabbed->baseType == eBaseTypeNPC)
+        {
+            zThrown_LaunchDir(globals.player.carry.grabbed,
+                              (xVec3*)&globals.player.ent.model->Mat->at);
         }
     }
     globals.player.carry.grabbed = NULL;
