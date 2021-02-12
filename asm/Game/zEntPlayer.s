@@ -7564,34 +7564,6 @@ lbl_8006D6FC:
 /* 8006D714 0006A514  38 21 00 30 */	addi r1, r1, 0x30
 /* 8006D718 0006A518  4E 80 00 20 */	blr 
 
-load_player_ini__FR15zPlayerSettingsR14xModelInstanceP16xModelAssetParamUi:
-/* 8006D7E4 0006A5E4  94 21 FF E0 */	stwu r1, -0x20(r1)
-/* 8006D7E8 0006A5E8  7C 08 02 A6 */	mflr r0
-/* 8006D7EC 0006A5EC  90 01 00 24 */	stw r0, 0x24(r1)
-/* 8006D7F0 0006A5F0  93 E1 00 1C */	stw r31, 0x1c(r1)
-/* 8006D7F4 0006A5F4  7C DF 33 78 */	mr r31, r6
-/* 8006D7F8 0006A5F8  93 C1 00 18 */	stw r30, 0x18(r1)
-/* 8006D7FC 0006A5FC  7C BE 2B 78 */	mr r30, r5
-/* 8006D800 0006A600  93 A1 00 14 */	stw r29, 0x14(r1)
-/* 8006D804 0006A604  7C 7D 1B 78 */	mr r29, r3
-/* 8006D808 0006A608  80 84 00 0C */	lwz r4, 0xc(r4)
-/* 8006D80C 0006A60C  80 64 00 10 */	lwz r3, 0x10(r4)
-/* 8006D810 0006A610  4B FF FF 0D */	bl count_talk_anims__FP10xAnimTable
-/* 8006D814 0006A614  98 7D 04 40 */	stb r3, 0x440(r29)
-/* 8006D818 0006A618  7F C4 F3 78 */	mr r4, r30
-/* 8006D81C 0006A61C  7F E5 FB 78 */	mr r5, r31
-/* 8006D820 0006A620  38 7D 04 42 */	addi r3, r29, 0x442
-/* 8006D824 0006A624  88 DD 04 40 */	lbz r6, 0x440(r29)
-/* 8006D828 0006A628  4B FF FE 01 */	bl load_talk_filter__FPUcP16xModelAssetParamUii
-/* 8006D82C 0006A62C  98 7D 04 41 */	stb r3, 0x441(r29)
-/* 8006D830 0006A630  80 01 00 24 */	lwz r0, 0x24(r1)
-/* 8006D834 0006A634  83 E1 00 1C */	lwz r31, 0x1c(r1)
-/* 8006D838 0006A638  83 C1 00 18 */	lwz r30, 0x18(r1)
-/* 8006D83C 0006A63C  83 A1 00 14 */	lwz r29, 0x14(r1)
-/* 8006D840 0006A640  7C 08 03 A6 */	mtlr r0
-/* 8006D844 0006A644  38 21 00 20 */	addi r1, r1, 0x20
-/* 8006D848 0006A648  4E 80 00 20 */	blr 
-
 .global zEntPlayer_Init__FP4xEntP9xEntAsset
 zEntPlayer_Init__FP4xEntP9xEntAsset:
 /* 8006D930 0006A730  94 21 FF C0 */	stwu r1, -0x40(r1)

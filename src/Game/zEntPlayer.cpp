@@ -984,12 +984,15 @@ uint32 count_talk_anims(xAnimTable* anims)
     return talkAnimCount;
 }
 
-// func_8006D7E4
-#if 1
-#pragma GLOBAL_ASM("asm/Game/zEntPlayer.s",                                                        \
-                   "load_player_ini__FR15zPlayerSettingsR14xModelInstanceP16xModelAssetParamUi")
-#else
-#endif
+void load_player_ini(zPlayerSettings& ps, xModelInstance& model, xModelAssetParam* modelass,
+                     uint32 param_4)
+{
+    uint32 count;
+    count = count_talk_anims(model.Anim->Table);
+    ps.talk_anims = count;
+    count = load_talk_filter(ps.talk_filter, modelass, param_4, ps.talk_anims);
+    ps.talk_filter_size = count;
+}
 
 void load_player_ini()
 {
