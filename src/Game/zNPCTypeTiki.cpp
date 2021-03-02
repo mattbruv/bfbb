@@ -13,6 +13,55 @@ extern zParEmitter* cloudEmitter;
 extern xParEmitterCustomSettings thunderEmitterInfo;
 extern char zNPCTypeTiki_stringBase0[];
 
+extern float32 _858; // 0.0   0
+extern float32 _859; // -0.30000001192092896   be99999a
+extern float32 _860; // 4.71238899230957   4096cbe4
+extern float32 _861; // 100.0   42c80000
+extern float32 _862; // 1.0   3f800000
+extern float32 _863; // 2.0   40000000
+extern float32 _864_2; // 0.800000011920929   3f4ccccd
+extern float32 _865; // 75.0   42960000
+extern float32 _866; // 255.0   437f0000
+extern float32 _867; // -0.5   bf000000
+extern float32 _868; // 1.5707963705062866   3fc90fdb
+extern float32 _869; // 0.5   3f000000
+extern float32 _870; // 0.30000001192092896   3e99999a
+extern float32 _871; // 175.0   432f0000
+extern float32 _923; // 0.699999988079071   3f333333
+extern float32 _924; // 0.20000000298023224   3e4ccccd
+extern float32 _925; // 5.0   40a00000
+extern float32 _926; // 0.75   3f400000
+extern float32 _927; // 0.3499999940395355   3eb33333
+extern float32 _928; // -1.0   bf800000
+extern float32 _929; // 25.0   41c80000
+extern float32 _930; // 0.012000000104308128   3c449ba6
+extern float32 _982; // 176.0   43300000
+extern float32 _1084; // -0.25   be800000
+extern float32 _1185; // -9.999999680285692e+37   fe967699
+extern float32 _1350; // 10.0   41200000
+extern float32 _1351; // -0.10000000149011612   bdcccccd
+extern float32 _1352; // 400.0   43c80000
+extern float32 _1353; // 90.0   42b40000
+extern float32 _1354; // 0.25   3e800000
+extern float32 _1355; // 9.999999747378752e-05   38d1b717
+extern float32 _1356; // 4.999999873689376e-05   3851b717
+extern float32 _1566; // 300.0   43960000
+extern float32 _1567; // 9.999999747378752e-06   3727c5ac
+extern float32 _1568; // 0.10000000149011612   3dcccccd
+extern float32 _1617; // 4.0   40800000
+extern float32 _1618; // 6.2831854820251465   40c90fdb
+extern float32 _1619; // 0.2500999867916107   3e800d1b
+extern float32 _1668; // 50.0   42480000
+extern float32 _1695; // 0.9140000343322754   3f69fbe8
+extern float32 _1724_2; // 3.0   40400000
+extern float32 _1725_2; // 8.0   41000000
+extern float32 _1726; // 0.8999999761581421   3f666666
+extern float32 _1727; // 2.5999999046325684   40266666
+extern float32 _1728; // 0.01666666753590107   3c888889
+extern float32 _1729; // 0.5001000165939331   3f00068e
+extern float32 _1771; // 1.5   3fc00000
+extern float32 _1809; // 0.6669999957084656   3f2ac083
+
 void ZNPC_Tiki_Startup()
 {
     for (int32 i = 0; i < ANIM_COUNT; i++)
