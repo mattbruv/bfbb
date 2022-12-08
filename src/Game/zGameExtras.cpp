@@ -693,12 +693,6 @@ uint32 zGame_HackIsGallery()
 template <>
 uint32 xUtil_choose<uint32>(uint32 const* int_list, int32 size, float32 const* float_list)
 {
-    int32 iVar1 = 0;
-    int32 index = 0;
-    int32 iVar2 = 0;
-    float32 rand_float;
-    float32 fVar5;
-
     if (int_list == NULL)
     {
         return 0;
@@ -709,32 +703,39 @@ uint32 xUtil_choose<uint32>(uint32 const* int_list, int32 size, float32 const* f
         return 0;
     }
 
+    int32 index = 0;
+    float32 rand_float;
+    float32 f2;
+
     rand_float = xurand();
 
     if (float_list == NULL)
     {
-        index = rand_float * size; // * 178.0f;
+        index = rand_float * size;
     }
+
     else
     {
-        fVar5 = _975;
+        f2 = _975;
 
-        for (iVar1 = 0; iVar1 < size; iVar1++)
+        //int32 iVar2 = size;
+
+        for (int32 i = 0; i < size; i++)
         {
-            index = iVar1;
+            float32 f3 = float_list[i];
 
-            if (float_list[index] + rand_float >= fVar5)
+            if (f3 + f2 >= f2)
             {
-                if (rand_float <= float_list[index])
+                if (rand_float <= float_list[i])
                 {
-                    index = size;
+                    index = i;
                     break;
                 }
             }
         }
     }
 
-    if (index < size)
+    if (index >= size)
     {
         index = size - 1;
     }
