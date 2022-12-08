@@ -553,8 +553,26 @@ int32 leapCB(xGoal* rawgoal, void*, en_trantype* trantype, float32 dt, void*)
 // func_80142ED8
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "clotheslineCB__FP5xGoalPvP11en_trantypefPv")
 
+#if 0
 // func_80142FDC
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "Enter__21zNPCGoalBossSandyIdleFfPv")
+#else
+int32 zNPCGoalBossSandyIdle::Enter(float32 dt, void* updCtxt)
+{
+    zNPCBSandy* sandy = (zNPCBSandy*)this->psyche->clt_owner;
+
+    sandy->bossFlags |= 0x20;
+    this->timeInGoal = __830;
+
+    xVec3Init(&sandy->frame->vel, __830, __830, __830);
+
+    sandy->boundFlags[10] |= 0x10;
+    sandy->boundFlags[12] |= 0x10;
+
+    return zNPCGoalCommon::Enter(dt, updCtxt);
+}
+
+#endif
 
 // func_80143090
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s",                                                 \
