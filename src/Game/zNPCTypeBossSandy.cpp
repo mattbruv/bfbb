@@ -553,10 +553,12 @@ int32 leapCB(xGoal* rawgoal, void*, en_trantype* trantype, float32 dt, void*)
 // func_80142ED8
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "clotheslineCB__FP5xGoalPvP11en_trantypefPv")
 
-#if 0
+#if 1
 // func_80142FDC
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "Enter__21zNPCGoalBossSandyIdleFfPv")
 #else
+// This function seems to be functionally matching
+// Only one issue with float scheduling
 int32 zNPCGoalBossSandyIdle::Enter(float32 dt, void* updCtxt)
 {
     zNPCBSandy* sandy = (zNPCBSandy*)this->psyche->clt_owner;
