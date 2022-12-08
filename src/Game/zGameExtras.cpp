@@ -687,7 +687,7 @@ uint32 zGame_HackIsGallery()
 }
 
 // func_8009A810
-#if 0
+#if 1
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "xUtil_choose_esc__0_Ui_esc__1___FPCUiiPCf")
 #else
 template <>
@@ -704,15 +704,12 @@ uint32 xUtil_choose<uint32>(uint32 const* uint_array, int32 size, float32 const*
     }
 
     int32 index = 0;
-    float32 rand_float;
-
-    rand_float = xurand();
+    float32 rand_float = xurand();
 
     if (float_array == NULL)
     {
         index = rand_float * size;
     }
-
     else
     {
         float32 fVar5 = 0.0f;
