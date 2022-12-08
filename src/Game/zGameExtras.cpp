@@ -705,7 +705,6 @@ uint32 xUtil_choose<uint32>(uint32 const* int_list, int32 size, float32 const* f
 
     int32 index = 0;
     float32 rand_float;
-    float32 f2;
 
     rand_float = xurand();
 
@@ -716,17 +715,16 @@ uint32 xUtil_choose<uint32>(uint32 const* int_list, int32 size, float32 const* f
 
     else
     {
-        f2 = _975;
-
         //int32 iVar2 = size;
+        float32 fVar5 = 0.0f;
 
         for (int32 i = 0; i < size; i++)
         {
-            float32 f3 = float_list[i];
+            fVar5 += float_list[i];
 
-            if (f3 + f2 >= f2)
+            if (fVar5 >= rand_float)
             {
-                if (rand_float <= float_list[i])
+                if (rand_float <= fVar5)
                 {
                     index = i;
                     break;
