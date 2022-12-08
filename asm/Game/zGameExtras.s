@@ -2,21 +2,24 @@
 
 .section .text, "ax"  # 0x80099680 - 0x8009A924
 
-.global zGameExtras_ExtrasFlags__Fv
-zGameExtras_ExtrasFlags__Fv:
+
+/* cpp: zGameExtras_ExtrasFlags() */
+.fn zGameExtras_ExtrasFlags__Fv, global, 8
 /* 80099680 00096480  80 6D 8F 8C */	lwz r3, l_b88c_g_gameExtraFlags@sda21(r13)
 /* 80099684 00096484  4E 80 00 20 */	blr 
 
-.global zGameExtras_MoDay__FPiPi
-zGameExtras_MoDay__FPiPi:
+
+/* cpp: zGameExtras_MoDay(int*, int*) */
+.fn zGameExtras_MoDay__FPiPi, global, 20
 /* 80099688 00096488  80 0D 8F 88 */	lwz r0, l_b888_g_currMonth@sda21(r13)
 /* 8009968C 0009648C  90 03 00 00 */	stw r0, 0(r3)
 /* 80099690 00096490  80 0D 8F 84 */	lwz r0, l_b884_g_currDay@sda21(r13)
 /* 80099694 00096494  90 04 00 00 */	stw r0, 0(r4)
 /* 80099698 00096498  4E 80 00 20 */	blr 
 
-.global zGameExtras_SceneInit__Fv
-zGameExtras_SceneInit__Fv:
+
+/* cpp: zGameExtras_SceneInit() */
+.fn zGameExtras_SceneInit__Fv, global, 196
 /* 8009969C 0009649C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 800996A0 000964A0  7C 08 02 A6 */	mflr r0
 /* 800996A4 000964A4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -70,8 +73,9 @@ lbl_80099744:
 /* 80099758 00096558  38 21 00 20 */	addi r1, r1, 0x20
 /* 8009975C 0009655C  4E 80 00 20 */	blr 
 
-.global zGameExtras_SceneReset__Fv
-zGameExtras_SceneReset__Fv:
+
+/* cpp: zGameExtras_SceneReset() */
+.fn zGameExtras_SceneReset__Fv, global, 120
 /* 80099760 00096560  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80099764 00096564  7C 08 02 A6 */	mflr r0
 /* 80099768 00096568  90 01 00 14 */	stw r0, 0x14(r1)
@@ -106,8 +110,9 @@ lbl_800997C4:
 /* 800997D0 000965D0  38 21 00 10 */	addi r1, r1, 0x10
 /* 800997D4 000965D4  4E 80 00 20 */	blr 
 
-.global zGameExtras_SceneExit__Fv
-zGameExtras_SceneExit__Fv:
+
+/* cpp: zGameExtras_SceneExit() */
+.fn zGameExtras_SceneExit__Fv, global, 184
 /* 800997D8 000965D8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 800997DC 000965DC  7C 08 02 A6 */	mflr r0
 /* 800997E0 000965E0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -158,8 +163,9 @@ lbl_80099878:
 /* 80099888 00096688  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009988C 0009668C  4E 80 00 20 */	blr 
 
-.global zGameExtras_SceneUpdate__Ff
-zGameExtras_SceneUpdate__Ff:
+
+/* cpp: zGameExtras_SceneUpdate(float) */
+.fn zGameExtras_SceneUpdate__Ff, global, 168
 /* 80099890 00096690  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80099894 00096694  7C 08 02 A6 */	mflr r0
 /* 80099898 00096698  90 01 00 24 */	stw r0, 0x24(r1)
@@ -205,8 +211,9 @@ lbl_80099920:
 /* 8009992C 0009672C  7C 08 03 A6 */	mtlr r0
 /* 80099930 00096730  38 21 00 20 */	addi r1, r1, 0x20
 /* 80099934 00096734  4E 80 00 20 */	blr 
-.global EGG_check_ExtrasFlags__FP7EGGItem
-EGG_check_ExtrasFlags__FP7EGGItem:
+
+/* cpp: EGG_check_ExtrasFlags(EGGItem*) */
+.fn EGG_check_ExtrasFlags__FP7EGGItem, local, 460
 /* 80099938 00096738  80 0D 8F 88 */	lwz r0, l_b888_g_currMonth@sda21(r13)
 /* 8009993C 0009673C  28 00 00 0C */	cmplwi r0, 0xc
 /* 80099940 00096740  41 81 01 BC */	bgt lbl_80099AFC
@@ -341,13 +348,15 @@ lbl_80099AFC:
 /* 80099AFC 000968FC  38 60 00 00 */	li r3, 0
 /* 80099B00 00096900  4E 80 00 20 */	blr 
 
-.global zGameExtras_CheatFlags__Fv
-zGameExtras_CheatFlags__Fv:
+
+/* cpp: zGameExtras_CheatFlags() */
+.fn zGameExtras_CheatFlags__Fv, global, 8
 /* 80099B04 00096904  80 6D 8F 90 */	lwz r3, l_b890_g_flg_chEnabled@sda21(r13)
 /* 80099B08 00096908  4E 80 00 20 */	blr 
 
-.global zGameExtras_NewGameReset__Fv
-zGameExtras_NewGameReset__Fv:
+
+/* cpp: zGameExtras_NewGameReset() */
+.fn zGameExtras_NewGameReset__Fv, global, 60
 /* 80099B0C 0009690C  38 00 00 00 */	li r0, 0
 /* 80099B10 00096910  3C 60 80 3C */	lis r3, globals@ha
 /* 80099B14 00096914  90 0D 8F 90 */	stw r0, l_b890_g_flg_chEnabled@sda21(r13)
@@ -364,8 +373,9 @@ zGameExtras_NewGameReset__Fv:
 /* 80099B40 00096940  90 07 08 98 */	stw r0, 0x898(r7)
 /* 80099B44 00096944  4E 80 00 20 */	blr 
 
-.global zGameExtras_Save__FP7xSerial
-zGameExtras_Save__FP7xSerial:
+
+/* cpp: zGameExtras_Save(xSerial*) */
+.fn zGameExtras_Save__FP7xSerial, global, 40
 /* 80099B48 00096948  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80099B4C 0009694C  7C 08 02 A6 */	mflr r0
 /* 80099B50 00096950  90 01 00 14 */	stw r0, 0x14(r1)
@@ -377,8 +387,9 @@ zGameExtras_Save__FP7xSerial:
 /* 80099B68 00096968  38 21 00 10 */	addi r1, r1, 0x10
 /* 80099B6C 0009696C  4E 80 00 20 */	blr 
 
-.global zGameExtras_Load__FP7xSerial
-zGameExtras_Load__FP7xSerial:
+
+/* cpp: zGameExtras_Load(xSerial*) */
+.fn zGameExtras_Load__FP7xSerial, global, 60
 /* 80099B70 00096970  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80099B74 00096974  7C 08 02 A6 */	mflr r0
 /* 80099B78 00096978  90 01 00 14 */	stw r0, 0x14(r1)
@@ -395,7 +406,8 @@ zGameExtras_Load__FP7xSerial:
 /* 80099BA4 000969A4  38 21 00 10 */	addi r1, r1, 0x10
 /* 80099BA8 000969A8  4E 80 00 20 */	blr 
 
-TestCheat__FPUi:
+/* cpp: TestCheat(unsigned int*) */
+.fn TestCheat__FPUi, local, 264
 /* 80099BAC 000969AC  80 03 00 3C */	lwz r0, 0x3c(r3)
 /* 80099BB0 000969B0  38 C0 00 0F */	li r6, 0xf
 /* 80099BB4 000969B4  28 00 00 00 */	cmplwi r0, 0
@@ -473,7 +485,8 @@ lbl_80099C9C:
 /* 80099CAC 00096AAC  38 60 00 01 */	li r3, 1
 /* 80099CB0 00096AB0  4E 80 00 20 */	blr 
 
-AddToCheatPressed__FUi:
+/* cpp: AddToCheatPressed(unsigned int) */
+.fn AddToCheatPressed__FUi, local, 136
 /* 80099CB4 00096AB4  3C 80 80 29 */	lis r4, sCheatPressed@ha
 /* 80099CB8 00096AB8  38 84 F8 A4 */	addi r4, r4, sCheatPressed@l
 /* 80099CBC 00096ABC  80 04 00 04 */	lwz r0, 4(r4)
@@ -509,8 +522,9 @@ AddToCheatPressed__FUi:
 /* 80099D34 00096B34  90 64 00 3C */	stw r3, 0x3c(r4)
 /* 80099D38 00096B38  4E 80 00 20 */	blr 
 
-.global zGameCheats__Ff
-zGameCheats__Ff:
+
+/* cpp: zGameCheats(float) */
+.fn zGameCheats__Ff, global, 464
 /* 80099D3C 00096B3C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80099D40 00096B40  7C 08 02 A6 */	mflr r0
 /* 80099D44 00096B44  90 01 00 34 */	stw r0, 0x34(r1)
@@ -640,21 +654,24 @@ lbl_80099EE8:
 /* 80099F04 00096D04  38 21 00 30 */	addi r1, r1, 0x30
 /* 80099F08 00096D08  4E 80 00 20 */	blr 
 
-.global GEC_CheatFlagAdd__Fi
-GEC_CheatFlagAdd__Fi:
+
+/* cpp: GEC_CheatFlagAdd(int) */
+.fn GEC_CheatFlagAdd__Fi, weak, 16
 /* 80099F0C 00096D0C  80 0D 8F 90 */	lwz r0, l_b890_g_flg_chEnabled@sda21(r13)
 /* 80099F10 00096D10  7C 00 1B 78 */	or r0, r0, r3
 /* 80099F14 00096D14  90 0D 8F 90 */	stw r0, l_b890_g_flg_chEnabled@sda21(r13)
 /* 80099F18 00096D18  4E 80 00 20 */	blr 
 
-.global GEC_CheatFlagToggle__Fi
-GEC_CheatFlagToggle__Fi:
+
+/* cpp: GEC_CheatFlagToggle(int) */
+.fn GEC_CheatFlagToggle__Fi, weak, 16
 /* 80099F1C 00096D1C  80 0D 8F 90 */	lwz r0, l_b890_g_flg_chEnabled@sda21(r13)
 /* 80099F20 00096D20  7C 00 1A 78 */	xor r0, r0, r3
 /* 80099F24 00096D24  90 0D 8F 90 */	stw r0, l_b890_g_flg_chEnabled@sda21(r13)
 /* 80099F28 00096D28  4E 80 00 20 */	blr 
 
-GEC_dfltSound__Fv:
+/* cpp: GEC_dfltSound() */
+.fn GEC_dfltSound__Fv, local, 300
 /* 80099F2C 00096D2C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80099F30 00096D30  7C 08 02 A6 */	mflr r0
 /* 80099F34 00096D34  90 01 00 14 */	stw r0, 0x14(r1)
@@ -732,8 +749,9 @@ lbl_8009A048:
 /* 8009A04C 00096E4C  7C 08 03 A6 */	mtlr r0
 /* 8009A050 00096E50  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A054 00096E54  4E 80 00 20 */	blr 
-.global GEC_cb_AddShiny__Fv
-GEC_cb_AddShiny__Fv:
+
+/* cpp: GEC_cb_AddShiny() */
+.fn GEC_cb_AddShiny__Fv, local, 136
 /* 8009A058 00096E58  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A05C 00096E5C  7C 08 02 A6 */	mflr r0
 /* 8009A060 00096E60  3C 60 80 3C */	lis r3, globals@ha
@@ -771,8 +789,9 @@ lbl_8009A0D0:
 /* 8009A0D4 00096ED4  7C 08 03 A6 */	mtlr r0
 /* 8009A0D8 00096ED8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A0DC 00096EDC  4E 80 00 20 */	blr 
-.global GEC_cb_AddSpatulas__Fv
-GEC_cb_AddSpatulas__Fv:
+
+/* cpp: GEC_cb_AddSpatulas() */
+.fn GEC_cb_AddSpatulas__Fv, local, 120
 /* 8009A0E0 00096EE0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A0E4 00096EE4  7C 08 02 A6 */	mflr r0
 /* 8009A0E8 00096EE8  3C 60 80 3C */	lis r3, globals@ha
@@ -805,8 +824,9 @@ lbl_8009A148:
 /* 8009A14C 00096F4C  7C 08 03 A6 */	mtlr r0
 /* 8009A150 00096F50  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A154 00096F54  4E 80 00 20 */	blr 
-.global GEC_cb_BubbleBowl__Fv
-GEC_cb_BubbleBowl__Fv:
+
+/* cpp: GEC_cb_BubbleBowl() */
+.fn GEC_cb_BubbleBowl__Fv, local, 100
 /* 8009A158 00096F58  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A15C 00096F5C  7C 08 02 A6 */	mflr r0
 /* 8009A160 00096F60  3C 80 80 3C */	lis r4, globals@ha
@@ -833,8 +853,9 @@ lbl_8009A1AC:
 /* 8009A1B0 00096FB0  7C 08 03 A6 */	mtlr r0
 /* 8009A1B4 00096FB4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A1B8 00096FB8  4E 80 00 20 */	blr 
-.global GEC_cb_CruiseBubble__Fv
-GEC_cb_CruiseBubble__Fv:
+
+/* cpp: GEC_cb_CruiseBubble() */
+.fn GEC_cb_CruiseBubble__Fv, local, 100
 /* 8009A1BC 00096FBC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A1C0 00096FC0  7C 08 02 A6 */	mflr r0
 /* 8009A1C4 00096FC4  3C 80 80 3C */	lis r4, globals@ha
@@ -861,8 +882,9 @@ lbl_8009A210:
 /* 8009A214 00097014  7C 08 03 A6 */	mtlr r0
 /* 8009A218 00097018  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A21C 0009701C  4E 80 00 20 */	blr 
-.global GEC_cb_MonsterGallery__Fv
-GEC_cb_MonsterGallery__Fv:
+
+/* cpp: GEC_cb_MonsterGallery() */
+.fn GEC_cb_MonsterGallery__Fv, local, 160
 /* 8009A220 00097020  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8009A224 00097024  7C 08 02 A6 */	mflr r0
 /* 8009A228 00097028  3C 80 80 26 */	lis r4, l_ca20__esc__2_stringBase0@ha
@@ -905,8 +927,9 @@ lbl_8009A274:
 /* 8009A2B4 000970B4  7C 08 03 A6 */	mtlr r0
 /* 8009A2B8 000970B8  38 21 00 40 */	addi r1, r1, 0x40
 /* 8009A2BC 000970BC  4E 80 00 20 */	blr 
-.global GEC_cb_UnlockArtTheatre__Fv
-GEC_cb_UnlockArtTheatre__Fv:
+
+/* cpp: GEC_cb_UnlockArtTheatre() */
+.fn GEC_cb_UnlockArtTheatre__Fv, local, 68
 /* 8009A2C0 000970C0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A2C4 000970C4  7C 08 02 A6 */	mflr r0
 /* 8009A2C8 000970C8  3C 60 80 26 */	lis r3, l_ca20__esc__2_stringBase0@ha
@@ -924,8 +947,9 @@ GEC_cb_UnlockArtTheatre__Fv:
 /* 8009A2F8 000970F8  7C 08 03 A6 */	mtlr r0
 /* 8009A2FC 000970FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A300 00097100  4E 80 00 20 */	blr 
-.global GEC_cb_ChaChing__Fv
-GEC_cb_ChaChing__Fv:
+
+/* cpp: GEC_cb_ChaChing() */
+.fn GEC_cb_ChaChing__Fv, local, 124
 /* 8009A304 00097104  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A308 00097108  7C 08 02 A6 */	mflr r0
 /* 8009A30C 0009710C  3C 80 80 3C */	lis r4, globals@ha
@@ -957,8 +981,9 @@ GEC_cb_ChaChing__Fv:
 /* 8009A374 00097174  7C 08 03 A6 */	mtlr r0
 /* 8009A378 00097178  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A37C 0009717C  4E 80 00 20 */	blr 
-.global GEC_cb_RestoreHealth__Fv
-GEC_cb_RestoreHealth__Fv:
+
+/* cpp: GEC_cb_RestoreHealth() */
+.fn GEC_cb_RestoreHealth__Fv, local, 164
 /* 8009A380 00097180  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A384 00097184  7C 08 02 A6 */	mflr r0
 /* 8009A388 00097188  3C 60 80 3C */	lis r3, globals@ha
@@ -1002,8 +1027,9 @@ lbl_8009A414:
 /* 8009A418 00097218  7C 08 03 A6 */	mtlr r0
 /* 8009A41C 0009721C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A420 00097220  4E 80 00 20 */	blr 
-.global GEC_cb_ExpertMode__Fv
-GEC_cb_ExpertMode__Fv:
+
+/* cpp: GEC_cb_ExpertMode() */
+.fn GEC_cb_ExpertMode__Fv, local, 32
 /* 8009A424 00097224  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A428 00097228  7C 08 02 A6 */	mflr r0
 /* 8009A42C 0009722C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1012,8 +1038,9 @@ GEC_cb_ExpertMode__Fv:
 /* 8009A438 00097238  7C 08 03 A6 */	mtlr r0
 /* 8009A43C 0009723C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A440 00097240  4E 80 00 20 */	blr 
-.global GEC_cb_ShrapBobMode__Fv
-GEC_cb_ShrapBobMode__Fv:
+
+/* cpp: GEC_cb_ShrapBobMode() */
+.fn GEC_cb_ShrapBobMode__Fv, local, 32
 /* 8009A444 00097244  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A448 00097248  7C 08 02 A6 */	mflr r0
 /* 8009A44C 0009724C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1022,8 +1049,9 @@ GEC_cb_ShrapBobMode__Fv:
 /* 8009A458 00097258  7C 08 03 A6 */	mtlr r0
 /* 8009A45C 0009725C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A460 00097260  4E 80 00 20 */	blr 
-.global GEC_cb_NoPantsMode__Fv
-GEC_cb_NoPantsMode__Fv:
+
+/* cpp: GEC_cb_NoPantsMode() */
+.fn GEC_cb_NoPantsMode__Fv, local, 76
 /* 8009A464 00097264  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A468 00097268  7C 08 02 A6 */	mflr r0
 /* 8009A46C 0009726C  3C 60 80 26 */	lis r3, l_ca20__esc__2_stringBase0@ha
@@ -1043,8 +1071,9 @@ GEC_cb_NoPantsMode__Fv:
 /* 8009A4A4 000972A4  7C 08 03 A6 */	mtlr r0
 /* 8009A4A8 000972A8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A4AC 000972AC  4E 80 00 20 */	blr 
-.global GEC_cb_CruiseControl__Fv
-GEC_cb_CruiseControl__Fv:
+
+/* cpp: GEC_cb_CruiseControl() */
+.fn GEC_cb_CruiseControl__Fv, local, 188
 /* 8009A4B0 000972B0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A4B4 000972B4  7C 08 02 A6 */	mflr r0
 /* 8009A4B8 000972B8  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1094,8 +1123,9 @@ lbl_8009A55C:
 /* 8009A560 00097360  7C 08 03 A6 */	mtlr r0
 /* 8009A564 00097364  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A568 00097368  4E 80 00 20 */	blr 
-.global GEC_cb_SwapCCLR__Fv
-GEC_cb_SwapCCLR__Fv:
+
+/* cpp: GEC_cb_SwapCCLR() */
+.fn GEC_cb_SwapCCLR__Fv, local, 32
 /* 8009A56C 0009736C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A570 00097370  7C 08 02 A6 */	mflr r0
 /* 8009A574 00097374  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1104,8 +1134,9 @@ GEC_cb_SwapCCLR__Fv:
 /* 8009A580 00097380  7C 08 03 A6 */	mtlr r0
 /* 8009A584 00097384  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A588 00097388  4E 80 00 20 */	blr 
-.global GEC_cb_SwapCCUD__Fv
-GEC_cb_SwapCCUD__Fv:
+
+/* cpp: GEC_cb_SwapCCUD() */
+.fn GEC_cb_SwapCCUD__Fv, local, 32
 /* 8009A58C 0009738C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A590 00097390  7C 08 02 A6 */	mflr r0
 /* 8009A594 00097394  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1115,7 +1146,8 @@ GEC_cb_SwapCCUD__Fv:
 /* 8009A5A4 000973A4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A5A8 000973A8  4E 80 00 20 */	blr 
 
-GEC_villSound__Fv:
+/* cpp: GEC_villSound() */
+.fn GEC_villSound__Fv, local, 272
 /* 8009A5AC 000973AC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A5B0 000973B0  7C 08 02 A6 */	mflr r0
 /* 8009A5B4 000973B4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1186,8 +1218,9 @@ lbl_8009A6AC:
 /* 8009A6B0 000974B0  7C 08 03 A6 */	mtlr r0
 /* 8009A6B4 000974B4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A6B8 000974B8  4E 80 00 20 */	blr 
-.global GEC_cb_BigPlank__Fv
-GEC_cb_BigPlank__Fv:
+
+/* cpp: GEC_cb_BigPlank() */
+.fn GEC_cb_BigPlank__Fv, local, 32
 /* 8009A6BC 000974BC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A6C0 000974C0  7C 08 02 A6 */	mflr r0
 /* 8009A6C4 000974C4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1196,8 +1229,9 @@ GEC_cb_BigPlank__Fv:
 /* 8009A6D0 000974D0  7C 08 03 A6 */	mtlr r0
 /* 8009A6D4 000974D4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A6D8 000974D8  4E 80 00 20 */	blr 
-.global GEC_cb_Medics__Fv
-GEC_cb_Medics__Fv:
+
+/* cpp: GEC_cb_Medics() */
+.fn GEC_cb_Medics__Fv, local, 32
 /* 8009A6DC 000974DC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A6E0 000974E0  7C 08 02 A6 */	mflr r0
 /* 8009A6E4 000974E4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1206,8 +1240,9 @@ GEC_cb_Medics__Fv:
 /* 8009A6F0 000974F0  7C 08 03 A6 */	mtlr r0
 /* 8009A6F4 000974F4  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A6F8 000974F8  4E 80 00 20 */	blr 
-.global GEC_cb_DogTrix__Fv
-GEC_cb_DogTrix__Fv:
+
+/* cpp: GEC_cb_DogTrix() */
+.fn GEC_cb_DogTrix__Fv, local, 32
 /* 8009A6FC 000974FC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A700 00097500  7C 08 02 A6 */	mflr r0
 /* 8009A704 00097504  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1216,8 +1251,9 @@ GEC_cb_DogTrix__Fv:
 /* 8009A710 00097510  7C 08 03 A6 */	mtlr r0
 /* 8009A714 00097514  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A718 00097518  4E 80 00 20 */	blr 
-.global GEC_cb_SmallPeep__Fv
-GEC_cb_SmallPeep__Fv:
+
+/* cpp: GEC_cb_SmallPeep() */
+.fn GEC_cb_SmallPeep__Fv, local, 32
 /* 8009A71C 0009751C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A720 00097520  7C 08 02 A6 */	mflr r0
 /* 8009A724 00097524  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1226,8 +1262,9 @@ GEC_cb_SmallPeep__Fv:
 /* 8009A730 00097530  7C 08 03 A6 */	mtlr r0
 /* 8009A734 00097534  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A738 00097538  4E 80 00 20 */	blr 
-.global GEC_cb_SmallCostars__Fv
-GEC_cb_SmallCostars__Fv:
+
+/* cpp: GEC_cb_SmallCostars() */
+.fn GEC_cb_SmallCostars__Fv, local, 32
 /* 8009A73C 0009753C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A740 00097540  7C 08 02 A6 */	mflr r0
 /* 8009A744 00097544  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1236,8 +1273,9 @@ GEC_cb_SmallCostars__Fv:
 /* 8009A750 00097550  7C 08 03 A6 */	mtlr r0
 /* 8009A754 00097554  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A758 00097558  4E 80 00 20 */	blr 
-.global GEC_cb_RichPeep__Fv
-GEC_cb_RichPeep__Fv:
+
+/* cpp: GEC_cb_RichPeep() */
+.fn GEC_cb_RichPeep__Fv, local, 32
 /* 8009A75C 0009755C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A760 00097560  7C 08 02 A6 */	mflr r0
 /* 8009A764 00097564  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1246,8 +1284,9 @@ GEC_cb_RichPeep__Fv:
 /* 8009A770 00097570  7C 08 03 A6 */	mtlr r0
 /* 8009A774 00097574  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A778 00097578  4E 80 00 20 */	blr 
-.global GEC_cb_PanHandle__Fv
-GEC_cb_PanHandle__Fv:
+
+/* cpp: GEC_cb_PanHandle() */
+.fn GEC_cb_PanHandle__Fv, local, 32
 /* 8009A77C 0009757C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A780 00097580  7C 08 02 A6 */	mflr r0
 /* 8009A784 00097584  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1257,8 +1296,9 @@ GEC_cb_PanHandle__Fv:
 /* 8009A794 00097594  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A798 00097598  4E 80 00 20 */	blr 
 
-.global zGame_HackGalleryInit__Fv
-zGame_HackGalleryInit__Fv:
+
+/* cpp: zGame_HackGalleryInit() */
+.fn zGame_HackGalleryInit__Fv, global, 52
 /* 8009A79C 0009759C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A7A0 000975A0  7C 08 02 A6 */	mflr r0
 /* 8009A7A4 000975A4  3C 60 80 26 */	lis r3, l_ca20__esc__2_stringBase0@ha
@@ -1273,8 +1313,9 @@ zGame_HackGalleryInit__Fv:
 /* 8009A7C8 000975C8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8009A7CC 000975CC  4E 80 00 20 */	blr 
 
-.global zGame_HackIsGallery__Fv
-zGame_HackIsGallery__Fv:
+
+/* cpp: zGame_HackIsGallery() */
+.fn zGame_HackIsGallery__Fv, global, 64
 /* 8009A7D0 000975D0  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8009A7D4 000975D4  7C 08 02 A6 */	mflr r0
 /* 8009A7D8 000975D8  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1295,7 +1336,8 @@ lbl_8009A800:
 /* 8009A80C 0009760C  4E 80 00 20 */	blr 
 
 /* xUtil_choose<Ui>__FPCUiiPCf */
-xUtil_choose_esc__0_Ui_esc__1___FPCUiiPCf:
+/* cpp: xUtil_choose<unsigned int>(const unsigned int*, int, const float*) */
+.fn xUtil_choose_esc__0_Ui_esc__1___FPCUiiPCf, local, 276
 /* 8009A810 00097610  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8009A814 00097614  7C 08 02 A6 */	mflr r0
 /* 8009A818 00097618  90 01 00 34 */	stw r0, 0x34(r1)

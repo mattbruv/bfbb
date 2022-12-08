@@ -93,9 +93,10 @@ Entry Point: 0x80003154
 # .fn my_function, local
 # /* asm here */
 # .endfn my_function
-.macro .fn name, visibility=global
+.macro .fn name, visibility=global, size
 .\visibility "\name"
 .type "\name", @function
+.size "\name", \size
 "\name":
 .endm
 
