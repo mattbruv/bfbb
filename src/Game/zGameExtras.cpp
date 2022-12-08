@@ -727,6 +727,7 @@ uint32 xUtil_choose<uint32>(uint32 const* int_list, int32 size, float32 const* f
             {
                 if (rand_float <= float_list[index])
                 {
+                    index = size;
                     break;
                 }
             }
@@ -735,7 +736,7 @@ uint32 xUtil_choose<uint32>(uint32 const* int_list, int32 size, float32 const* f
 
     if (index < size)
     {
-        index = size + 1;
+        index = size - 1;
     }
 
     if (index < 0)
