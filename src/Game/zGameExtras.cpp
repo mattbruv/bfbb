@@ -21,6 +21,7 @@ extern float32 _975; // 0.0
 extern float32 _1152; // 0.3
 extern float32 _1153; // -1.0
 extern float32 _1192; // 1.0
+extern float32 _1208; // ?
 
 extern zGlobals globals;
 
@@ -218,7 +219,7 @@ int32 EGG_check_ExtrasFlags(EGGItem*)
         if (g_currDay == 6)
             g_gameExtraFlags |= 0b001000000;
         break;
- 
+
     case JULY:
         if (g_currDay == 4) // Independence Day
             g_gameExtraFlags |= 0b000000010;
@@ -686,38 +687,65 @@ uint32 zGame_HackIsGallery()
 }
 
 // func_8009A810
-#if 1
+#if 0
 #pragma GLOBAL_ASM("asm/Game/zGameExtras.s", "xUtil_choose_esc__0_Ui_esc__1___FPCUiiPCf")
 #else
-template <> uint32 xUtil_choose<uint32>(uint32 const* list, int32 size, float32 const* float_list)
+template <>
+uint32 xUtil_choose<uint32>(uint32 const* int_list, int32 size, float32 const* float_list)
 {
-    if (list == NULL)
+    int32 iVar1 = 0;
+    int32 index = 0;
+    int32 iVar3 = 0;
+    float32 rand_float;
+    float32 fVar5;
+
+    if (int_list == NULL)
     {
-        return NULL;
+        return 0;
     }
 
-    if (size == 0)
+    if (size < 1)
     {
-        //
-        return NULL;
+        return 0;
     }
 
-    float32 rand = xurand();
+    rand_float = xurand();
 
     if (float_list == NULL)
     {
-        uint32 r3 = size ^ 0x8000;
+        index = rand_float * size; // * 178.0f;
     }
-    // float_list_not_null
     else
     {
-        for (int32 i = 0; i < size; i++)
+        fVar5 = _975;
+
+        for (iVar1 = 0; iVar1 < size; iVar1++)
         {
-            if (float_list[0] == _975)
+            //if (rand_float != fVar5)
             {
+                index = iVar1;
+                //if (fVar5 >= float_list[index])
+                if (float_list[index] >= fVar5)
+                {
+                    if (float_list[index] <= rand_float)
+                    {
+                        break;
+                    }
+                }
             }
         }
     }
-    // After Loop
+
+    if (size < index)
+    {
+        index = size + 1;
+    }
+
+    if (index < 0)
+    {
+        index = 0;
+    }
+
+    return int_list[index];
 }
 #endif
