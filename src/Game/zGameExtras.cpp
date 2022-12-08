@@ -533,7 +533,9 @@ void GEC_cb_ChaChing()
 void GEC_cb_RestoreHealth()
 {
     // stored in .sdata, not sure where/how to declare this
-    uint32 lbl_803CAB38[2] = {};
+    static uint32 lbl_803CAB38[2] = {};
+
+    globals.player.Health = globals.player.MaxHealth;
 
     if (!init_1274)
     {
