@@ -2,7 +2,8 @@
 
 .section .text, "ax"  # 0x8013D054 - 0x801465FC
 
-on_change_newsfish__FRC10tweak_info:
+/* cpp: on_change_newsfish(const tweak_info&) */
+.fn on_change_newsfish__FRC10tweak_info, local, 64
 /* 8013D054 00139E54  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8013D058 00139E58  7C 08 02 A6 */	mflr r0
 /* 8013D05C 00139E5C  38 A0 00 00 */	li r5, 0
@@ -19,8 +20,9 @@ on_change_newsfish__FRC10tweak_info:
 /* 8013D088 00139E88  7C 08 03 A6 */	mtlr r0
 /* 8013D08C 00139E8C  38 21 00 10 */	addi r1, r1, 0x10
 /* 8013D090 00139E90  4E 80 00 20 */	blr 
-.global on_change_shockwave__FRC10tweak_info
-on_change_shockwave__FRC10tweak_info:
+
+/* cpp: on_change_shockwave(const tweak_info&) */
+.fn on_change_shockwave__FRC10tweak_info, local, 108
 /* 8013D094 00139E94  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8013D098 00139E98  7C 08 02 A6 */	mflr r0
 /* 8013D09C 00139E9C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -48,8 +50,9 @@ on_change_shockwave__FRC10tweak_info:
 /* 8013D0F4 00139EF4  7C 08 03 A6 */	mtlr r0
 /* 8013D0F8 00139EF8  38 21 00 10 */	addi r1, r1, 0x10
 /* 8013D0FC 00139EFC  4E 80 00 20 */	blr 
-.global ZNPC_AnimTable_BossSandy__Fv
-ZNPC_AnimTable_BossSandy__Fv:
+
+/* cpp: ZNPC_AnimTable_BossSandy() */
+.fn ZNPC_AnimTable_BossSandy__Fv, global, 1920
 /* 8013D100 00139F00  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 8013D104 00139F04  7C 08 02 A6 */	mflr r0
 /* 8013D108 00139F08  3C 60 80 27 */	lis r3, l_d138__esc__2_835@ha
@@ -533,7 +536,8 @@ lbl_8013D860:
 /* 8013D874 0013A674  7C 08 03 A6 */	mtlr r0
 /* 8013D878 0013A678  38 21 00 90 */	addi r1, r1, 0x90
 /* 8013D87C 0013A67C  4E 80 00 20 */	blr 
-l_d880_HeadIsCarried__FP15xAnimTransitionP11xAnimSinglePv:
+/* cpp: HeadIsCarried(xAnimTransition*, xAnimSingle*, void*) */
+.fn l_d880_HeadIsCarried__FP15xAnimTransitionP11xAnimSinglePv, local, 36
 /* 8013D880 0013A680  80 6D 96 94 */	lwz r3, l_bf94_sSandyPtr@sda21(r13)
 /* 8013D884 0013A684  3C 80 80 3C */	lis r4, globals@ha
 /* 8013D888 0013A688  38 84 05 58 */	addi r4, r4, globals@l
@@ -543,7 +547,8 @@ l_d880_HeadIsCarried__FP15xAnimTransitionP11xAnimSinglePv:
 /* 8013D898 0013A698  7C 00 00 34 */	cntlzw r0, r0
 /* 8013D89C 0013A69C  54 03 DE 3E */	rlwinm r3, r0, 0x1b, 0x18, 0x1f
 /* 8013D8A0 0013A6A0  4E 80 00 20 */	blr 
-l_d8a4_HeadNotCarried__FP15xAnimTransitionP11xAnimSinglePv:
+/* cpp: HeadNotCarried(xAnimTransition*, xAnimSingle*, void*) */
+.fn l_d8a4_HeadNotCarried__FP15xAnimTransitionP11xAnimSinglePv, local, 40
 /* 8013D8A4 0013A6A4  80 6D 96 94 */	lwz r3, l_bf94_sSandyPtr@sda21(r13)
 /* 8013D8A8 0013A6A8  3C 80 80 3C */	lis r4, globals@ha
 /* 8013D8AC 0013A6AC  38 84 05 58 */	addi r4, r4, globals@l
@@ -554,20 +559,23 @@ l_d8a4_HeadNotCarried__FP15xAnimTransitionP11xAnimSinglePv:
 /* 8013D8C0 0013A6C0  7C 60 03 78 */	or r0, r3, r0
 /* 8013D8C4 0013A6C4  54 03 0F FE */	srwi r3, r0, 0x1f
 /* 8013D8C8 0013A6C8  4E 80 00 20 */	blr 
-l_d8cc_HeadIsShocked__FP15xAnimTransitionP11xAnimSinglePv:
+/* cpp: HeadIsShocked(xAnimTransition*, xAnimSingle*, void*) */
+.fn l_d8cc_HeadIsShocked__FP15xAnimTransitionP11xAnimSinglePv, local, 16
 /* 8013D8CC 0013A6CC  80 6D 96 94 */	lwz r3, l_bf94_sSandyPtr@sda21(r13)
 /* 8013D8D0 0013A6D0  80 03 02 C0 */	lwz r0, 0x2c0(r3)
 /* 8013D8D4 0013A6D4  54 03 05 EE */	rlwinm r3, r0, 0, 0x17, 0x17
 /* 8013D8D8 0013A6D8  4E 80 00 20 */	blr 
-l_d8dc_HeadNotShocked__FP15xAnimTransitionP11xAnimSinglePv:
+/* cpp: HeadNotShocked(xAnimTransition*, xAnimSingle*, void*) */
+.fn l_d8dc_HeadNotShocked__FP15xAnimTransitionP11xAnimSinglePv, local, 24
 /* 8013D8DC 0013A6DC  80 6D 96 94 */	lwz r3, l_bf94_sSandyPtr@sda21(r13)
 /* 8013D8E0 0013A6E0  80 03 02 C0 */	lwz r0, 0x2c0(r3)
 /* 8013D8E4 0013A6E4  54 00 05 EE */	rlwinm r0, r0, 0, 0x17, 0x17
 /* 8013D8E8 0013A6E8  7C 00 00 34 */	cntlzw r0, r0
 /* 8013D8EC 0013A6EC  54 03 DE 3E */	rlwinm r3, r0, 0x1b, 0x18, 0x1f
 /* 8013D8F0 0013A6F0  4E 80 00 20 */	blr 
-.global ZNPC_AnimTable_BossSandyHead__Fv
-ZNPC_AnimTable_BossSandyHead__Fv:
+
+/* cpp: ZNPC_AnimTable_BossSandyHead() */
+.fn ZNPC_AnimTable_BossSandyHead__Fv, global, 580
 /* 8013D8F4 0013A6F4  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8013D8F8 0013A6F8  7C 08 02 A6 */	mflr r0
 /* 8013D8FC 0013A6FC  3C 60 80 27 */	lis r3, l_d19c__esc__2_stringBase0@ha
@@ -713,8 +721,9 @@ ZNPC_AnimTable_BossSandyHead__Fv:
 /* 8013DB2C 0013A92C  7C 08 03 A6 */	mtlr r0
 /* 8013DB30 0013A930  38 21 00 20 */	addi r1, r1, 0x20
 /* 8013DB34 0013A934  4E 80 00 20 */	blr 
-.global ZNPC_AnimTable_BossSandyScoreboard__Fv
-ZNPC_AnimTable_BossSandyScoreboard__Fv:
+
+/* cpp: ZNPC_AnimTable_BossSandyScoreboard() */
+.fn ZNPC_AnimTable_BossSandyScoreboard__Fv, global, 360
 /* 8013DB38 0013A938  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8013DB3C 0013A93C  7C 08 02 A6 */	mflr r0
 /* 8013DB40 0013A940  3C 60 80 27 */	lis r3, l_d19c__esc__2_stringBase0@ha
@@ -805,8 +814,9 @@ ZNPC_AnimTable_BossSandyScoreboard__Fv:
 /* 8013DC94 0013AA94  7C 08 03 A6 */	mtlr r0
 /* 8013DC98 0013AA98  38 21 00 20 */	addi r1, r1, 0x20
 /* 8013DC9C 0013AA9C  4E 80 00 20 */	blr 
-.global Init__10zNPCBSandyFP9xEntAsset
-Init__10zNPCBSandyFP9xEntAsset:
+
+/* cpp: zNPCBSandy::Init(xEntAsset*) */
+.fn Init__10zNPCBSandyFP9xEntAsset, global, 1912
 /* 8013DCA0 0013AAA0  94 21 FF 80 */	stwu r1, -0x80(r1)
 /* 8013DCA4 0013AAA4  7C 08 02 A6 */	mflr r0
 /* 8013DCA8 0013AAA8  3C A0 80 2A */	lis r5, l_98c8_sBone@ha
@@ -1298,8 +1308,9 @@ lbl_8013E1AC:
 /* 8013E40C 0013B20C  7C 08 03 A6 */	mtlr r0
 /* 8013E410 0013B210  38 21 00 80 */	addi r1, r1, 0x80
 /* 8013E414 0013B214  4E 80 00 20 */	blr 
-.global Setup__10zNPCBSandyFv
-Setup__10zNPCBSandyFv:
+
+/* cpp: zNPCBSandy::Setup() */
+.fn Setup__10zNPCBSandyFv, global, 468
 /* 8013E418 0013B218  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8013E41C 0013B21C  7C 08 02 A6 */	mflr r0
 /* 8013E420 0013B220  3C 80 80 27 */	lis r4, l_d19c__esc__2_stringBase0@ha
@@ -1418,8 +1429,9 @@ lbl_8013E474:
 /* 8013E5E0 0013B3E0  7C 08 03 A6 */	mtlr r0
 /* 8013E5E4 0013B3E4  38 21 00 40 */	addi r1, r1, 0x40
 /* 8013E5E8 0013B3E8  4E 80 00 20 */	blr 
-.global SelfSetup__10zNPCBSandyFv
-SelfSetup__10zNPCBSandyFv:
+
+/* cpp: zNPCBSandy::SelfSetup() */
+.fn SelfSetup__10zNPCBSandyFv, global, 580
 /* 8013E5EC 0013B3EC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8013E5F0 0013B3F0  7C 08 02 A6 */	mflr r0
 /* 8013E5F4 0013B3F4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -1565,8 +1577,9 @@ SelfSetup__10zNPCBSandyFv:
 /* 8013E824 0013B624  7C 08 03 A6 */	mtlr r0
 /* 8013E828 0013B628  38 21 00 10 */	addi r1, r1, 0x10
 /* 8013E82C 0013B62C  4E 80 00 20 */	blr 
-.global Reset__10zNPCBSandyFv
-Reset__10zNPCBSandyFv:
+
+/* cpp: zNPCBSandy::Reset() */
+.fn Reset__10zNPCBSandyFv, global, 2428
 /* 8013E830 0013B630  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 8013E834 0013B634  7C 08 02 A6 */	mflr r0
 /* 8013E838 0013B638  3C 80 80 33 */	lis r4, l_8000_sSinTable@ha
@@ -2195,8 +2208,9 @@ lbl_8013F17C:
 /* 8013F1A0 0013BFA0  7C 08 03 A6 */	mtlr r0
 /* 8013F1A4 0013BFA4  38 21 00 70 */	addi r1, r1, 0x70
 /* 8013F1A8 0013BFA8  4E 80 00 20 */	blr 
-.global ParseINI__10zNPCBSandyFv
-ParseINI__10zNPCBSandyFv:
+
+/* cpp: zNPCBSandy::ParseINI() */
+.fn ParseINI__10zNPCBSandyFv, global, 76
 /* 8013F1AC 0013BFAC  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8013F1B0 0013BFB0  7C 08 02 A6 */	mflr r0
 /* 8013F1B4 0013BFB4  90 01 00 14 */	stw r0, 0x14(r1)
@@ -2216,8 +2230,9 @@ ParseINI__10zNPCBSandyFv:
 /* 8013F1EC 0013BFEC  7C 08 03 A6 */	mtlr r0
 /* 8013F1F0 0013BFF0  38 21 00 10 */	addi r1, r1, 0x10
 /* 8013F1F4 0013BFF4  4E 80 00 20 */	blr 
-.global AnimPick__10zNPCBSandyFi16en_NPC_GOAL_SPOTP5xGoal
-AnimPick__10zNPCBSandyFi16en_NPC_GOAL_SPOTP5xGoal:
+
+/* cpp: zNPCBSandy::AnimPick(int, en_NPC_GOAL_SPOT, xGoal*) */
+.fn AnimPick__10zNPCBSandyFi16en_NPC_GOAL_SPOTP5xGoal, global, 372
 /* 8013F1F8 0013BFF8  3C A4 B1 B9 */	addis r5, r4, 0xb1b9
 /* 8013F1FC 0013BFFC  38 E0 FF FF */	li r7, -1
 /* 8013F200 0013C000  38 A5 BD CF */	addi r5, r5, -16945
@@ -2336,7 +2351,8 @@ lbl_8013F364:
 /* 8013F364 0013C164  7D 03 43 78 */	mr r3, r8
 /* 8013F368 0013C168  4E 80 00 20 */	blr 
 
-SpringRender__FP15SandyLimbSpring:
+/* cpp: SpringRender(SandyLimbSpring*) */
+.fn SpringRender__FP15SandyLimbSpring, local, 844
 /* 8013F36C 0013C16C  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 8013F370 0013C170  7C 08 02 A6 */	mflr r0
 /* 8013F374 0013C174  90 01 00 74 */	stw r0, 0x74(r1)
@@ -2567,7 +2583,8 @@ lbl_8013F67C:
 /* 8013F6B0 0013C4B0  38 21 00 70 */	addi r1, r1, 0x70
 /* 8013F6B4 0013C4B4  4E 80 00 20 */	blr 
 
-zNPCBSandy_BossDamageEffect_Init__Fv:
+/* cpp: zNPCBSandy_BossDamageEffect_Init() */
+.fn zNPCBSandy_BossDamageEffect_Init__Fv, local, 32
 /* 8013F6B8 0013C4B8  3C 60 80 33 */	lis r3, l_8114_BDErecord@ha
 /* 8013F6BC 0013C4BC  38 00 00 00 */	li r0, 0
 /* 8013F6C0 0013C4C0  38 63 81 14 */	addi r3, r3, l_8114_BDErecord@l
@@ -2577,7 +2594,8 @@ zNPCBSandy_BossDamageEffect_Init__Fv:
 /* 8013F6D0 0013C4D0  90 03 04 1C */	stw r0, 0x41c(r3)
 /* 8013F6D4 0013C4D4  4E 80 00 20 */	blr 
 
-zNPCBSandy_BossDamageEffect__FP14xModelInstanceUi:
+/* cpp: zNPCBSandy_BossDamageEffect(xModelInstance*, unsigned int) */
+.fn zNPCBSandy_BossDamageEffect__FP14xModelInstanceUi, local, 420
 /* 8013F6D8 0013C4D8  28 04 00 00 */	cmplwi r4, 0
 /* 8013F6DC 0013C4DC  41 82 00 D4 */	beq lbl_8013F7B0
 /* 8013F6E0 0013C4E0  3C 80 80 33 */	lis r4, l_8114_BDErecord@ha
@@ -2691,7 +2709,8 @@ lbl_8013F870:
 /* 8013F874 0013C674  40 82 FF BC */	bne lbl_8013F830
 /* 8013F878 0013C678  4E 80 00 20 */	blr 
 
-zNPCBSandy_BossDamageEffect_Update__Ff:
+/* cpp: zNPCBSandy_BossDamageEffect_Update(float) */
+.fn zNPCBSandy_BossDamageEffect_Update__Ff, local, 320
 /* 8013F87C 0013C67C  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 8013F880 0013C680  7C 08 02 A6 */	mflr r0
 /* 8013F884 0013C684  90 01 00 54 */	stw r0, 0x54(r1)
@@ -2777,8 +2796,9 @@ lbl_8013F978:
 /* 8013F9B0 0013C7B0  7C 08 03 A6 */	mtlr r0
 /* 8013F9B4 0013C7B4  38 21 00 50 */	addi r1, r1, 0x50
 /* 8013F9B8 0013C7B8  4E 80 00 20 */	blr 
-.global Render__10zNPCBSandyFv
-Render__10zNPCBSandyFv:
+
+/* cpp: zNPCBSandy::Render() */
+.fn Render__10zNPCBSandyFv, global, 748
 /* 8013F9BC 0013C7BC  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 8013F9C0 0013C7C0  7C 08 02 A6 */	mflr r0
 /* 8013F9C4 0013C7C4  3C 80 80 33 */	lis r4, l_8000_sSinTable@ha
@@ -2982,8 +3002,9 @@ lbl_8013FC8C:
 /* 8013FCA0 0013CAA0  38 21 00 60 */	addi r1, r1, 0x60
 /* 8013FCA4 0013CAA4  4E 80 00 20 */	blr 
 
-.global CalcMagnetizeInfo__10zNPCBSandyFv
-CalcMagnetizeInfo__10zNPCBSandyFv:
+
+/* cpp: zNPCBSandy::CalcMagnetizeInfo() */
+.fn CalcMagnetizeInfo__10zNPCBSandyFv, global, 192
 /* 8013FCA8 0013CAA8  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 8013FCAC 0013CAAC  7C 08 02 A6 */	mflr r0
 /* 8013FCB0 0013CAB0  90 01 00 54 */	stw r0, 0x54(r1)
@@ -3033,8 +3054,9 @@ CalcMagnetizeInfo__10zNPCBSandyFv:
 /* 8013FD60 0013CB60  38 21 00 50 */	addi r1, r1, 0x50
 /* 8013FD64 0013CB64  4E 80 00 20 */	blr 
 
-.global InitFX__10zNPCBSandyFv
-InitFX__10zNPCBSandyFv:
+
+/* cpp: zNPCBSandy::InitFX() */
+.fn InitFX__10zNPCBSandyFv, global, 1000
 /* 8013FD68 0013CB68  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8013FD6C 0013CB6C  7C 08 02 A6 */	mflr r0
 /* 8013FD70 0013CB70  90 01 00 14 */	stw r0, 0x14(r1)
@@ -3286,8 +3308,9 @@ InitFX__10zNPCBSandyFv:
 /* 80140148 0013CF48  38 21 00 10 */	addi r1, r1, 0x10
 /* 8014014C 0013CF4C  4E 80 00 20 */	blr 
 
-.global UpdateFX__10zNPCBSandyFf
-UpdateFX__10zNPCBSandyFf:
+
+/* cpp: zNPCBSandy::UpdateFX(float) */
+.fn UpdateFX__10zNPCBSandyFf, global, 476
 /* 80140150 0013CF50  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 80140154 0013CF54  7C 08 02 A6 */	mflr r0
 /* 80140158 0013CF58  90 01 00 94 */	stw r0, 0x94(r1)
@@ -3416,7 +3439,8 @@ lbl_80140308:
 /* 80140324 0013D124  38 21 00 90 */	addi r1, r1, 0x90
 /* 80140328 0013D128  4E 80 00 20 */	blr 
 
-UpdateSandyBossCam__FP10zNPCBSandyf:
+/* cpp: UpdateSandyBossCam(zNPCBSandy*, float) */
+.fn UpdateSandyBossCam__FP10zNPCBSandyf, local, 416
 /* 8014032C 0013D12C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80140330 0013D130  7C 08 02 A6 */	mflr r0
 /* 80140334 0013D134  90 01 00 34 */	stw r0, 0x34(r1)
@@ -3532,7 +3556,8 @@ lbl_801404AC:
 /* 801404C4 0013D2C4  38 21 00 30 */	addi r1, r1, 0x30
 /* 801404C8 0013D2C8  4E 80 00 20 */	blr 
 
-GetBonePos__FP5xVec3P7xMat4x3iP5xVec3:
+/* cpp: GetBonePos(xVec3*, xMat4x3*, int, xVec3*) */
+.fn GetBonePos__FP5xVec3P7xMat4x3iP5xVec3, local, 168
 /* 801404CC 0013D2CC  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 801404D0 0013D2D0  7C 08 02 A6 */	mflr r0
 /* 801404D4 0013D2D4  2C 05 00 00 */	cmpwi r5, 0
@@ -3579,7 +3604,8 @@ lbl_80140558:
 /* 8014056C 0013D36C  38 21 00 60 */	addi r1, r1, 0x60
 /* 80140570 0013D370  4E 80 00 20 */	blr 
 
-MakeOBBFor__FiiP4xEntP7xMat4x3:
+/* cpp: MakeOBBFor(int, int, xEnt*, xMat4x3*) */
+.fn MakeOBBFor__FiiP4xEntP7xMat4x3, local, 388
 /* 80140574 0013D374  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 80140578 0013D378  7C 08 02 A6 */	mflr r0
 /* 8014057C 0013D37C  90 01 00 54 */	stw r0, 0x54(r1)
@@ -3679,7 +3705,8 @@ lbl_801406AC:
 /* 801406EC 0013D4EC  7C 08 03 A6 */	mtlr r0
 /* 801406F0 0013D4F0  38 21 00 50 */	addi r1, r1, 0x50
 /* 801406F4 0013D4F4  4E 80 00 20 */	blr 
-l_06f8_BoundEventCB__FP5xBaseP5xBaseUiPCfP5xBase:
+/* cpp: BoundEventCB(xBase*, xBase*, unsigned int, const float*, xBase*) */
+.fn l_06f8_BoundEventCB__FP5xBaseP5xBaseUiPCfP5xBase, local, 100
 /* 801406F8 0013D4F8  2C 05 01 65 */	cmpwi r5, 0x165
 /* 801406FC 0013D4FC  80 04 00 00 */	lwz r0, 0(r4)
 /* 80140700 0013D500  80 C4 00 B8 */	lwz r6, 0xb8(r4)
@@ -3708,8 +3735,9 @@ lbl_80140730:
 lbl_80140754:
 /* 80140754 0013D554  38 60 00 01 */	li r3, 1
 /* 80140758 0013D558  4E 80 00 20 */	blr 
-.global Process__10zNPCBSandyFP6xScenef
-Process__10zNPCBSandyFP6xScenef:
+
+/* cpp: zNPCBSandy::Process(xScene*, float) */
+.fn Process__10zNPCBSandyFP6xScenef, global, 3852
 /* 8014075C 0013D55C  94 21 FF 10 */	stwu r1, -0xf0(r1)
 /* 80140760 0013D560  7C 08 02 A6 */	mflr r0
 /* 80140764 0013D564  90 01 00 F4 */	stw r0, 0xf4(r1)
@@ -4744,8 +4772,9 @@ lbl_80141634:
 /* 80141660 0013E460  38 21 00 F0 */	addi r1, r1, 0xf0
 /* 80141664 0013E464  4E 80 00 20 */	blr 
 
-.global hiddenByCutscene__10zNPCBSandyFv
-hiddenByCutscene__10zNPCBSandyFv:
+
+/* cpp: zNPCBSandy::hiddenByCutscene() */
+.fn hiddenByCutscene__10zNPCBSandyFv, global, 484
 /* 80141668 0013E468  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 8014166C 0013E46C  7C 08 02 A6 */	mflr r0
 /* 80141670 0013E470  90 01 00 24 */	stw r0, 0x24(r1)
@@ -4873,8 +4902,9 @@ lbl_80141830:
 /* 80141840 0013E640  7C 08 03 A6 */	mtlr r0
 /* 80141844 0013E644  38 21 00 20 */	addi r1, r1, 0x20
 /* 80141848 0013E648  4E 80 00 20 */	blr 
-.global Damage__10zNPCBSandyF18en_NPC_DAMAGE_TYPEP5xBasePC5xVec3
-Damage__10zNPCBSandyF18en_NPC_DAMAGE_TYPEP5xBasePC5xVec3:
+
+/* cpp: zNPCBSandy::Damage(en_NPC_DAMAGE_TYPE, xBase*, const xVec3*) */
+.fn Damage__10zNPCBSandyF18en_NPC_DAMAGE_TYPEP5xBasePC5xVec3, global, 24
 /* 8014184C 0013E64C  2C 04 00 04 */	cmpwi r4, 4
 /* 80141850 0013E650  4C 82 00 20 */	bnelr 
 /* 80141854 0013E654  80 03 02 C0 */	lwz r0, 0x2c0(r3)
@@ -4882,8 +4912,9 @@ Damage__10zNPCBSandyF18en_NPC_DAMAGE_TYPEP5xBasePC5xVec3:
 /* 8014185C 0013E65C  90 03 02 C0 */	stw r0, 0x2c0(r3)
 /* 80141860 0013E660  4E 80 00 20 */	blr 
 
-.global zNPCBSandy_AddBoundEntsToGrid__FP6zScene
-zNPCBSandy_AddBoundEntsToGrid__FP6zScene:
+
+/* cpp: zNPCBSandy_AddBoundEntsToGrid(zScene*) */
+.fn zNPCBSandy_AddBoundEntsToGrid__FP6zScene, global, 296
 /* 80141864 0013E664  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 80141868 0013E668  7C 08 02 A6 */	mflr r0
 /* 8014186C 0013E66C  90 01 00 24 */	stw r0, 0x24(r1)
@@ -4970,8 +5001,9 @@ lbl_8014196C:
 /* 80141984 0013E784  38 21 00 20 */	addi r1, r1, 0x20
 /* 80141988 0013E788  4E 80 00 20 */	blr 
 
-.global zNPCBSandy_GameIsPaused__FP6zScene
-zNPCBSandy_GameIsPaused__FP6zScene:
+
+/* cpp: zNPCBSandy_GameIsPaused(zScene*) */
+.fn zNPCBSandy_GameIsPaused__FP6zScene, global, 68
 /* 8014198C 0013E78C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80141990 0013E790  7C 08 02 A6 */	mflr r0
 /* 80141994 0013E794  90 01 00 14 */	stw r0, 0x14(r1)
@@ -4990,8 +5022,9 @@ lbl_801419C0:
 /* 801419C4 0013E7C4  7C 08 03 A6 */	mtlr r0
 /* 801419C8 0013E7C8  38 21 00 10 */	addi r1, r1, 0x10
 /* 801419CC 0013E7CC  4E 80 00 20 */	blr 
-.global NewTime__10zNPCBSandyFP6xScenef
-NewTime__10zNPCBSandyFP6xScenef:
+
+/* cpp: zNPCBSandy::NewTime(xScene*, float) */
+.fn NewTime__10zNPCBSandyFP6xScenef, global, 1920
 /* 801419D0 0013E7D0  94 21 FF 70 */	stwu r1, -0x90(r1)
 /* 801419D4 0013E7D4  7C 08 02 A6 */	mflr r0
 /* 801419D8 0013E7D8  90 01 00 94 */	stw r0, 0x94(r1)
@@ -5496,7 +5529,8 @@ lbl_80142100:
 /* 80142144 0013EF44  7C 08 03 A6 */	mtlr r0
 /* 80142148 0013EF48  38 21 00 90 */	addi r1, r1, 0x90
 /* 8014214C 0013EF4C  4E 80 00 20 */	blr 
-l_2150_idleCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: idleCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_2150_idleCB__FP5xGoalPvP11en_trantypefPv, local, 256
 /* 80142150 0013EF50  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80142154 0013EF54  7C 08 02 A6 */	mflr r0
 /* 80142158 0013EF58  90 01 00 34 */	stw r0, 0x34(r1)
@@ -5567,7 +5601,8 @@ lbl_80142234:
 /* 80142244 0013F044  7C 08 03 A6 */	mtlr r0
 /* 80142248 0013F048  38 21 00 30 */	addi r1, r1, 0x30
 /* 8014224C 0013F04C  4E 80 00 20 */	blr 
-l_2250_tauntCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: tauntCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_2250_tauntCB__FP5xGoalPvP11en_trantypefPv, local, 332
 /* 80142250 0013F050  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 80142254 0013F054  7C 08 02 A6 */	mflr r0
 /* 80142258 0013F058  90 01 00 54 */	stw r0, 0x54(r1)
@@ -5656,7 +5691,8 @@ lbl_80142370:
 /* 80142390 0013F190  7C 08 03 A6 */	mtlr r0
 /* 80142394 0013F194  38 21 00 50 */	addi r1, r1, 0x50
 /* 80142398 0013F198  4E 80 00 20 */	blr 
-l_239c_chaseCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: chaseCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_239c_chaseCB__FP5xGoalPvP11en_trantypefPv, local, 708
 /* 8014239C 0013F19C  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 801423A0 0013F1A0  7C 08 02 A6 */	mflr r0
 /* 801423A4 0013F1A4  90 01 00 74 */	stw r0, 0x74(r1)
@@ -5844,7 +5880,8 @@ lbl_80142634:
 /* 80142654 0013F454  7C 08 03 A6 */	mtlr r0
 /* 80142658 0013F458  38 21 00 70 */	addi r1, r1, 0x70
 /* 8014265C 0013F45C  4E 80 00 20 */	blr 
-l_2660_meleeCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: meleeCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_2660_meleeCB__FP5xGoalPvP11en_trantypefPv, local, 572
 /* 80142660 0013F460  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 80142664 0013F464  7C 08 02 A6 */	mflr r0
 /* 80142668 0013F468  90 01 00 54 */	stw r0, 0x54(r1)
@@ -5997,7 +6034,8 @@ lbl_80142868:
 /* 80142890 0013F690  7C 08 03 A6 */	mtlr r0
 /* 80142894 0013F694  38 21 00 50 */	addi r1, r1, 0x50
 /* 80142898 0013F698  4E 80 00 20 */	blr 
-l_289c_noHeadCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: noHeadCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_289c_noHeadCB__FP5xGoalPvP11en_trantypefPv, local, 144
 /* 8014289C 0013F69C  94 21 FF E0 */	stwu r1, -0x20(r1)
 /* 801428A0 0013F6A0  7C 08 02 A6 */	mflr r0
 /* 801428A4 0013F6A4  90 01 00 24 */	stw r0, 0x24(r1)
@@ -6036,7 +6074,8 @@ lbl_80142908:
 /* 80142920 0013F720  7C 08 03 A6 */	mtlr r0
 /* 80142924 0013F724  38 21 00 20 */	addi r1, r1, 0x20
 /* 80142928 0013F728  4E 80 00 20 */	blr 
-l_292c_elbowDropCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: elbowDropCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_292c_elbowDropCB__FP5xGoalPvP11en_trantypefPv, local, 372
 /* 8014292C 0013F72C  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 80142930 0013F730  7C 08 02 A6 */	mflr r0
 /* 80142934 0013F734  90 01 00 54 */	stw r0, 0x54(r1)
@@ -6136,7 +6175,8 @@ lbl_80142A74:
 /* 80142A94 0013F894  7C 08 03 A6 */	mtlr r0
 /* 80142A98 0013F898  38 21 00 50 */	addi r1, r1, 0x50
 /* 80142A9C 0013F89C  4E 80 00 20 */	blr 
-l_2aa0_leapCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: leapCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_2aa0_leapCB__FP5xGoalPvP11en_trantypefPv, local, 180
 /* 80142AA0 0013F8A0  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80142AA4 0013F8A4  7C 08 02 A6 */	mflr r0
 /* 80142AA8 0013F8A8  90 01 00 34 */	stw r0, 0x34(r1)
@@ -6184,7 +6224,8 @@ lbl_80142B2C:
 /* 80142B48 0013F948  7C 08 03 A6 */	mtlr r0
 /* 80142B4C 0013F94C  38 21 00 30 */	addi r1, r1, 0x30
 /* 80142B50 0013F950  4E 80 00 20 */	blr 
-l_2b54_sitCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: sitCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_2b54_sitCB__FP5xGoalPvP11en_trantypefPv, local, 272
 /* 80142B54 0013F954  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80142B58 0013F958  7C 08 02 A6 */	mflr r0
 /* 80142B5C 0013F95C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -6257,7 +6298,8 @@ lbl_80142C48:
 /* 80142C58 0013FA58  7C 08 03 A6 */	mtlr r0
 /* 80142C5C 0013FA5C  38 21 00 10 */	addi r1, r1, 0x10
 /* 80142C60 0013FA60  4E 80 00 20 */	blr 
-l_2c64_getUpCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: getUpCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_2c64_getUpCB__FP5xGoalPvP11en_trantypefPv, local, 388
 /* 80142C64 0013FA64  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 80142C68 0013FA68  7C 08 02 A6 */	mflr r0
 /* 80142C6C 0013FA6C  90 01 00 54 */	stw r0, 0x54(r1)
@@ -6363,7 +6405,8 @@ lbl_80142DB8:
 /* 80142DDC 0013FBDC  7C 08 03 A6 */	mtlr r0
 /* 80142DE0 0013FBE0  38 21 00 50 */	addi r1, r1, 0x50
 /* 80142DE4 0013FBE4  4E 80 00 20 */	blr 
-l_2de8_runToRopeCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: runToRopeCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_2de8_runToRopeCB__FP5xGoalPvP11en_trantypefPv, local, 240
 /* 80142DE8 0013FBE8  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80142DEC 0013FBEC  7C 08 02 A6 */	mflr r0
 /* 80142DF0 0013FBF0  90 01 00 34 */	stw r0, 0x34(r1)
@@ -6426,7 +6469,8 @@ lbl_80142EB8:
 /* 80142ECC 0013FCCC  7C 08 03 A6 */	mtlr r0
 /* 80142ED0 0013FCD0  38 21 00 30 */	addi r1, r1, 0x30
 /* 80142ED4 0013FCD4  4E 80 00 20 */	blr 
-l_2ed8_clotheslineCB__FP5xGoalPvP11en_trantypefPv:
+/* cpp: clotheslineCB(xGoal*, void*, en_trantype*, float, void*) */
+.fn l_2ed8_clotheslineCB__FP5xGoalPvP11en_trantypefPv, local, 260
 /* 80142ED8 0013FCD8  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80142EDC 0013FCDC  7C 08 02 A6 */	mflr r0
 /* 80142EE0 0013FCE0  90 01 00 34 */	stw r0, 0x34(r1)
@@ -6495,8 +6539,9 @@ lbl_80142FB4:
 /* 80142FD0 0013FDD0  7C 08 03 A6 */	mtlr r0
 /* 80142FD4 0013FDD4  38 21 00 30 */	addi r1, r1, 0x30
 /* 80142FD8 0013FDD8  4E 80 00 20 */	blr 
-.global Enter__21zNPCGoalBossSandyIdleFfPv
-Enter__21zNPCGoalBossSandyIdleFfPv:
+
+/* cpp: zNPCGoalBossSandyIdle::Enter(float, void*) */
+.fn Enter__21zNPCGoalBossSandyIdleFfPv, global, 180
 /* 80142FDC 0013FDDC  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80142FE0 0013FDE0  7C 08 02 A6 */	mflr r0
 /* 80142FE4 0013FDE4  90 01 00 34 */	stw r0, 0x34(r1)
@@ -6542,8 +6587,9 @@ Enter__21zNPCGoalBossSandyIdleFfPv:
 /* 80143084 0013FE84  7C 08 03 A6 */	mtlr r0
 /* 80143088 0013FE88  38 21 00 30 */	addi r1, r1, 0x30
 /* 8014308C 0013FE8C  4E 80 00 20 */	blr 
-.global Process__21zNPCGoalBossSandyIdleFP11en_trantypefPvP6xScene
-Process__21zNPCGoalBossSandyIdleFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandyIdle::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__21zNPCGoalBossSandyIdleFP11en_trantypefPvP6xScene, global, 340
 /* 80143090 0013FE90  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80143094 0013FE94  7C 08 02 A6 */	mflr r0
 /* 80143098 0013FE98  90 01 00 44 */	stw r0, 0x44(r1)
@@ -6629,8 +6675,9 @@ Process__21zNPCGoalBossSandyIdleFP11en_trantypefPvP6xScene:
 /* 801431D8 0013FFD8  7C 08 03 A6 */	mtlr r0
 /* 801431DC 0013FFDC  38 21 00 40 */	addi r1, r1, 0x40
 /* 801431E0 0013FFE0  4E 80 00 20 */	blr 
-.global Exit__21zNPCGoalBossSandyIdleFfPv
-Exit__21zNPCGoalBossSandyIdleFfPv:
+
+/* cpp: zNPCGoalBossSandyIdle::Exit(float, void*) */
+.fn Exit__21zNPCGoalBossSandyIdleFfPv, global, 84
 /* 801431E4 0013FFE4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801431E8 0013FFE8  7C 08 02 A6 */	mflr r0
 /* 801431EC 0013FFEC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -6652,8 +6699,9 @@ Exit__21zNPCGoalBossSandyIdleFfPv:
 /* 8014322C 0014002C  7C 08 03 A6 */	mtlr r0
 /* 80143230 00140030  38 21 00 10 */	addi r1, r1, 0x10
 /* 80143234 00140034  4E 80 00 20 */	blr 
-.global Enter__22zNPCGoalBossSandyTauntFfPv
-Enter__22zNPCGoalBossSandyTauntFfPv:
+
+/* cpp: zNPCGoalBossSandyTaunt::Enter(float, void*) */
+.fn Enter__22zNPCGoalBossSandyTauntFfPv, global, 188
 /* 80143238 00140038  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8014323C 0014003C  7C 08 02 A6 */	mflr r0
 /* 80143240 00140040  90 01 00 34 */	stw r0, 0x34(r1)
@@ -6701,8 +6749,9 @@ Enter__22zNPCGoalBossSandyTauntFfPv:
 /* 801432E8 001400E8  7C 08 03 A6 */	mtlr r0
 /* 801432EC 001400EC  38 21 00 30 */	addi r1, r1, 0x30
 /* 801432F0 001400F0  4E 80 00 20 */	blr 
-.global Process__22zNPCGoalBossSandyTauntFP11en_trantypefPvP6xScene
-Process__22zNPCGoalBossSandyTauntFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandyTaunt::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__22zNPCGoalBossSandyTauntFP11en_trantypefPvP6xScene, global, 280
 /* 801432F4 001400F4  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 801432F8 001400F8  7C 08 02 A6 */	mflr r0
 /* 801432FC 001400FC  90 01 00 44 */	stw r0, 0x44(r1)
@@ -6773,8 +6822,9 @@ Process__22zNPCGoalBossSandyTauntFP11en_trantypefPvP6xScene:
 /* 80143400 00140200  7C 08 03 A6 */	mtlr r0
 /* 80143404 00140204  38 21 00 40 */	addi r1, r1, 0x40
 /* 80143408 00140208  4E 80 00 20 */	blr 
-.global Enter__22zNPCGoalBossSandyChaseFfPv
-Enter__22zNPCGoalBossSandyChaseFfPv:
+
+/* cpp: zNPCGoalBossSandyChase::Enter(float, void*) */
+.fn Enter__22zNPCGoalBossSandyChaseFfPv, global, 92
 /* 8014340C 0014020C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80143410 00140210  7C 08 02 A6 */	mflr r0
 /* 80143414 00140214  90 01 00 14 */	stw r0, 0x14(r1)
@@ -6798,8 +6848,9 @@ Enter__22zNPCGoalBossSandyChaseFfPv:
 /* 8014345C 0014025C  7C 08 03 A6 */	mtlr r0
 /* 80143460 00140260  38 21 00 10 */	addi r1, r1, 0x10
 /* 80143464 00140264  4E 80 00 20 */	blr 
-.global Process__22zNPCGoalBossSandyChaseFP11en_trantypefPvP6xScene
-Process__22zNPCGoalBossSandyChaseFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandyChase::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__22zNPCGoalBossSandyChaseFP11en_trantypefPvP6xScene, global, 316
 /* 80143468 00140268  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8014346C 0014026C  7C 08 02 A6 */	mflr r0
 /* 80143470 00140270  90 01 00 44 */	stw r0, 0x44(r1)
@@ -6879,8 +6930,9 @@ Process__22zNPCGoalBossSandyChaseFP11en_trantypefPvP6xScene:
 /* 80143598 00140398  7C 08 03 A6 */	mtlr r0
 /* 8014359C 0014039C  38 21 00 40 */	addi r1, r1, 0x40
 /* 801435A0 001403A0  4E 80 00 20 */	blr 
-.global Exit__22zNPCGoalBossSandyChaseFfPv
-Exit__22zNPCGoalBossSandyChaseFfPv:
+
+/* cpp: zNPCGoalBossSandyChase::Exit(float, void*) */
+.fn Exit__22zNPCGoalBossSandyChaseFfPv, global, 84
 /* 801435A4 001403A4  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 801435A8 001403A8  7C 08 02 A6 */	mflr r0
 /* 801435AC 001403AC  90 01 00 14 */	stw r0, 0x14(r1)
@@ -6902,8 +6954,9 @@ Exit__22zNPCGoalBossSandyChaseFfPv:
 /* 801435EC 001403EC  7C 08 03 A6 */	mtlr r0
 /* 801435F0 001403F0  38 21 00 10 */	addi r1, r1, 0x10
 /* 801435F4 001403F4  4E 80 00 20 */	blr 
-.global Enter__22zNPCGoalBossSandyMeleeFfPv
-Enter__22zNPCGoalBossSandyMeleeFfPv:
+
+/* cpp: zNPCGoalBossSandyMelee::Enter(float, void*) */
+.fn Enter__22zNPCGoalBossSandyMeleeFfPv, global, 288
 /* 801435F8 001403F8  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 801435FC 001403FC  7C 08 02 A6 */	mflr r0
 /* 80143600 00140400  90 01 00 34 */	stw r0, 0x34(r1)
@@ -6976,8 +7029,9 @@ Enter__22zNPCGoalBossSandyMeleeFfPv:
 /* 8014370C 0014050C  7C 08 03 A6 */	mtlr r0
 /* 80143710 00140510  38 21 00 30 */	addi r1, r1, 0x30
 /* 80143714 00140514  4E 80 00 20 */	blr 
-.global Exit__22zNPCGoalBossSandyMeleeFfPv
-Exit__22zNPCGoalBossSandyMeleeFfPv:
+
+/* cpp: zNPCGoalBossSandyMelee::Exit(float, void*) */
+.fn Exit__22zNPCGoalBossSandyMeleeFfPv, global, 128
 /* 80143718 00140518  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8014371C 0014051C  7C 08 02 A6 */	mflr r0
 /* 80143720 00140520  90 01 00 14 */	stw r0, 0x14(r1)
@@ -7010,8 +7064,9 @@ Exit__22zNPCGoalBossSandyMeleeFfPv:
 /* 8014378C 0014058C  7C 08 03 A6 */	mtlr r0
 /* 80143790 00140590  38 21 00 10 */	addi r1, r1, 0x10
 /* 80143794 00140594  4E 80 00 20 */	blr 
-.global Process__22zNPCGoalBossSandyMeleeFP11en_trantypefPvP6xScene
-Process__22zNPCGoalBossSandyMeleeFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandyMelee::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__22zNPCGoalBossSandyMeleeFP11en_trantypefPvP6xScene, global, 420
 /* 80143798 00140598  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 8014379C 0014059C  7C 08 02 A6 */	mflr r0
 /* 801437A0 001405A0  90 01 00 44 */	stw r0, 0x44(r1)
@@ -7118,8 +7173,9 @@ lbl_8014388C:
 /* 80143930 00140730  7C 08 03 A6 */	mtlr r0
 /* 80143934 00140734  38 21 00 40 */	addi r1, r1, 0x40
 /* 80143938 00140738  4E 80 00 20 */	blr 
-.global Enter__23zNPCGoalBossSandyNoHeadFfPv
-Enter__23zNPCGoalBossSandyNoHeadFfPv:
+
+/* cpp: zNPCGoalBossSandyNoHead::Enter(float, void*) */
+.fn Enter__23zNPCGoalBossSandyNoHeadFfPv, global, 200
 /* 8014393C 0014073C  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80143940 00140740  7C 08 02 A6 */	mflr r0
 /* 80143944 00140744  90 01 00 34 */	stw r0, 0x34(r1)
@@ -7171,8 +7227,9 @@ lbl_801439C0:
 /* 801439F8 001407F8  7C 08 03 A6 */	mtlr r0
 /* 801439FC 001407FC  38 21 00 30 */	addi r1, r1, 0x30
 /* 80143A00 00140800  4E 80 00 20 */	blr 
-.global Process__23zNPCGoalBossSandyNoHeadFP11en_trantypefPvP6xScene
-Process__23zNPCGoalBossSandyNoHeadFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandyNoHead::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__23zNPCGoalBossSandyNoHeadFP11en_trantypefPvP6xScene, global, 2420
 /* 80143A04 00140804  94 21 FF 50 */	stwu r1, -0xb0(r1)
 /* 80143A08 00140808  7C 08 02 A6 */	mflr r0
 /* 80143A0C 0014080C  90 01 00 B4 */	stw r0, 0xb4(r1)
@@ -7805,8 +7862,9 @@ lbl_8014433C:
 /* 8014436C 0014116C  7C 08 03 A6 */	mtlr r0
 /* 80144370 00141170  38 21 00 B0 */	addi r1, r1, 0xb0
 /* 80144374 00141174  4E 80 00 20 */	blr 
-.global Enter__26zNPCGoalBossSandyElbowDropFfPv
-Enter__26zNPCGoalBossSandyElbowDropFfPv:
+
+/* cpp: zNPCGoalBossSandyElbowDrop::Enter(float, void*) */
+.fn Enter__26zNPCGoalBossSandyElbowDropFfPv, global, 324
 /* 80144378 00141178  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 8014437C 0014117C  7C 08 02 A6 */	mflr r0
 /* 80144380 00141180  90 01 00 34 */	stw r0, 0x34(r1)
@@ -7888,8 +7946,9 @@ Enter__26zNPCGoalBossSandyElbowDropFfPv:
 /* 801444B0 001412B0  7C 08 03 A6 */	mtlr r0
 /* 801444B4 001412B4  38 21 00 30 */	addi r1, r1, 0x30
 /* 801444B8 001412B8  4E 80 00 20 */	blr 
-.global Process__26zNPCGoalBossSandyElbowDropFP11en_trantypefPvP6xScene
-Process__26zNPCGoalBossSandyElbowDropFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandyElbowDrop::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__26zNPCGoalBossSandyElbowDropFP11en_trantypefPvP6xScene, global, 664
 /* 801444BC 001412BC  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 801444C0 001412C0  7C 08 02 A6 */	mflr r0
 /* 801444C4 001412C4  90 01 00 44 */	stw r0, 0x44(r1)
@@ -8061,8 +8120,9 @@ lbl_80144720:
 /* 80144748 00141548  7C 08 03 A6 */	mtlr r0
 /* 8014474C 0014154C  38 21 00 40 */	addi r1, r1, 0x40
 /* 80144750 00141550  4E 80 00 20 */	blr 
-.global Exit__26zNPCGoalBossSandyElbowDropFfPv
-Exit__26zNPCGoalBossSandyElbowDropFfPv:
+
+/* cpp: zNPCGoalBossSandyElbowDrop::Exit(float, void*) */
+.fn Exit__26zNPCGoalBossSandyElbowDropFfPv, global, 56
 /* 80144754 00141554  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80144758 00141558  7C 08 02 A6 */	mflr r0
 /* 8014475C 0014155C  90 01 00 14 */	stw r0, 0x14(r1)
@@ -8077,8 +8137,9 @@ Exit__26zNPCGoalBossSandyElbowDropFfPv:
 /* 80144780 00141580  7C 08 03 A6 */	mtlr r0
 /* 80144784 00141584  38 21 00 10 */	addi r1, r1, 0x10
 /* 80144788 00141588  4E 80 00 20 */	blr 
-.global Enter__21zNPCGoalBossSandyLeapFfPv
-Enter__21zNPCGoalBossSandyLeapFfPv:
+
+/* cpp: zNPCGoalBossSandyLeap::Enter(float, void*) */
+.fn Enter__21zNPCGoalBossSandyLeapFfPv, global, 532
 /* 8014478C 0014158C  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80144790 00141590  7C 08 02 A6 */	mflr r0
 /* 80144794 00141594  90 01 00 44 */	stw r0, 0x44(r1)
@@ -8215,8 +8276,9 @@ lbl_80144918:
 /* 80144994 00141794  7C 08 03 A6 */	mtlr r0
 /* 80144998 00141798  38 21 00 40 */	addi r1, r1, 0x40
 /* 8014499C 0014179C  4E 80 00 20 */	blr 
-.global Process__21zNPCGoalBossSandyLeapFP11en_trantypefPvP6xScene
-Process__21zNPCGoalBossSandyLeapFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandyLeap::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__21zNPCGoalBossSandyLeapFP11en_trantypefPvP6xScene, global, 1152
 /* 801449A0 001417A0  94 21 FF B0 */	stwu r1, -0x50(r1)
 /* 801449A4 001417A4  7C 08 02 A6 */	mflr r0
 /* 801449A8 001417A8  90 01 00 54 */	stw r0, 0x54(r1)
@@ -8518,8 +8580,9 @@ lbl_80144DEC:
 /* 80144E14 00141C14  7C 08 03 A6 */	mtlr r0
 /* 80144E18 00141C18  38 21 00 50 */	addi r1, r1, 0x50
 /* 80144E1C 00141C1C  4E 80 00 20 */	blr 
-.global Exit__21zNPCGoalBossSandyLeapFfPv
-Exit__21zNPCGoalBossSandyLeapFfPv:
+
+/* cpp: zNPCGoalBossSandyLeap::Exit(float, void*) */
+.fn Exit__21zNPCGoalBossSandyLeapFfPv, global, 40
 /* 80144E20 00141C20  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80144E24 00141C24  7C 08 02 A6 */	mflr r0
 /* 80144E28 00141C28  90 01 00 14 */	stw r0, 0x14(r1)
@@ -8530,8 +8593,9 @@ Exit__21zNPCGoalBossSandyLeapFfPv:
 /* 80144E3C 00141C3C  7C 08 03 A6 */	mtlr r0
 /* 80144E40 00141C40  38 21 00 10 */	addi r1, r1, 0x10
 /* 80144E44 00141C44  4E 80 00 20 */	blr 
-.global Enter__20zNPCGoalBossSandySitFfPv
-Enter__20zNPCGoalBossSandySitFfPv:
+
+/* cpp: zNPCGoalBossSandySit::Enter(float, void*) */
+.fn Enter__20zNPCGoalBossSandySitFfPv, global, 272
 /* 80144E48 00141C48  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80144E4C 00141C4C  7C 08 02 A6 */	mflr r0
 /* 80144E50 00141C50  90 01 00 34 */	stw r0, 0x34(r1)
@@ -8603,8 +8667,9 @@ lbl_80144F2C:
 /* 80144F4C 00141D4C  7C 08 03 A6 */	mtlr r0
 /* 80144F50 00141D50  38 21 00 30 */	addi r1, r1, 0x30
 /* 80144F54 00141D54  4E 80 00 20 */	blr 
-.global Process__20zNPCGoalBossSandySitFP11en_trantypefPvP6xScene
-Process__20zNPCGoalBossSandySitFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandySit::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__20zNPCGoalBossSandySitFP11en_trantypefPvP6xScene, global, 1856
 /* 80144F58 00141D58  94 21 FF A0 */	stwu r1, -0x60(r1)
 /* 80144F5C 00141D5C  7C 08 02 A6 */	mflr r0
 /* 80144F60 00141D60  90 01 00 64 */	stw r0, 0x64(r1)
@@ -9091,8 +9156,9 @@ lbl_80145664:
 /* 8014568C 0014248C  7C 08 03 A6 */	mtlr r0
 /* 80145690 00142490  38 21 00 60 */	addi r1, r1, 0x60
 /* 80145694 00142494  4E 80 00 20 */	blr 
-.global Exit__20zNPCGoalBossSandySitFfPv
-Exit__20zNPCGoalBossSandySitFfPv:
+
+/* cpp: zNPCGoalBossSandySit::Exit(float, void*) */
+.fn Exit__20zNPCGoalBossSandySitFfPv, global, 108
 /* 80145698 00142498  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 8014569C 0014249C  7C 08 02 A6 */	mflr r0
 /* 801456A0 001424A0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -9121,8 +9187,9 @@ lbl_801456F0:
 /* 801456F8 001424F8  7C 08 03 A6 */	mtlr r0
 /* 801456FC 001424FC  38 21 00 10 */	addi r1, r1, 0x10
 /* 80145700 00142500  4E 80 00 20 */	blr 
-.global Enter__22zNPCGoalBossSandyGetUpFfPv
-Enter__22zNPCGoalBossSandyGetUpFfPv:
+
+/* cpp: zNPCGoalBossSandyGetUp::Enter(float, void*) */
+.fn Enter__22zNPCGoalBossSandyGetUpFfPv, global, 312
 /* 80145704 00142504  94 21 FF D0 */	stwu r1, -0x30(r1)
 /* 80145708 00142508  7C 08 02 A6 */	mflr r0
 /* 8014570C 0014250C  90 01 00 34 */	stw r0, 0x34(r1)
@@ -9203,8 +9270,9 @@ lbl_80145808:
 /* 80145830 00142630  7C 08 03 A6 */	mtlr r0
 /* 80145834 00142634  38 21 00 30 */	addi r1, r1, 0x30
 /* 80145838 00142638  4E 80 00 20 */	blr 
-.global Process__22zNPCGoalBossSandyGetUpFP11en_trantypefPvP6xScene
-Process__22zNPCGoalBossSandyGetUpFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandyGetUp::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__22zNPCGoalBossSandyGetUpFP11en_trantypefPvP6xScene, global, 44
 /* 8014583C 0014263C  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80145840 00142640  7C 08 02 A6 */	mflr r0
 /* 80145844 00142644  90 01 00 14 */	stw r0, 0x14(r1)
@@ -9216,8 +9284,9 @@ Process__22zNPCGoalBossSandyGetUpFP11en_trantypefPvP6xScene:
 /* 8014585C 0014265C  7C 08 03 A6 */	mtlr r0
 /* 80145860 00142660  38 21 00 10 */	addi r1, r1, 0x10
 /* 80145864 00142664  4E 80 00 20 */	blr 
-.global Enter__26zNPCGoalBossSandyRunToRopeFfPv
-Enter__26zNPCGoalBossSandyRunToRopeFfPv:
+
+/* cpp: zNPCGoalBossSandyRunToRope::Enter(float, void*) */
+.fn Enter__26zNPCGoalBossSandyRunToRopeFfPv, global, 588
 /* 80145868 00142668  94 21 FF 60 */	stwu r1, -0xa0(r1)
 /* 8014586C 0014266C  7C 08 02 A6 */	mflr r0
 /* 80145870 00142670  90 01 00 A4 */	stw r0, 0xa4(r1)
@@ -9374,8 +9443,9 @@ lbl_80145A40:
 /* 80145AA8 001428A8  7C 08 03 A6 */	mtlr r0
 /* 80145AAC 001428AC  38 21 00 A0 */	addi r1, r1, 0xa0
 /* 80145AB0 001428B0  4E 80 00 20 */	blr 
-.global Process__26zNPCGoalBossSandyRunToRopeFP11en_trantypefPvP6xScene
-Process__26zNPCGoalBossSandyRunToRopeFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandyRunToRope::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__26zNPCGoalBossSandyRunToRopeFP11en_trantypefPvP6xScene, global, 308
 /* 80145AB4 001428B4  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80145AB8 001428B8  7C 08 02 A6 */	mflr r0
 /* 80145ABC 001428BC  90 01 00 44 */	stw r0, 0x44(r1)
@@ -9453,8 +9523,9 @@ Process__26zNPCGoalBossSandyRunToRopeFP11en_trantypefPvP6xScene:
 /* 80145BDC 001429DC  7C 08 03 A6 */	mtlr r0
 /* 80145BE0 001429E0  38 21 00 40 */	addi r1, r1, 0x40
 /* 80145BE4 001429E4  4E 80 00 20 */	blr 
-.global Exit__26zNPCGoalBossSandyRunToRopeFfPv
-Exit__26zNPCGoalBossSandyRunToRopeFfPv:
+
+/* cpp: zNPCGoalBossSandyRunToRope::Exit(float, void*) */
+.fn Exit__26zNPCGoalBossSandyRunToRopeFfPv, global, 40
 /* 80145BE8 001429E8  94 21 FF F0 */	stwu r1, -0x10(r1)
 /* 80145BEC 001429EC  7C 08 02 A6 */	mflr r0
 /* 80145BF0 001429F0  90 01 00 14 */	stw r0, 0x14(r1)
@@ -9465,8 +9536,9 @@ Exit__26zNPCGoalBossSandyRunToRopeFfPv:
 /* 80145C04 00142A04  7C 08 03 A6 */	mtlr r0
 /* 80145C08 00142A08  38 21 00 10 */	addi r1, r1, 0x10
 /* 80145C0C 00142A0C  4E 80 00 20 */	blr 
-.global Enter__28zNPCGoalBossSandyClotheslineFfPv
-Enter__28zNPCGoalBossSandyClotheslineFfPv:
+
+/* cpp: zNPCGoalBossSandyClothesline::Enter(float, void*) */
+.fn Enter__28zNPCGoalBossSandyClotheslineFfPv, global, 384
 /* 80145C10 00142A10  94 21 FF C0 */	stwu r1, -0x40(r1)
 /* 80145C14 00142A14  7C 08 02 A6 */	mflr r0
 /* 80145C18 00142A18  90 01 00 44 */	stw r0, 0x44(r1)
@@ -9564,8 +9636,9 @@ lbl_80145CF4:
 /* 80145D84 00142B84  7C 08 03 A6 */	mtlr r0
 /* 80145D88 00142B88  38 21 00 40 */	addi r1, r1, 0x40
 /* 80145D8C 00142B8C  4E 80 00 20 */	blr 
-.global Process__28zNPCGoalBossSandyClotheslineFP11en_trantypefPvP6xScene
-Process__28zNPCGoalBossSandyClotheslineFP11en_trantypefPvP6xScene:
+
+/* cpp: zNPCGoalBossSandyClothesline::Process(en_trantype*, float, void*, xScene*) */
+.fn Process__28zNPCGoalBossSandyClotheslineFP11en_trantypefPvP6xScene, global, 2028
 /* 80145D90 00142B90  94 21 FF 90 */	stwu r1, -0x70(r1)
 /* 80145D94 00142B94  7C 08 02 A6 */	mflr r0
 /* 80145D98 00142B98  90 01 00 74 */	stw r0, 0x74(r1)
@@ -10104,18 +10177,21 @@ lbl_80146540:
 /* 80146574 00143374  38 21 00 70 */	addi r1, r1, 0x70
 /* 80146578 00143378  4E 80 00 20 */	blr 
 
-.global add_tweaks__13xBinaryCameraFPCc
-add_tweaks__13xBinaryCameraFPCc:
+
+/* cpp: xBinaryCamera::add_tweaks(const char*) */
+.fn add_tweaks__13xBinaryCameraFPCc, weak, 4
 /* 8014657C 0014337C  4E 80 00 20 */	blr 
 
-.global set_targets__13xBinaryCameraFRC5xVec3RC5xVec3f
-set_targets__13xBinaryCameraFRC5xVec3RC5xVec3f:
+
+/* cpp: xBinaryCamera::set_targets(const xVec3&, const xVec3&, float) */
+.fn set_targets__13xBinaryCameraFRC5xVec3RC5xVec3f, weak, 16
 /* 80146580 00143380  90 83 00 50 */	stw r4, 0x50(r3)
 /* 80146584 00143384  90 A3 00 54 */	stw r5, 0x54(r3)
 /* 80146588 00143388  D0 23 00 58 */	stfs f1, 0x58(r3)
 /* 8014658C 0014338C  4E 80 00 20 */	blr 
 
-xMat3x3RMulVec__FP5xVec3PC7xMat3x3PC5xVec3:
+/* cpp: xMat3x3RMulVec(xVec3*, const xMat3x3*, const xVec3*) */
+.fn xMat3x3RMulVec__FP5xVec3PC7xMat3x3PC5xVec3, local, 100
 /* 80146590 00143390  C0 65 00 04 */	lfs f3, 4(r5)
 /* 80146594 00143394  C0 04 00 10 */	lfs f0, 0x10(r4)
 /* 80146598 00143398  C0 44 00 14 */	lfs f2, 0x14(r4)
@@ -10142,8 +10218,9 @@ xMat3x3RMulVec__FP5xVec3PC7xMat3x3PC5xVec3:
 /* 801465EC 001433EC  D0 03 00 08 */	stfs f0, 8(r3)
 /* 801465F0 001433F0  4E 80 00 20 */	blr 
 
-.global Name__21zNPCGoalBossSandyLeapFv
-Name__21zNPCGoalBossSandyLeapFv:
+
+/* cpp: zNPCGoalBossSandyLeap::Name() */
+.fn Name__21zNPCGoalBossSandyLeapFv, weak, 8
 /* 801465F4 001433F4  38 60 00 00 */	li r3, 0
 /* 801465F8 001433F8  4E 80 00 20 */	blr 
 .section .rodata
