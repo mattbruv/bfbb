@@ -18,3 +18,7 @@ obj/
 .vscode
 *.bat
 build
+
+.pragma
+__pycache__
+tools/inlineasm/
