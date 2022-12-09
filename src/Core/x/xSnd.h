@@ -127,6 +127,8 @@ void xSndExit();
 uint32 xSndPlay(uint32 id, float32 vol, float32 pitch, uint32 priority, uint32 flags,
                 uint32 parentID, sound_category category, float32 delay);
 uint32 xSndPlay3D(uint32 id, float32 vol, float32 pitch, uint32 priority, uint32 flags,
+                  xEnt* parent, float32 unk, sound_category category, float32 delay);
+uint32 xSndPlay3D(uint32 id, float32 vol, float32 pitch, uint32 priority, uint32 flags,
                   xEnt* parent, float32 innerRadius, float32 outerRadius, sound_category category,
                   float32 delay);
 uint32 xSndPlay3D(uint32 id, float32 vol, float32 pitch, uint32 priority, uint32 flags,

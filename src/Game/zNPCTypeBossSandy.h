@@ -195,6 +195,8 @@ struct zNPCGoalBossSandyIdle : zNPCGoalCommon
 struct zNPCGoalBossSandyTaunt : zNPCGoalCommon
 {
     float32 timeInGoal;
+    int32 Process(en_trantype* trantype, float32 dt, void* updCtxt, xScene* xscn);
+    int32 Enter(float32 dt, void* updCtxt);
 
     zNPCGoalBossSandyTaunt(int32 goalID) : zNPCGoalCommon(goalID)
     {

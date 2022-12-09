@@ -5,6 +5,7 @@
 #include "../Core/x/xEvent.h"
 #include "../Core/x/xCamera.h"
 #include "../Core/x/xMath3.h"
+#include "../Core/x/xSnd.h"
 
 #include "zEnt.h"
 #include "zFX.h"
@@ -583,8 +584,27 @@ int32 zNPCGoalBossSandyIdle::Enter(float32 dt, void* updCtxt)
 // func_801431E4
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "Exit__21zNPCGoalBossSandyIdleFfPv")
 
+#if 1
 // func_80143238
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "Enter__22zNPCGoalBossSandyTauntFfPv")
+#else
+// Seems to functionally match, but a couple of instructions are out of order
+int32 zNPCGoalBossSandyTaunt::Enter(float32 dt, void* updCtxt)
+{
+    zNPCBSandy* sandy = (zNPCBSandy*)this->psyche->clt_owner;
+
+    this->timeInGoal = __830;
+
+    xVec3Init(&sandy->frame->vel, __830, __830, __830);
+
+    uint32 hash = xStrHash(bossSandyStrings + 0x5e6);
+
+    xSndPlay3D(hash, _2265, __830, 0, 0, sandy, _2154, SND_CAT_GAME, _1379);
+
+    return zNPCGoalCommon::Enter(dt, updCtxt);
+}
+
+#endif
 
 // func_801432F4
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s",                                                 \
