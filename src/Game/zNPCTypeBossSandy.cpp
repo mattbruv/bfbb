@@ -179,13 +179,13 @@ xAnimTable* ZNPC_AnimTable_BossSandyHead()
                        xAnimDefaultBeforeEnter, NULL, NULL);
 
     xAnimTableNewTransition(table, str_Idle01, str_Carried01, HeadIsCarried, NULL, 0, 0, __830,
-                            __830, 0, 0, __864, NULL);
+                            __830, 0, 0, _864, NULL);
     xAnimTableNewTransition(table, str_Carried01, str_Idle01, HeadNotCarried, NULL, 0, 0, __830,
-                            __830, 0, 0, __864, NULL);
+                            __830, 0, 0, _864, NULL);
     xAnimTableNewTransition(table, str_Idle01, str_Shocked01, HeadIsShocked, NULL, 0, 0, __830,
-                            __830, 0, 0, __864, NULL);
+                            __830, 0, 0, _864, NULL);
     xAnimTableNewTransition(table, str_Shocked01, str_Idle01, HeadNotShocked, NULL, 0, 0, __830,
-                            __830, 0, 0, __864, NULL);
+                            __830, 0, 0, _864, NULL);
 
     return table;
 }
@@ -653,8 +653,61 @@ int32 zNPCGoalBossSandyTaunt::Enter(float32 dt, void* updCtxt)
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "Enter__21zNPCGoalBossSandyLeapFfPv")
 
 // func_801449A0
+#if 0
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s",                                                 \
                    "Process__21zNPCGoalBossSandyLeapFP11en_trantypefPvP6xScene")
+#else
+int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* updCtxt, xScene* xscn)
+{
+    zNPCBSandy* sandy;
+    int32 shouldDoDamage;
+    int32 newAnimIndex;
+    float32 timeRemain;
+    float32 invDur;
+    zJumpParam jparm;
+    int32 i;
+    uint32 animID;
+    int32 rc;
+
+    this->timeInGoal += dt;
+
+    timeRemain = sandy->AnimTimeRemain(NULL);
+    //sandy->model->Anim->Single->State->Data->Duration += 1;
+    timeRemain = __831 / sandy->model->Anim->Single->State->Data->Duration;
+
+    switch (this->stage)
+    {
+    case 0x0:
+    {
+        this->timeInGoal += 1;
+        break;
+    }
+    case 0x1:
+    {
+        this->timeInGoal += 2;
+        break;
+    }
+    case 0x2:
+    {
+        this->timeInGoal += timeRemain;
+        break;
+    }
+    case 0x3:
+    {
+        this->timeInGoal += 3;
+        break;
+    }
+    default:
+    {
+        this->timeInGoal += 69;
+        break;
+    }
+    }
+
+    sandy = (zNPCBSandy*)this->psyche->clt_owner;
+}
+
+#endif
 
 // func_80144E20
 #if 1

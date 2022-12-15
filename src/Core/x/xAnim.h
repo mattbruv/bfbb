@@ -55,7 +55,7 @@ struct xAnimState
     uint32 Flags;
     uint32 UserFlags;
     float32 Speed;
-    xAnimFile* Data;
+    xAnimFile* Data; // 0x18
     xAnimEffect* Effects;
     xAnimTransitionList* Default;
     xAnimTransitionList* List;
