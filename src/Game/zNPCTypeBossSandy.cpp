@@ -660,10 +660,10 @@ int32 zNPCGoalBossSandyTaunt::Enter(float32 dt, void* updCtxt)
 #if 1
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "Exit__21zNPCGoalBossSandyLeapFfPv")
 #else
-int32 zNPCGoalBossSandyLeap::Exit(float f, void* p)
+int32 zNPCGoalBossSandyLeap::Exit(float dt, void* updCtxt)
 {
     sChaseTimer = __830;
-    return zNPCGoalCommon::Exit(f, p);
+    return zNPCGoalCommon::Exit(dt, updCtxt);
 }
 #endif
 
