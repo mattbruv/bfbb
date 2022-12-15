@@ -251,6 +251,10 @@ struct zNPCGoalBossSandyLeap : zNPCGoalCommon
     float32 endX;
     float32 endZ;
 
+    int32 Exit(float, void*);
+    int32 Process(en_trantype* trantype, float32 dt, void* updCtxt, xScene* xscn);
+    int32 Enter(float32 dt, void* updCtxt);
+
     zNPCGoalBossSandyLeap(int32 goalID) : zNPCGoalCommon(goalID)
     {
     }

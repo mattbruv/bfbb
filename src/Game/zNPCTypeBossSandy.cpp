@@ -110,6 +110,8 @@ extern zGlobals globals;
 extern zNPCBSandy* sSandyPtr;
 extern uint32 sCurrNFSound;
 
+extern float32 sChaseTimer;
+
 extern NPCSndTrax g_sndTrax_BossSandy[1];
 
 extern BossDamageEffectRecord BDErecord[4];
@@ -655,7 +657,15 @@ int32 zNPCGoalBossSandyTaunt::Enter(float32 dt, void* updCtxt)
                    "Process__21zNPCGoalBossSandyLeapFP11en_trantypefPvP6xScene")
 
 // func_80144E20
+#if 1
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "Exit__21zNPCGoalBossSandyLeapFfPv")
+#else
+int32 zNPCGoalBossSandyLeap::Exit(float f, void* p)
+{
+    sChaseTimer = __830;
+    return zNPCGoalCommon::Exit(f, p);
+}
+#endif
 
 // func_80144E48
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "Enter__20zNPCGoalBossSandySitFfPv")
