@@ -669,22 +669,42 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     uint32 animID;
     int32 rc;
 
+    sandy = (zNPCBSandy*)this->psyche->clt_owner;
+
     this->timeInGoal += dt;
 
     timeRemain = sandy->AnimTimeRemain(NULL);
-    //sandy->model->Anim->Single->State->Data->Duration += 1;
-    timeRemain = __831 / sandy->model->Anim->Single->State->Data->Duration;
+    invDur = __831 / sandy->model->Anim->Single->State->Data->Duration;
 
     switch (this->stage)
     {
     case 0x0:
     {
-        this->timeInGoal += 1;
+        if ((_2264 * dt) > invDur)
+        {
+            break;
+        }
+
+        this->stage = 1;
+
+        uint32 sound = xStrHash(bossSandyStrings + 0x632);
+        xSndPlay3D(sound, _2265, __830, 0, 0, sandy, _2154, SND_CAT_GAME, __830);
+
+        this->timeInGoal = __830;
         break;
     }
     case 0x1:
     {
-        this->timeInGoal += 2;
+        if ((_2264 * dt) < invDur)
+        {
+            this->stage = 2;
+            this->timeInGoal = __830;
+        }
+        else
+        {
+            // do more float stuff
+        }
+
         break;
     }
     case 0x2:
@@ -704,7 +724,10 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     }
     }
 
-    sandy = (zNPCBSandy*)this->psyche->clt_owner;
+    for (i = 0; i < 13; i++)
+    {
+        sandy->boundFlags[i] |= 1;
+    }
 }
 
 #endif
