@@ -114,6 +114,7 @@ extern float32 sChaseTimer;
 
 extern NPCSndTrax g_sndTrax_BossSandy[1];
 
+extern uint32 g_hash_bossanim[78];
 extern BossDamageEffectRecord BDErecord[4];
 
 void on_change_newsfish(const tweak_info& tweak)
@@ -669,6 +670,8 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     uint32 animID;
     int32 rc;
 
+    rc = -1;
+
     sandy = (zNPCBSandy*)this->psyche->clt_owner;
 
     this->timeInGoal += dt;
@@ -710,6 +713,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     case 0x2:
     {
         this->timeInGoal += timeRemain;
+        rc = 32;
         break;
     }
     case 0x3:
@@ -728,6 +732,30 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     {
         sandy->boundFlags[i] |= 1;
     }
+
+    sandy->bossFlags |= 1;
+
+    if (rc > -1)
+    {
+        sandy->bossFlags = 1;
+
+        if (g_hash_bossanim[rc] > 0)
+        {
+            int32 result = sandy->AnimStart(g_hash_bossanim[rc], 0);
+
+            if (result)
+            {
+                this->anid_played = rc;
+            }
+        }
+        else
+        {
+            this->Name();
+            this->anid_played = 0;
+        }
+    }
+
+    return xGoal::Process(trantype, dt, updCtxt, xscn);
 }
 
 #endif
