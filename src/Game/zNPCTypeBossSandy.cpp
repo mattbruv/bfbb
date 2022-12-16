@@ -670,7 +670,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     uint32 animID;
     int32 rc;
 
-    rc = -1;
+    rc = 0;
 
     sandy = (zNPCBSandy*)this->psyche->clt_owner;
 
@@ -737,13 +737,9 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
 
     if (rc > -1)
     {
-        sandy->bossFlags = 1;
-
-        if (g_hash_bossanim[rc] > 0)
+        if (g_hash_bossanim[rc])
         {
-            int32 result = sandy->AnimStart(g_hash_bossanim[rc], 0);
-
-            if (result)
+            if (sandy->AnimStart(g_hash_bossanim[rc], 0))
             {
                 this->anid_played = rc;
             }
