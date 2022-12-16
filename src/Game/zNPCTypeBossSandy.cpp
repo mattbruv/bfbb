@@ -660,19 +660,14 @@ int32 zNPCGoalBossSandyTaunt::Enter(float32 dt, void* updCtxt)
 #else
 int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* updCtxt, xScene* xscn)
 {
-    zNPCBSandy* sandy;
+    zNPCBSandy* sandy = (zNPCBSandy*)this->psyche->clt_owner;
     int32 shouldDoDamage;
     int32 newAnimIndex;
     float32 timeRemain;
     float32 invDur;
-    zJumpParam jparm;
-    int32 i;
+    // zJumpParam jparm;
     uint32 animID;
-    int32 rc;
-
-    rc = 0;
-
-    sandy = (zNPCBSandy*)this->psyche->clt_owner;
+    int32 rc = 0;
 
     this->timeInGoal += dt;
 
@@ -681,7 +676,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
 
     switch (this->stage)
     {
-    case 0x0:
+    case 0:
     {
         if ((_2264 * dt) > invDur)
         {
@@ -696,7 +691,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         this->timeInGoal = __830;
         break;
     }
-    case 0x1:
+    case 1:
     {
         if ((_2264 * dt) < invDur)
         {
@@ -705,18 +700,27 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         }
         else
         {
+            sandy->frame = NULL;
             // do more float stuff
         }
 
         break;
     }
-    case 0x2:
+    case 2:
     {
+        if ((_2264 * dt) < invDur)
+        {
+            this->stage = 3;
+            sandy->bossFlags |= 0x800;
+            xVec3Copy(((xVec3*)&sandy->model->Mat->pos), &sandy->shockwaveEmitter->tasset->pos);
+
+            this->timeInGoal = __830;
+        }
         this->timeInGoal += timeRemain;
         rc = 32;
         break;
     }
-    case 0x3:
+    case 3:
     {
         this->timeInGoal += 3;
         break;
@@ -728,7 +732,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     }
     }
 
-    for (i = 0; i < 13; i++)
+    for (int32 i = 0; i < 13; i++)
     {
         sandy->boundFlags[i] |= 1;
     }

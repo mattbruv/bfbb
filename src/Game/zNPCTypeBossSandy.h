@@ -244,8 +244,8 @@ struct zNPCGoalBossSandyElbowDrop : zNPCGoalCommon
 
 struct zNPCGoalBossSandyLeap : zNPCGoalCommon
 {
-    float32 timeInGoal;
-    uint32 stage;
+    float32 timeInGoal; // 0x4C
+    uint32 stage; // 0x50
     float32 startX;
     float32 startZ;
     float32 endX;
