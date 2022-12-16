@@ -712,7 +712,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         {
             this->stage = 3;
             sandy->bossFlags |= 0x800;
-            xVec3Copy(((xVec3*)&sandy->model->Mat->pos), &sandy->shockwaveEmitter->tasset->pos);
+            xVec3Copy(&sandy->shockwaveEmitter->tasset->pos, (xVec3*)&sandy->model->Mat->pos);
 
             this->timeInGoal = __830;
         }
