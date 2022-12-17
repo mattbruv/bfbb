@@ -670,7 +670,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     //uint32 animID = 0;
     //int32 rc = -1;
 
-    uint32 r30 = 0;
+    int32 r30 = 0;
     int32 r29 = -1;
 
     this->timeInGoal += dt;
@@ -846,8 +846,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     }
     }
 
-    // does a signed comparison for whatever reason
-    if ((int32)r30 != 0)
+    if (r30)
     {
         for (int32 i = 0; i < 13; i++)
         {
@@ -859,11 +858,15 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
 
     if (r29 > -1)
     {
-        if (g_hash_bossanim[r29])
+        uint32 animID = g_hash_bossanim[r29];
+
+        if (animID)
         {
-            if (sandy->AnimStart(r29, 0))
+            int32 rc = sandy->AnimStart(animID, 0);
+
+            if (rc)
             {
-                this->anid_played = r29;
+                this->anid_played = animID;
             }
             else
             {
