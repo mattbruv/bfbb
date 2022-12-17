@@ -664,8 +664,8 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     zNPCBSandy* sandy = (zNPCBSandy*)this->psyche->clt_owner;
     int32 shouldDoDamage;
     int32 newAnimIndex;
-    float32 timeRemain;
-    float32 invDur;
+    //float32 timeRemain;
+    //float32 invDur;
     // zJumpParam jparm;
     //uint32 animID = 0;
     //int32 rc = -1;
@@ -675,8 +675,8 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
 
     this->timeInGoal += dt;
 
-    timeRemain = sandy->AnimTimeRemain(NULL);
-    invDur = __831 / sandy->model->Anim->Single->State->Data->Duration;
+    float32 timeRemain = sandy->AnimTimeRemain(NULL);
+    float32 invDur = __831 / sandy->model->Anim->Single->State->Data->Duration;
 
     switch (this->stage)
     {
@@ -755,7 +755,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
 
         break;
     }
-    case 4:
+    default:
     {
         float32 f1 = this->timeInGoal;
         float32 f0 = __842;
@@ -814,19 +814,10 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
 
         break;
     }
-    default:
-    {
-        /*
-        if ((_1039 * dt) < invDur)
-        {
-            this->timeInGoal += 69;
-        }*/
-        break;
-    }
     }
 
-    // only do this if r30 != 0
-    if (r30)
+    // does a signed comparison for whatever reason
+    if ((int32)r30 != 0)
     {
         for (int32 i = 0; i < 13; i++)
         {
