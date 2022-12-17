@@ -688,6 +688,8 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         uint32 sound = xStrHash(bossSandyStrings + 0x632);
         xSndPlay3D(sound, _2265, __830, 0, 0, sandy, _2154, SND_CAT_GAME, __830);
 
+        animID = 0xd;
+
         this->timeInGoal = __830;
         break;
     }
@@ -696,13 +698,13 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         if ((_2264 * dt) < invDur)
         {
             this->stage = 2;
+
+            animID = 0xe;
+
             this->timeInGoal = __830;
         }
         else
         {
-            sandy->frame = NULL;
-            // do more float stuff
-            rc = 0;
         }
 
         break;
@@ -735,7 +737,10 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     }
     default:
     {
-        this->timeInGoal += 69;
+        if ((_2264 * dt) < invDur)
+        {
+            this->timeInGoal += 69;
+        }
         break;
     }
     }
