@@ -693,24 +693,26 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         float32 f0 = _2264;
         f0 = f0 * f31;
         //if ((f0 * dt) > f4)
-        if (f1 > f0)
+        if (f1 < f0)
         {
-            break;
+            this->stage = 1;
+
+            uint32 sound = xStrHash(bossSandyStrings + 0x632);
+            xSndPlay3D(sound, _2265, __830, 0, 0, sandy, _2154, SND_CAT_GAME, __830);
+
+            r29 = 0xd;
+
+            this->timeInGoal = __830;
         }
 
-        this->stage = 1;
-
-        uint32 sound = xStrHash(bossSandyStrings + 0x632);
-        xSndPlay3D(sound, _2265, __830, 0, 0, sandy, _2154, SND_CAT_GAME, __830);
-
-        r29 = 0xd;
-
-        this->timeInGoal = __830;
         break;
     }
     case 1:
     {
-        if ((_2264 * dt) < f1)
+        float32 f0 = _2264;
+        f0 = f0 * f31;
+
+        if (f1 < f0)
         {
             this->stage = 2;
 
@@ -720,10 +722,9 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         }
         else
         {
-            float32 f1 = dt;
-            float32 f4 = f1;
             float32 f2 = _1071;
             float32 f3 = f1 * f4;
+
             f0 = f2 * f4;
 
             f0 = f0 * f4;
@@ -738,14 +739,14 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
             sandy->frame->mat.pos.y = f0;
 
             // red code below stfs 0x34(r3)
-            f0 = this->startX;
-            f1 = this->endX;
+            f1 = this->startX;
+            f0 = this->endX;
             f0 = (f1 * f3) + f0;
             sandy->frame->mat.pos.x = f0;
 
             // final red code
-            f0 = this->startZ;
-            f1 = this->endZ;
+            f1 = this->startZ;
+            f0 = this->endZ;
             f0 = (f1 * f3) + f0;
             sandy->frame->mat.pos.z = f0;
 
@@ -758,7 +759,10 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     {
         r30 = 0x1;
 
-        if ((_2264 * dt) < f4)
+        float32 f0 = _2264;
+        f0 = f0 * f31;
+
+        if (f1 < f0)
         {
             this->stage = 3;
             sandy->bossFlags |= 0x800;
@@ -774,29 +778,28 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
             uint32 hash = xStrHash(bossSandyStrings + 0x63f);
             xSndPlay(hash, __831, __830, 0, 0, 0, SND_CAT_GAME, __830);
         }
+        else
+        {
+            float32 f1 = _1071; // 7.0
+            float32 f2 = this->timeInGoal;
+            float32 f4 = dt;
+            f0 = f1 * f4;
+            f0 = f0 * f4;
+            f0 = f0 * f2;
+            f0 = f2 * f0;
+            f0 = f1 - f0;
+
+            // result of the float computations is stored in
+            // sandy's matrix position.y
+            xMat4x3* matrix = &sandy->frame->mat;
+            matrix->pos.y = f0;
+
+            break;
+        }
 
         break;
     }
     case 3:
-    {
-        // This code is stage 3 off the Sandy leap process.
-        float32 f1 = _1071; // 7.0
-        float32 f2 = this->timeInGoal;
-        float32 f4 = dt;
-        f0 = f1 * f4;
-        f0 = f0 * f4;
-        f0 = f0 * f2;
-        f0 = f2 * f0;
-        f0 = f1 - f0;
-
-        // result of the float computations is stored in
-        // sandy's matrix position.y
-        xMat4x3* matrix = &sandy->frame->mat;
-        matrix->pos.y = f0;
-
-        break;
-    }
-    default:
     {
         float32 f1 = this->timeInGoal;
         f0 = __842;
