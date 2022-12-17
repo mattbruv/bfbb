@@ -246,7 +246,7 @@ struct zNPCGoalBossSandyLeap : zNPCGoalCommon
 {
     float32 timeInGoal; // 0x4C
     uint32 stage; // 0x50
-    float32 startX;
+    float32 startX; // 0x54
     float32 startZ;
     float32 endX;
     float32 endZ;

@@ -692,7 +692,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         uint32 sound = xStrHash(bossSandyStrings + 0x632);
         xSndPlay3D(sound, _2265, __830, 0, 0, sandy, _2154, SND_CAT_GAME, __830);
 
-        r30 = 0xd;
+        r29 = 0xd;
 
         this->timeInGoal = __830;
         break;
@@ -703,27 +703,57 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         {
             this->stage = 2;
 
-            r30 = 0xe;
+            r29 = 0xe;
 
             this->timeInGoal = __830;
-
-            r29 = 0;
         }
         else
         {
+            float32 f1 = dt;
+            float32 f4 = invDur;
+            float32 f2 = _1071;
+            float32 f3 = f1 * f4;
+            float32 f0 = f2 * f4;
+
+            f0 = f0 * f4;
+            f0 = f0 * f1;
+            // Multiplies two floating-point operands,
+            // subtracts one floating-point operand from the result,
+            // and places the negative of the result in a floating-point register.
+            // fnmsubs f0, f1, f0, f2
+            f0 = (f1 * f0) - f2;
+
+            //xEntFrame* r3 = sandy->frame;
+            sandy->frame->mat.pos.y = f0;
+
+            // red code below stfs 0x34(r3)
+            f1 = this->startX;
+            f0 = this->endX;
+            f0 = (f1 * f3) + f0;
+            sandy->frame->mat.pos.x = f0;
+
+            // final red code
+            f0 = this->startZ;
+            f1 = this->endZ;
+            f0 = (f1 * f3) + f0;
+            sandy->frame->mat.pos.z = f0;
+
+            //this->timeInGoal = _1071;
         }
 
         break;
     }
     case 2:
     {
+        r30 = 0x1;
+
         if ((_2264 * dt) < invDur)
         {
             this->stage = 3;
             sandy->bossFlags |= 0x800;
             xVec3Copy(&sandy->shockwaveEmitter->tasset->pos, (xVec3*)&sandy->model->Mat->pos);
 
-            r30 = 0xf;
+            r29 = 0xf;
 
             sandy->shockwaveEmitter->tasset->pos.y = __830;
             sandy->shockRadius = __831;
@@ -755,7 +785,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
 
         break;
     }
-    default:
+    case 4:
     {
         float32 f1 = this->timeInGoal;
         float32 f0 = __842;
