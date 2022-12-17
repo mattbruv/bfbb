@@ -666,8 +666,8 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     float32 timeRemain;
     float32 invDur;
     // zJumpParam jparm;
-    uint32 animID;
-    int32 rc = 0;
+    uint32 animID = 0;
+    int32 rc = -1;
 
     this->timeInGoal += dt;
 
@@ -702,6 +702,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         {
             sandy->frame = NULL;
             // do more float stuff
+            rc = 0;
         }
 
         break;
@@ -714,10 +715,17 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
             sandy->bossFlags |= 0x800;
             xVec3Copy(&sandy->shockwaveEmitter->tasset->pos, (xVec3*)&sandy->model->Mat->pos);
 
+            animID = 0xf;
+
+            sandy->shockwaveEmitter->tasset->pos.y = __830;
+            sandy->shockRadius = __831;
             this->timeInGoal = __830;
+            sandy->frame->mat.pos.y = __830;
+
+            uint32 hash = xStrHash(bossSandyStrings + 0x63f);
+            xSndPlay(hash, __831, __830, 0, 0, 0, SND_CAT_GAME, __830);
         }
-        this->timeInGoal += timeRemain;
-        rc = 32;
+
         break;
     }
     case 3:
@@ -741,11 +749,11 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
 
     if (rc > -1)
     {
-        if (g_hash_bossanim[rc])
+        if (g_hash_bossanim[animID])
         {
-            if (sandy->AnimStart(g_hash_bossanim[rc], 0))
+            if (sandy->AnimStart(g_hash_bossanim[animID], 0))
             {
-                this->anid_played = rc;
+                this->anid_played = animID;
             }
         }
         else

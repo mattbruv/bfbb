@@ -92,9 +92,9 @@ struct zNPCBSandy : zNPCBoss
     float32 curveNodeB;
     zNPCNewsFish* newsfish;
     uint32 nfFlags;
-    float32 shockRadius;
+    float32 shockRadius; // 0xD3C
     float32 shockwaveGrowthRate;
-    float32 shockwaveMaxRadius;
+    float32 shockwaveMaxRadius; // 0xD44
     float32 edropTurnMinTime;
     float32 edropShockwaveTime;
     int32 firstTimeR1Csn;
