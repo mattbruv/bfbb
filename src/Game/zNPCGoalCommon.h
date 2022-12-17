@@ -11,9 +11,9 @@ struct zNPCGoalCommon : xGoal
 {
     int32 flg_npcgauto;
     int32 flg_npcgable;
-    uint32 anid_played;
-    int32 flg_info : 16;
-    int32 flg_user : 16;
+    uint32 anid_played; // 0x44
+    int32 flg_info : 16; // 0x48
+    int32 flg_user : 16; // 0x4A
 
     zNPCGoalCommon(int32 goalID);
 

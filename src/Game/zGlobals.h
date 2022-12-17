@@ -156,8 +156,8 @@ struct zPlayerGlobals
     float32 SlipFadeTimer;
     int32 Slide;
     float32 SlideTimer;
-    int32 Stepping;
-    int32 JumpState;
+    int32 Stepping; // 0x16D0
+    int32 JumpState; // 0x16D4
     int32 LastJumpState;
 
     // 0x16DC in globals

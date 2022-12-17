@@ -666,8 +666,11 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     float32 timeRemain;
     float32 invDur;
     // zJumpParam jparm;
-    uint32 animID = 0;
-    int32 rc = -1;
+    //uint32 animID = 0;
+    //int32 rc = -1;
+
+    int32 r29 = 0;
+    uint32 r30 = 0;
 
     this->timeInGoal += dt;
 
@@ -688,7 +691,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         uint32 sound = xStrHash(bossSandyStrings + 0x632);
         xSndPlay3D(sound, _2265, __830, 0, 0, sandy, _2154, SND_CAT_GAME, __830);
 
-        animID = 0xd;
+        r30 = 0xd;
 
         this->timeInGoal = __830;
         break;
@@ -699,9 +702,11 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         {
             this->stage = 2;
 
-            animID = 0xe;
+            r30 = 0xe;
 
             this->timeInGoal = __830;
+
+            r29 = 0;
         }
         else
         {
@@ -717,7 +722,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
             sandy->bossFlags |= 0x800;
             xVec3Copy(&sandy->shockwaveEmitter->tasset->pos, (xVec3*)&sandy->model->Mat->pos);
 
-            animID = 0xf;
+            r30 = 0xf;
 
             sandy->shockwaveEmitter->tasset->pos.y = __830;
             sandy->shockRadius = __831;
@@ -732,12 +737,57 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     }
     case 3:
     {
-        this->timeInGoal += 3;
+        // This code is stage 3 off the Sandy leap process.
+        float32 f1 = _1071; // 7.0
+        float32 f2 = this->timeInGoal;
+        float32 f4 = dt;
+        float32 f0 = f1 * f4;
+        f0 = f0 * f4;
+        f0 = f0 * f2;
+        f0 = f2 * f0;
+        f0 = f1 - f0;
+
+        // result of the float computations is stored in
+        // sandy's matrix position.y
+        xMat4x3* matrix = &sandy->frame->mat;
+        matrix->pos.y = f0;
+
+        break;
+    }
+    case 4:
+    {
+        float32 f1 = this->timeInGoal;
+        float32 f0 = __842;
+
+        if (f0 > f1)
+        {
+            break;
+        }
+
+        r30 = 0x1;
+        sandy->bossFlags |= 0x40;
+
+        if (!(sandy->bossFlags & 0x2) && !(sandy->bossFlags & 0x4))
+        {
+            // Do something with a global variable here
+            // offset 0x16d4
+            if (globals.player.JumpState == 0)
+            {
+                break;
+            }
+
+            sandy->bossFlags |= 0x4;
+
+            break;
+        }
+
+        // r0 = r4 & 0x4;
+
         break;
     }
     default:
     {
-        if ((_2264 * dt) < invDur)
+        if ((_1039 * dt) < invDur)
         {
             this->timeInGoal += 69;
         }
@@ -751,6 +801,9 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     }
 
     sandy->bossFlags |= 1;
+
+    int32 rc = r29;
+    uint32 animID = r30;
 
     if (rc > -1)
     {
