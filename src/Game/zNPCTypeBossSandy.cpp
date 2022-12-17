@@ -785,7 +785,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
 
         break;
     }
-    case 4:
+    default:
     {
         float32 f1 = this->timeInGoal;
         float32 f0 = __842;
