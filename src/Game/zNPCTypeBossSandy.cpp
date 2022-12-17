@@ -662,8 +662,8 @@ int32 zNPCGoalBossSandyTaunt::Enter(float32 dt, void* updCtxt)
 int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* updCtxt, xScene* xscn)
 {
     zNPCBSandy* sandy = (zNPCBSandy*)this->psyche->clt_owner;
-    int32 shouldDoDamage;
-    int32 newAnimIndex;
+    //int32 shouldDoDamage;
+    //int32 newAnimIndex;
     //float32 timeRemain;
     //float32 invDur;
     // zJumpParam jparm;
@@ -721,14 +721,14 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
             // subtracts one floating-point operand from the result,
             // and places the negative of the result in a floating-point register.
             // fnmsubs f0, f1, f0, f2
-            f0 = (f1 * f0) - f2;
+            f0 = -((f1 * f0) - f2);
 
             //xEntFrame* r3 = sandy->frame;
             sandy->frame->mat.pos.y = f0;
 
             // red code below stfs 0x34(r3)
-            f1 = this->startX;
-            f0 = this->endX;
+            f0 = this->startX;
+            f1 = this->endX;
             f0 = (f1 * f3) + f0;
             sandy->frame->mat.pos.x = f0;
 
