@@ -179,7 +179,7 @@ struct zPlayerGlobals
 
     // Offset: 0x1718
     uint32 WorldDisguise;
-    uint32 Bounced;
+    uint32 Bounced; // 0x171C
     float32 FallDeathTimer;
     float32 HeadbuttVel;
     float32 HeadbuttTimer;
@@ -242,11 +242,11 @@ struct zPlayerGlobals
     float32 Jump_ChangeTimer;
 
     // Offset: 0x1AB8
-    int32 Jump_CanDouble;
-    int32 Jump_CanFloat;
-    int32 Jump_SpringboardStart;
-    zPlatform* Jump_Springboard;
-    int32 CanJump;
+    int32 Jump_CanDouble; // 0x1AB8
+    int32 Jump_CanFloat; // 0x1ABC
+    int32 Jump_SpringboardStart; // 0x1AC0
+    zPlatform* Jump_Springboard; // 0x1AC4
+    int32 CanJump; // 0x1AC8
     int32 CanBubbleSpin;
     int32 CanBubbleBounce;
     int32 CanBubbleBash;

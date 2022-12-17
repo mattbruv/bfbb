@@ -248,10 +248,10 @@ enum _zPlayerWallJumpState
 
 struct zJumpParam
 {
-    float32 PeakHeight;
-    float32 TimeGravChange;
-    float32 TimeHold;
-    float32 ImpulseVel;
+    float32 PeakHeight; // 0x8
+    float32 TimeGravChange; // 0xC
+    float32 TimeHold; // 0x10
+    float32 ImpulseVel; // 0x14
 };
 
 struct zLedgeGrabParams
@@ -433,5 +433,13 @@ int32 load_talk_filter(uint8* filter, xModelAssetParam* params, uint32 params_si
 int32 zEntPlayer_DamageNPCKnockBack(xBase* src, uint32 damage, xVec3* npcPos);
 
 int32 zEntPlayer_DamageNPCKnockBack(xBase* src, uint32 damage, xVec3* npcPos);
+
+void zEntPlayerVelUpdate(xEnt* ent, float32 dt);
+void zEntPlayerEGenUpdate(xEnt* p, xScene* sc);
+void zEntPlayerJumpUpdate(xEnt* ent, float32 dt);
+void zEntPlayerJumpLand(xEnt* ent);
+void zEntPlayerJumpStart(xEnt* ent, zJumpParam* jump);
+void CalcJumpImpulse(zJumpParam* param, zPlayerSettings* settings);
+float32 CalcJumpImpulse_Smooth(float32 g, float32 j, float32 h, float32 Tgc, float32 Tgs);
 
 #endif

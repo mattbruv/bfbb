@@ -8,6 +8,7 @@
 #include "../Core/x/xSnd.h"
 
 #include "zEnt.h"
+#include "zEntPlayer.h"
 #include "zFX.h"
 #include "zGlobals.h"
 #include "zNPCSndTable.h"
@@ -778,6 +779,34 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
 
             sandy->bossFlags |= 0x4;
 
+            /*
+                PeakHeight; // 0x8
+                TimeGravChange; // 0xC
+                TimeHold; // 0x10
+                ImpulseVel; // 0x14
+            */
+
+            zJumpParam jparm;
+
+            jparm.PeakHeight = _2633; // 5.25
+            jparm.TimeHold = __830; // 0.0
+            jparm.TimeGravChange = _1463; // 0.3
+
+            // CalcJumpImpulse(zJumpParam*, const zPlayerSettings*)
+            CalcJumpImpulse(&jparm, NULL);
+
+            // globals 0x6e0
+            zEntPlayerJumpStart(&globals.player.ent, &jparm);
+
+            zEntPlayer_SNDPlay(ePlayerSnd_Jump, __830);
+
+            // 0x1ab8
+            globals.player.Jump_CanDouble = 0;
+            globals.player.Jump_CanFloat = 1;
+            globals.player.Jump_Springboard = NULL;
+            globals.player.Jump_SpringboardStart = 0;
+            globals.player.Bounced = 1;
+
             break;
         }
 
@@ -787,25 +816,30 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     }
     default:
     {
+        /*
         if ((_1039 * dt) < invDur)
         {
             this->timeInGoal += 69;
-        }
+        }*/
         break;
     }
     }
 
-    for (int32 i = 0; i < 13; i++)
-    {
-        sandy->boundFlags[i] |= 1;
-    }
-
-    sandy->bossFlags |= 1;
-
     int32 rc = r29;
     uint32 animID = r30;
 
-    if (rc > -1)
+    // only do this if r30 != 0
+    if (r30)
+    {
+        for (int32 i = 0; i < 13; i++)
+        {
+            sandy->boundFlags[i] |= 1;
+        }
+
+        sandy->bossFlags |= 1;
+    }
+
+    if (r29 > -1)
     {
         if (g_hash_bossanim[animID])
         {
