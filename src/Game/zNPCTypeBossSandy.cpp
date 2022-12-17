@@ -673,16 +673,27 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     int32 r30 = 0;
     int32 r29 = -1;
 
-    this->timeInGoal += dt;
+    float32 f31 = dt;
+    float32 f0 = this->timeInGoal;
+    f0 = f0 + f31;
+    this->timeInGoal = f0;
 
-    float32 timeRemain = sandy->AnimTimeRemain(NULL);
-    float32 invDur = __831 / sandy->model->Anim->Single->State->Data->Duration;
+    float32 f1 = sandy->AnimTimeRemain(NULL);
+
+    float32 f2 = __831;
+
+    f0 = sandy->model->Anim->Single->State->Data->Duration;
+
+    float32 f4 = f2 / f0;
 
     switch (this->stage)
     {
     case 0:
     {
-        if ((_2264 * dt) > invDur)
+        float32 f0 = _2264;
+        f0 = f0 * f31;
+        //if ((f0 * dt) > f4)
+        if (f1 > f0)
         {
             break;
         }
@@ -699,7 +710,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     }
     case 1:
     {
-        if ((_2264 * dt) < invDur)
+        if ((_2264 * dt) < f1)
         {
             this->stage = 2;
 
@@ -710,10 +721,10 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         else
         {
             float32 f1 = dt;
-            float32 f4 = invDur;
+            float32 f4 = f1;
             float32 f2 = _1071;
             float32 f3 = f1 * f4;
-            float32 f0 = f2 * f4;
+            f0 = f2 * f4;
 
             f0 = f0 * f4;
             f0 = f0 * f1;
@@ -747,7 +758,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     {
         r30 = 0x1;
 
-        if ((_2264 * dt) < invDur)
+        if ((_2264 * dt) < f4)
         {
             this->stage = 3;
             sandy->bossFlags |= 0x800;
@@ -772,7 +783,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
         float32 f1 = _1071; // 7.0
         float32 f2 = this->timeInGoal;
         float32 f4 = dt;
-        float32 f0 = f1 * f4;
+        f0 = f1 * f4;
         f0 = f0 * f4;
         f0 = f0 * f2;
         f0 = f2 * f0;
@@ -788,7 +799,7 @@ int32 zNPCGoalBossSandyLeap::Process(en_trantype* trantype, float32 dt, void* up
     default:
     {
         float32 f1 = this->timeInGoal;
-        float32 f0 = __842;
+        f0 = __842;
 
         if (f0 > f1)
         {
