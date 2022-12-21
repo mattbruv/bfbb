@@ -655,7 +655,7 @@ int32 zNPCGoalBossSandyTaunt::Enter(float32 dt, void* updCtxt)
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s", "Enter__21zNPCGoalBossSandyLeapFfPv")
 
 // func_801449A0
-#if 0
+#if 1
 #pragma GLOBAL_ASM("asm/Game/zNPCTypeBossSandy.s",                                                 \
                    "Process__21zNPCGoalBossSandyLeapFP11en_trantypefPvP6xScene")
 #else
